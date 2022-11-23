@@ -15,9 +15,17 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                        <div style="width: 600px; margin: auto;">
+                            <canvas id="memberchart"></canvas>
+                        </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+@section('js')
+    <script src="{{ mix('/js/app.js') }}"></script>
+@stop

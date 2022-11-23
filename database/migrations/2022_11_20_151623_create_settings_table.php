@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->biginteger("guildId");
             $table->timestamps();
-            $table->integer("count");
+            $table->boolean("verify")->nullable();
+            $table->string("verifyChannel")->nullable();
+            $table->string("verifyRoles")->nullable();
+            $table->string("serverName")->nullable();
+            $table->string("serverDescription")->nullable();
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        Schema::dropIfExists('settings');
     }
 };
