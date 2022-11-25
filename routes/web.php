@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\PanelIndex;
-use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get("/panel", [PanelIndex::class, "index"]);
-Route::get("/panel/settings", [SettingsController::class, "index"]);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');

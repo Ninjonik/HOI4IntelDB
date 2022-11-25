@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <i class="fas fa-chart-pie mr-1"></i> Sales
+                        <i class="fas fa-chart-pie mr-1"></i> Stats
                     </h3>
                     <div class="card-tools">
                         <ul class="nav nav-pills ml-auto">
@@ -95,7 +95,7 @@
                     const data = {
                         labels: labels,
                         datasets: [{
-                            label: 'My First dataset',
+                            label: 'Members in servers with WWCBot',
                             backgroundColor: 'rgb(255, 99, 132)',
                             borderColor: 'rgb(255, 99, 132)',
                             data: users,
