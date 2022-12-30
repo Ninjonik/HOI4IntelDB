@@ -16,13 +16,9 @@ class PanelIndex extends Controller
 
             ->pluck('count', 'day');
 
-
-
         $labels = $users->keys();
 
         $data = $users->values();
-
-
 
         return view('panel/index', compact('labels', 'data'));
     }
