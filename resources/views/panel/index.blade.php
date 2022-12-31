@@ -15,8 +15,8 @@
 
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3></h3>
-                        <p>New Orders</p>
+                        <h3>{{ $difference }}</h3>
+                        <p>New Members [Last 7 days]</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -75,16 +75,6 @@
                     <h3 class="card-title">
                         <i class="fas fa-chart-pie mr-1"></i> Stats
                     </h3>
-                    <div class="card-tools">
-                        <ul class="nav nav-pills ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <script>
 
@@ -95,7 +85,7 @@
                     const data = {
                         labels: labels,
                         datasets: [{
-                            label: 'Members in servers with WWCBot',
+                            label: 'Members in servers with WWCBot [Last 7 Days]',
                             backgroundColor: 'rgb(255, 99, 132)',
                             borderColor: 'rgb(255, 99, 132)',
                             data: users,
@@ -106,9 +96,6 @@
                     <div class="tab-content p-0">
                         <div class="chart tab-pane active" id="revenue-chart" style="display: inline-block; position: relative; width: 100%;">
                             <canvas id="memberchart"></canvas>
-                        </div>
-                        <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-
                         </div>
                     </div>
                 </div>

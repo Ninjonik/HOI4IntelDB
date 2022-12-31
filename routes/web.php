@@ -22,6 +22,7 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
+Route::get('/dashboard/guilds', \App\Http\Livewire\GuildsComponent::class);
 
 Route::get('/', function () {
     return view('welcome');
