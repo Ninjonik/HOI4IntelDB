@@ -28,3 +28,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/playground", function(){
+    event(new \App\Events\PlaygroundEvent());
+        //$url = URL::temporarySignedRoute("share-video", now()->addSeconds(30), [
+          //  "video" => 123
+        //]);
+        //return $url;
+    return null;
+});

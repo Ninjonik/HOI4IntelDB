@@ -10,18 +10,23 @@ class PanelIndex extends Controller
 {
     public function index()
     {
+        // Get number of guilds
+        $count = DB::table('settings')->count();
         // Get the Members in servers with WWCBot (Last 7 Days) Graph
         $results = Statistics::select(
             DB::raw("SUM(count) as count"),
-            DB::raw("DAY(updated_at) as day")
+            DB::raw("date(updated_at) as date")
         )
-            ->where('updated_at', '>=', Carbon::now()->subDays(7))
-            ->groupBy(DB::raw("DAY(updated_at)"))
+            ->orderBy('id', 'desc')
+            ->limit($count)
+            ->groupBy(DB::raw("date(updated_at)"))
             ->get();
 
         // Extract the data for the graph
-        $labels = array_column($results->toArray(), 'day');
-        $data = array_column($results->toArray(), 'count');
+        $labels = array_reverse(array_column($results->toArray(), 'date'));
+        $data = array_reverse(array_column($results->toArray(), 'count'));
+        //var_dump($data);
+        echo $count;
 
         // Calculate the difference in new members between the current day and the first day
         $difference = end($data) - reset($data);
