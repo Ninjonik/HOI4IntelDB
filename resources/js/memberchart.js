@@ -1,5 +1,9 @@
 import Chart from 'chart.js/auto';
 
+if (!data) {
+    let data = "";
+}
+
 const config = {
     type: 'line',
     data: data,

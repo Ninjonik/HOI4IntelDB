@@ -28,7 +28,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/playground", function(){
+Route::view("/websocket/test", "websocket");
+
+Route::get("/websocket", function(){
     event(new \App\Events\PlaygroundEvent());
         //$url = URL::temporarySignedRoute("share-video", now()->addSeconds(30), [
           //  "video" => 123

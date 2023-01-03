@@ -25,8 +25,6 @@ class PanelIndex extends Controller
         // Extract the data for the graph
         $labels = array_reverse(array_column($results->toArray(), 'date'));
         $data = array_reverse(array_column($results->toArray(), 'count'));
-        //var_dump($data);
-        echo $count;
 
         // Calculate the difference in new members between the current day and the first day
         $difference = end($data) - reset($data);
