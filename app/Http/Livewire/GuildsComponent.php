@@ -10,7 +10,6 @@ use Livewire\Component;
 class GuildsComponent extends Component
 {
     public $guildId, $serverName, $serverDescription, $guild_edit_id, $guild_delete_id;
-    protected $listeners = ['refreshGuilds' => 'render'];
 
     //Input fields on update validation
     public function updated($fields)
@@ -25,8 +24,6 @@ class GuildsComponent extends Component
     public function render()
     {
         $guilds = Settings::all();
-
-        echo "seva";
 
         return view('livewire.guilds-component', ["guilds"=>$guilds])->layout('livewire.layouts.base');
     }
@@ -92,10 +89,9 @@ class GuildsComponent extends Component
 
         $this->resetInputs();
 
-        event(new \App\Events\GuildRefreshEvent());
-
         //Hide modal after add guild success
         $this->DispatchBrowserEvent("guild-added");
+        // TODO: Doesnt work for some weird reason
         $this->DispatchBrowserEvent("close-modal");
 
     }

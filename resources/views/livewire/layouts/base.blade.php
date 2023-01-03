@@ -61,13 +61,5 @@
             $("#view-modal-guild").modal("show");
         });
     </script>
-    <script type="module">
-        const guildsrefresh = window.echo.channel("public.guilds.refresh");
-        guildsrefresh.subscribed(() => {
-            console.log("subscribed");
-        }).listen(".refresh", (event)=> {
-            // TODO fix this alta man, throws some cringe json error
-            Livewire.emit('refreshGuilds', {'message': "seva ne"});
-        })
-    </script>
+
 @stop

@@ -18,9 +18,12 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-const channel = echo.channel("public.playground.1");
+const channel = echo.channel("public.guilds.refresh");
 channel.subscribed(() => {
     console.log("subscribed");
-}).listen(".playground", (event)=> {
+}).listen(".refresh", (event)=> {
     console.log(event);
+    const data = event.data
 })
+
+

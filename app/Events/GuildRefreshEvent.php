@@ -14,14 +14,16 @@ class GuildRefreshEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public array $data;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -42,7 +44,7 @@ class GuildRefreshEvent implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            "refresh" => true
+            "data" => $this->data
         ];
     }
 }
