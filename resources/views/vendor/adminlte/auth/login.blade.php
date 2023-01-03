@@ -66,7 +66,13 @@
                style="background: #313131; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
                 Login with GitHub
             </a>
+        </div>
 
+        <div class="input-group mb-3">
+            <a class="btn btn-info" href="{{ url('auth/discord') }}"
+               style="padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
+                Login with Discord
+            </a>
         </div>
 
         {{-- Login field --}}

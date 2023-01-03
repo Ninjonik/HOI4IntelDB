@@ -1,8 +1,6 @@
-import Chart from 'chart.js/auto';
+let data = "";
 
-if (!data) {
-    let data = "";
-}
+import Chart from 'chart.js/auto';
 
 const config = {
     type: 'line',

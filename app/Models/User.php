@@ -20,6 +20,7 @@ class User extends Authenticatable
         'email',
         'password',
         'github_id',
+        'discord_id',
         'auth_type',
     ];
     /**

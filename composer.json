@@ -18,7 +18,9 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "*",
         "livewire/livewire": "^2.5",
-        "pusher/pusher-php-server": "^7.2"
+        "martinbean/socialite-discord-provider": "^1.2",
+        "pusher/pusher-php-server": "^7.2",
+        "socialiteproviders/discord": "^4.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -58,7 +60,8 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+            ]
         }
     },
     "config": {
