@@ -1,5 +1,3 @@
-let data = "";
-
 import Chart from 'chart.js/auto';
 
 const config = {

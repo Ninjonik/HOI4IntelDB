@@ -241,7 +241,6 @@
 @stop
 
 @section('js')
-    <script type="module" src="{!! mix('resources/js/app.js') !!}">
-
-    </script>
+    @vite('resources/js/member_chart.js')
+    @vite('resources/js/app.js')
 @stop
