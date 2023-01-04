@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -17,6 +18,7 @@ class StaffChatEvent implements ShouldBroadcast
 
     private string $message;
     private User $user;
+    private Carbon $time;
 
     /**
      * Create a new event instance.
@@ -27,6 +29,7 @@ class StaffChatEvent implements ShouldBroadcast
     {
         $this->message = $message;
         $this->user = $user;
+        $this->time = Carbon::now();
     }
 
     /**
@@ -48,7 +51,8 @@ class StaffChatEvent implements ShouldBroadcast
     {
         return [
             "message" => $this->message,
-            "user" => $this->user->only(["name", "email"])
+            "user" => $this->user->only(["name", "email"]),
+            "time" => $this->time->toDateTimeString()
         ];
     }
 }

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="card direct-chat direct-chat-primary">
+    <div class="card direct-chat">
         <div class="card-header">
             <span class="card-text float-right">
                 <i class="fas fa-globe"> Currently online:</i>
@@ -18,6 +18,7 @@
         </div>
         <div class="card-body">
             <div class="direct-chat-messages" id="listMessage">
+
             </div>
         </div>
         <div class="card-footer">

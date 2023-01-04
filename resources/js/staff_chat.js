@@ -1,5 +1,7 @@
 import './app.js';
 
+// TODO: OPTIMIZE THIS FILE & MAKE IT LOOK BETTER
+
 const form = document.getElementById("form");
 const inputMessage = document.getElementById("input-message");
 form.addEventListener("submit", function(event){
@@ -33,7 +35,7 @@ function renderAvatars(){
         const span = document.createElement("span");
         span.classList.add("badge", "badge-" + colors[i] + "", "m-1");
         span.textContent = userInitial(user.name);
-        avatars.append(span);
+        avatars.prepend(span);
         if(i === 5){
             i = 0;
         }
@@ -52,13 +54,24 @@ channel.here((users) => {
 })
     .joining((user) => {
         console.log({user}, "joined")
+        usersOnline.push(user);
+        const memberInfoSpan = document.createElement("span");
+        memberInfoSpan.textContent = `${user.name} has joined.`;
+        listMessage.prepend(memberInfoSpan);
+        renderAvatars();
     })
     .leaving((user) => {
         console.log({user}, "left")
+        usersOnline = usersOnline.filter((userOnline) => userOnline.id !== user.id);
+        const memberInfoSpan = document.createElement("span");
+        memberInfoSpan.textContent = `${user.name} has left.`;
+        listMessage.prepend(memberInfoSpan);
+        renderAvatars();
     })
     .listen(".staff_chat", (event)=> {
     console.log(event);
     const message = event.message;
+    const time = event.time;
     const name = event.user.name;
     const email = event.user.email;
     const mainDiv = document.createElement("div");
@@ -70,7 +83,7 @@ channel.here((users) => {
     usernameSpan.textContent = name;
     const timeSpan = document.createElement("span");
     timeSpan.classList.add("direct-chat-timestamp", "float-right");
-    timeSpan.textContent = email;
+    timeSpan.textContent = time;
     userDiv.appendChild(usernameSpan);
     userDiv.appendChild(timeSpan);
     mainDiv.appendChild(userDiv);
@@ -82,7 +95,7 @@ channel.here((users) => {
     messageDiv.classList.add("direct-chat-text");
     messageDiv.textContent=message
     mainDiv.appendChild(messageDiv);
-    listMessage.append(mainDiv);
+    listMessage.prepend(mainDiv);
 })
 
 
