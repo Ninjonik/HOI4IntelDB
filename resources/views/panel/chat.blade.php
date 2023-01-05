@@ -24,7 +24,7 @@
                         <span class="direct-chat-name float-left">{{ $chat["user"]["name"] }}</span>
                         <span class="direct-chat-timestamp float-right">{{ $chat["updated_at"] }}</span>
                     </div>
-                    <img class="direct-chat-img" src="{{ $chat["user"]["profile_photo_path"] }}" alt=".">
+                    <img class="direct-chat-img" src="{{ getAvatarFunction(100, $chat["user"]["id"]) }}" alt=".">
                     <div class="direct-chat-text">
                         {{ $chat["message"] }}
                     </div>

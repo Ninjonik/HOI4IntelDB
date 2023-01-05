@@ -11,6 +11,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use GetAvatar;
 
 class StaffChatEvent implements ShouldBroadcast
 {
@@ -52,7 +53,8 @@ class StaffChatEvent implements ShouldBroadcast
         return [
             "message" => $this->message,
             "user" => $this->user->only(["name", "email"]),
-            "time" => $this->time->toDateTimeString()
+            "time" => $this->time->toDateTimeString(),
+            "avatar" => getAvatarFunction(100, $this->user->id)
         ];
     }
 }

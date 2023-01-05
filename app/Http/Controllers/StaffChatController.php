@@ -6,14 +6,13 @@ use App\Models\DashboardChat;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Laravolt\Avatar\Avatar;
 
 class StaffChatController extends Controller
 {
     public function index()
     {
-        // get messages from Dashboard model while also getting attached user information to each message by foreign key user_id
-        // let result be $chats
-        $chats = DashboardChat::with('user')->get();
+        $chats = DashboardChat::with('user')->get()->reverse();
         return view('panel/chat', compact('chats'));
     }
     public function store($message)

@@ -57,6 +57,8 @@ channel.here((users) => {
         usersOnline.push(user);
         const memberInfoSpan = document.createElement("span");
         memberInfoSpan.textContent = `${user.name} has joined.`;
+        const br = document.createElement("br");
+        memberInfoSpan.appendChild(br);
         listMessage.prepend(memberInfoSpan);
         renderAvatars();
     })
@@ -65,6 +67,8 @@ channel.here((users) => {
         usersOnline = usersOnline.filter((userOnline) => userOnline.id !== user.id);
         const memberInfoSpan = document.createElement("span");
         memberInfoSpan.textContent = `${user.name} has left.`;
+        const br = document.createElement("br");
+        memberInfoSpan.appendChild(br);
         listMessage.prepend(memberInfoSpan);
         renderAvatars();
     })
@@ -74,6 +78,7 @@ channel.here((users) => {
     const time = event.time;
     const name = event.user.name;
     const email = event.user.email;
+    const avatar = event.avatar;
     const mainDiv = document.createElement("div");
     mainDiv.classList.add("direct-chat-msg");
     const userDiv = document.createElement("div");
@@ -89,7 +94,7 @@ channel.here((users) => {
     mainDiv.appendChild(userDiv);
     const img = document.createElement("img");
     img.classList.add("direct-chat-img");
-    img.src="https://static.thenounproject.com/png/574704-200.png"
+    img.src=avatar
     mainDiv.appendChild(img);
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("direct-chat-text");

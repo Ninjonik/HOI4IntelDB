@@ -21,7 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('profile_photo_path')->default("gravatar");
+            $table->string('github_id')->nullable();
+            // TODO: Possibly remove the discord_id since the discord provider for socialite doesnt work
+            $table->string('discord_id')->nullable();
+            $table->string('auth_type')->nullable();
             $table->timestamps();
         });
     }
