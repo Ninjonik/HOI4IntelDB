@@ -10,15 +10,13 @@ class PanelIndex extends Controller
 {
     public function index()
     {
-        // Get number of guilds
-        $count = DB::table('settings')->count();
         // Get the Members in servers with WWCBot (Last 7 Days) Graph
         $results = Statistics::select(
             DB::raw("SUM(count) as count"),
             DB::raw("date(updated_at) as date")
         )
             ->orderBy('id', 'desc')
-            ->limit($count)
+            ->limit(7)
             ->groupBy(DB::raw("date(updated_at)"))
             ->get();
 

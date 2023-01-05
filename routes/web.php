@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\StaffChatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::get("/websocket", function(){
     return null;
 });
 Route::post("/dashboard/chat/send", function(Request $request){
-    event(new \App\Events\StaffChatEvent($request->message, auth()->user()));
+    $staffChatController = new StaffChatController;
+    $staffChatController->store($request->message);
     return null;
 });
