@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->biginteger("guildId");
+            $table->bigInteger('steam_id')->unique();
+            $table->bigInteger('discord_id')->unique()->index();
+            $table->float('rating')->default(0.5);
             $table->timestamps();
-            $table->integer("count");
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        //
     }
 };

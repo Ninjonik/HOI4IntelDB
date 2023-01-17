@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateStatisticsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +12,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('statistics', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("guild_id")->index();;
-            $table->boolean("steam_verification")->nullable();
-            $table->bigInteger("log_channel")->nullable();
-            $table->bigInteger("verify_role")->nullable();
-            $table->string("guild_name")->nullable();
-            $table->string("guild_desc")->nullable();
+            $table->bigInteger("guild_id");
+            $table->integer("count");
+            $table->foreign('guild_id')->references('guild_id')->on('settings');
             $table->timestamps();
         });
     }
@@ -34,4 +30,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('settings');
     }
-};
+}
