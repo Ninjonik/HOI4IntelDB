@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('steam_id')->unique();
+            $table->bigInteger('steam_id')->unique()->nullable();
             $table->bigInteger('discord_id')->unique()->index();
             $table->float('rating')->default(0.5);
             $table->timestamps();
