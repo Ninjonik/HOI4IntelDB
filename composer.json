@@ -22,7 +22,8 @@
         "livewire/livewire": "^2.5",
         "martinbean/socialite-discord-provider": "^1.2",
         "pusher/pusher-php-server": "^7.2",
-        "socialiteproviders/discord": "^4.1"
+        "socialiteproviders/discord": "^4.1",
+        "socialiteproviders/steam": "^4.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

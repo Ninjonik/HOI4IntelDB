@@ -46,4 +46,13 @@ return [
         'avatar_default_extension' => env('DISCORD_EXTENSION_DEFAULT', 'jpg'), // only pick from jpg, png, webp
     ],
 
+    'steam' => [
+        'client_id' => null,
+        'client_secret' => env('STEAM_CLIENT_SECRET'),
+        'redirect' => env('STEAM_REDIRECT_URI'),
+        'allowed_hosts' => [
+            'localhost',
+        ]
+    ],
+
 ];

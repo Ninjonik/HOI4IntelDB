@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use SocialiteProviders\Discord\DiscordExtendSocialite;
 use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\Steam\SteamExtendSocialite;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -20,8 +21,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        SocialiteWasCalled::class => [
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            // ... other providers
             DiscordExtendSocialite::class.'@handle',
+            \SocialiteProviders\Steam\SteamExtendSocialite::class.'@handle',
         ],
     ];
 

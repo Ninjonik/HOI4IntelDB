@@ -3,6 +3,7 @@
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
 use App\Http\Controllers\StaffChatController;
+use App\Http\Controllers\SteamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
+Route::get('auth/steam', [SteamController::class, 'redirect']);
+Route::get('auth/steam/callback', [SteamController::class, 'callback']);
 Route::get('auth/discord', [DiscordController::class, 'Redirect']);
 Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
 Route::get('/dashboard', [\App\Http\Controllers\PanelIndex::class, 'index'])->middleware(['auth'])->name('dashboard');
