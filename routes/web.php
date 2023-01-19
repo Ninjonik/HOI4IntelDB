@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
+Route::get('steam/{id}', [SteamController::class, 'init']);
 Route::get('auth/steam', [SteamController::class, 'redirect']);
 Route::get('auth/steam/callback', [SteamController::class, 'callback']);
 Route::get('auth/discord', [DiscordController::class, 'Redirect']);
