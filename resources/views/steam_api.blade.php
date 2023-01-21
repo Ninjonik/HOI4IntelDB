@@ -126,8 +126,8 @@
 
 
 <!-- JAVASCRIPTS -->
-@vite('public/steam/js/plugins.js')
-@vite('public/steam/js/main.js')
+<script src="{{ url('public/steam/js/plugins.js') }}"></script>
+<script src="{{ url('public/steam/js/main.js') }}"></script>
 
 </body>
 
