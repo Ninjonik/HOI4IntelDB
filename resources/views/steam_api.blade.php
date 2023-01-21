@@ -126,8 +126,8 @@
 
 
 <!-- JAVASCRIPTS -->
-<script src="{{ url('public/steam/js/plugins.js') }}"></script>
-<script src="{{ url('public/steam/js/main.js') }}"></script>
+<script src="{{ url('/steam/js/plugins.js') }}"></script>
+<script src="{{ url('/steam/js/main.js') }}"></script>
 
 </body>
 
