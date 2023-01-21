@@ -26,6 +26,7 @@ Route::get('auth/steam', [SteamController::class, 'redirect']);
 Route::get('auth/steam/callback', [SteamController::class, 'callback']);
 Route::get('auth/discord', [DiscordController::class, 'Redirect']);
 Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
+/*
 Route::get('/dashboard', [\App\Http\Controllers\PanelIndex::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/dashboard/chat', [\App\Http\Controllers\StaffChatController::class, 'index'])->middleware(['auth'])->name('dashboard/chat');
 Route::get('/logout', function () {
@@ -49,3 +50,4 @@ Route::post("/dashboard/chat/send", function(Request $request){
     $staffChatController->store($request->message);
     return null;
 });
+*/
