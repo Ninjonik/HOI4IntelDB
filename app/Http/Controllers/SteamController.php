@@ -49,14 +49,21 @@ class SteamController extends Controller
                 print($discord_id);
                 $player = Players::where('discord_id', $discord_id)->first();
                 if(empty($player->rating)){
-                    $new_player = new Players();
-                    $new_player->steam_id = $user->id;
-                    $new_player->discord_id = $discord_id;
-                    $new_player->rating = 0.5;
-                    $new_player->hoi_hours = $hoi_hours;
-                    $new_player->save();
-                    $status = "Success!";
-                    $description = "Your steam account has been successfully linked with your new discord account. You may now close this page.";
+                    try {
+                        $new_player = new Players();
+                        $new_player->steam_id = $user->id;
+                        $new_player->discord_id = $discord_id;
+                        $new_player->rating = 0.5;
+                        $new_player->hoi_hours = $hoi_hours;
+                        $new_player->save();
+                        $status = "Success!";
+                        $description = "Your steam account has been successfully linked with your new discord account. You may now close this page.";
+                    } catch (Exception $e) {
+                        $status = "There has been an error...";
+                        $description = "There has been an error with validating your steam account. This is caused by
+                        your steam account already being linked with another discord account.
+                        Once you resolve this issue you can try again. Feel free to Contact HOI4Intel's Staff.";
+                    }
                 } else {
                     Players::where('discord_id', $discord_id)
                         ->update(['steam_id' => $user->id]);
