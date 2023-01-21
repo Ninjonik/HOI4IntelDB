@@ -97,7 +97,8 @@
             <!-- ANIMATION CONTAINER -->
             <div class="animation-container animation-fade-up" data-animation-delay="1200">
 
-                <p>© 2023 HOI4 Intel | Design by <a href="https://templatefoundation.com">Template Foundation</a></p>
+                <p>© 2023 HOI4 Intel | Design by <a href="https://templatefoundation.com">Template Foundation</a> |
+                    Support on <a href="https://discord.gg/world-war-community-820918304176340992">WWC Discord</a></p>
 
             </div>
             <!-- /ANIMATION CONTAINER -->
