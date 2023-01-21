@@ -52,7 +52,7 @@ return [
         'redirect' => env('STEAM_REDIRECT_URI'),
         'allowed_hosts' => [
             'localhost',
-            'host.igportals.tk'
+            'hoi.igportals.tk'
         ]
     ],
 
