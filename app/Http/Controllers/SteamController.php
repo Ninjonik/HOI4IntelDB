@@ -65,10 +65,15 @@ class SteamController extends Controller
                         Once you resolve this issue you can try again. Feel free to Contact HOI4Intel's Staff.";
                     }
                 } else {
-                    Players::where('discord_id', $discord_id)
-                        ->update(['steam_id' => $user->id]);
-                    $status = "Success!";
-                    $description = "Your steam account has been successfully linked with your discord account. You may now close this page.";
+                    try {
+                        Players::where('discord_id', $discord_id)
+                            ->update(['steam_id' => $user->id]);
+                        $status = "Success!";
+                        $description = "Your steam account has been successfully linked with your discord account. You may now close this page.";
+                    } catch (Exception $e) {
+                        $status = "There has been an error...";
+                        $description = "Your steam account has already been linked with this discord account.";
+                    }
                 }
             } else {
                 $status = "There has been an error...";
