@@ -10,6 +10,7 @@
         "doctrine/dbal": "^3.5",
         "guzzlehttp/guzzle": "^7.2",
         "jakyeru/larascord": "^4.0",
+        "jenssegers/mongodb": "^3.9",
         "jeroennoten/laravel-adminlte": "*",
         "laravel/breeze": "^1.4",
         "laravel/framework": "^9.19",

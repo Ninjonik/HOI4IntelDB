@@ -198,6 +198,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
 
         \SocialiteProviders\Manager\ServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
 
     ],
 

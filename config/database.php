@@ -63,6 +63,12 @@ return [
             ]) : [],
         ],
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('DB_URI', 'mongodb+srv://'.env("MONGODB_USERNAME").':'.env("MONGODB_PASSWORD").'@'.env("MONGODB_DATABASE").'.ssaonbs.mongodb.net/?retryWrites=true&w=majority'),
+            'database' => env("MONGODB_DATABASE"),
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

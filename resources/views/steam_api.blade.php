@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- PAGE TITLE -->
-    <title>HOI4Intel - Steam Verification</title>
+    <title>4Intel - Steam Verification</title>
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="{{ url('/steam/img/favicon.png') }}">
