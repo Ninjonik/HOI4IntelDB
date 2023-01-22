@@ -67,7 +67,7 @@ class SteamController extends Controller
                 } else {
                     try {
                         Players::where('discord_id', $discord_id)
-                            ->update(['steam_id' => $user->id, 'hoi_hours' => $hoi_hours]);
+                            ->update(['steam_id' => $user->id, 'profile_link' => $steam_url]);
                         $status = "Success!";
                         $description = "Your steam account has been successfully linked with your discord account. You may now close this page.";
                     } catch (Exception $e) {
