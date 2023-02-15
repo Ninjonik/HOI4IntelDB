@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger("guild_id")->index();;
             $table->boolean("steam_verification")->nullable();
             $table->bigInteger("log_channel")->nullable();
+            $table->bigInteger("ann_role")->nullable();
             $table->bigInteger("verify_role")->nullable();
             $table->string("guild_name")->nullable();
             $table->string("guild_desc")->nullable();
