@@ -57,7 +57,7 @@ class SteamController extends Controller
                         $new_player->profile_link = $steam_url;
                         $new_player->save();
                         $status = "Success!";
-                        $description = "Your steam account has been successfully linked with your new discord account. You may now close this page.";
+                        $description = "Your steam account has been successfully linked with your new discord account. <b>Please run /verify command on the discord server.</b>";
                     } catch (Exception $e) {
                         $status = "There has been an error...";
                         $description = "There has been an error with validating your steam account. This is caused by
@@ -69,7 +69,7 @@ class SteamController extends Controller
                         Players::where('discord_id', $discord_id)
                             ->update(['steam_id' => $user->id, 'profile_link' => $steam_url]);
                         $status = "Success!";
-                        $description = "Your steam account has been successfully linked with your discord account. You may now close this page.";
+                        $description = "Your steam account has been successfully linked with your discord account. <b>Please run /verify command on the discord server.</b>";
                     } catch (Exception $e) {
                         $status = "There has been an error...";
                         $description = "Your steam account has already been linked with this discord account.";
