@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\StaffChatController;
 use App\Http\Controllers\SteamController;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [LandingController::class, 'index']);
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 Route::get('steam/{id}', [SteamController::class, 'init']);
@@ -34,10 +36,6 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 Route::get('/dashboard/guilds', \App\Http\Livewire\GuildsComponent::class);
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::view("/websocket/test", "websocket");
 
