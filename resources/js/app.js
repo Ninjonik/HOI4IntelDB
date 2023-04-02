@@ -2,6 +2,7 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 import Echo from 'laravel-echo'
+
 window.echo = new Echo({
     broadcaster: "pusher",
     key: import.meta.env.VITE_PUSHER_APP_KEY,
@@ -16,7 +17,7 @@ window.echo = new Echo({
 window.Alpine = Alpine;
 
 Alpine.start();
-/*
+
 const channel = echo.channel("public.guilds.refresh");
 channel.subscribed(() => {
     console.log("subscribed");
@@ -24,5 +25,5 @@ channel.subscribed(() => {
     console.log(event);
     const data = event.data
 })
-*/
+
 

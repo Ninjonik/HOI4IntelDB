@@ -39,13 +39,19 @@ Route::get('/dashboard/guilds', \App\Http\Livewire\GuildsComponent::class);
 
 Route::view("/websocket/test", "websocket");
 
-Route::get("/websocket", function(){
-    event(new \App\Events\StaffChatEvent());
+Route::get("/websocket", function () {
+    event(new \App\Events\StaffChatEvent("test", Auth::user()));
     return null;
 });
 Route::post("/dashboard/chat/send", function(Request $request){
     $staffChatController = new StaffChatController;
     $staffChatController->store($request->message);
+    return null;
+});
+
+Route::get("/test", function (Request $request) {
+    $staffChatController = new StaffChatController;
+    $staffChatController->store("kokos");
     return null;
 });
 

@@ -42,9 +42,9 @@ function renderAvatars(){
         i++
     })
 }
+let usersOnline = [];
 
 const channel = echo.join("presence.dashboard.staff_chat.1");
-let usersOnline = [];
 const listMessage = document.getElementById("listMessage");
 channel.here((users) => {
     usersOnline = [...users];
@@ -52,6 +52,9 @@ channel.here((users) => {
     console.log({users})
     console.log("subscribed");
 })
+    .error((error) => {
+        console.log(error);
+    })
     .joining((user) => {
         console.log({user}, "joined")
         usersOnline.push(user);

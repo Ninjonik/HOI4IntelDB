@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Players;
+use App\Models\Settings;
 use Carbon\Carbon;
 use App\Models\Statistics;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +30,10 @@ class PanelIndex extends Controller
         // Calculate the difference in new members between the current day and the first day
         $difference = end($data) - reset($data);
 
-        return view('panel/index', compact('labels', 'data', 'difference'));
+        $data_stats["guild_count"] = Settings::all()->count();
+        $data_stats["player_count"] = Players::all()->count();
+        $data_stats["event_count"] = Event::all()->count();
+
+        return view('panel/index', compact('labels', 'data', 'difference', 'data_stats'));
     }
 }

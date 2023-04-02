@@ -122,7 +122,7 @@
         </div> <!-- container -->
         <div class="header-hero-image d-flex align-items-center wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="1.1s">
             <div class="image">
-                <img src="{{ url('/landing/images/hero-image.png') }}" alt="Hero Image">
+                <img src="{{ url('/landing/images/hoi4logo.jpg') }}" alt="HOI4 Image">
             </div>
         </div> <!-- header hero image -->
     </div> <!-- header hero -->
@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="about-image mt-60 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <img src="{{ url('/landing/images/about.png') }}" alt="about">
+                    <img src="{{ url('/landing/images/lobbysim.png') }}" alt="about">
                 </div> <!-- about image -->
             </div>
         </div> <!-- row -->
@@ -240,7 +240,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/our-service-1.jpg') }}" alt="service">
+                                        <img src="{{ url('/landing/images/stonks.jpg') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -256,7 +256,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/our-service-1.jpg') }}" alt="service">
+                                        <img src="{{ url('/landing/images/steam.png') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -272,7 +272,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/our-service-1.jpg') }}" alt="service">
+                                        <img src="{{ url('/landing/images/eventsystem.png') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -402,7 +402,7 @@
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                        <img src="" alt="author">
                                     </div>
                                     <div class="author-name media-body">
                                         <h5 class="name">John Doe</h5>
@@ -427,7 +427,7 @@
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                        <img src="" alt="author">
                                     </div>
                                     <div class="author-name media-body">
                                         <h5 class="name">Jane Smith</h5>
@@ -451,7 +451,7 @@
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                        <img src="" alt="author">
                                     </div>
                                     <div class="author-name media-body">
                                         <h5 class="name">Bob Johnson</h5>
@@ -474,7 +474,7 @@
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                        <img src="" alt="author">
                                     </div>
                                     <div class="author-name media-body">
                                         <h5 class="name">David Brown</h5>
@@ -499,7 +499,7 @@
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                        <img src="" alt="author">
                                     </div>
                                     <div class="author-name media-body">
                                         <h5 class="name">Sarah Thompson</h5>

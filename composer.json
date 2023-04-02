@@ -17,6 +17,7 @@
         "laravel/jetstream": "^2.13",
         "laravel/sanctum": "^3.0",
         "laravel/socialite": "^5.5",
+        "laravel/telescope": "^4.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "*",
         "laravolt/avatar": "^4.1",
