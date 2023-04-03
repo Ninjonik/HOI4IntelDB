@@ -43,7 +43,7 @@ Route::get("/websocket", function () {
     event(new \App\Events\StaffChatEvent("test", Auth::user()));
     return null;
 });
-Route::post("/dashboard/chat/send", function(Request $request){
+Route::post("/dashboard/chat/send", function (Request $request) {
     $staffChatController = new StaffChatController;
     $staffChatController->store($request->message);
     return null;

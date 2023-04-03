@@ -24,8 +24,4 @@ class StaffChatController extends Controller
         event(new \App\Events\StaffChatEvent($message, auth()->user()));
         return null;
     }
-
-    private function DashboardChat()
-    {
-    }
 }
