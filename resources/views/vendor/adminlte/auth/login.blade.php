@@ -18,6 +18,11 @@
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
+
+@section('css')
+    <link rel="stylesheet" href="{{ url('/css/discord_login.css') }}">
+@stop
+
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
@@ -25,6 +30,7 @@
         @csrf
 
         {{-- Email field --}}
+        {{--
         <div class="input-group mb-3">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                    value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
@@ -41,8 +47,10 @@
                 </span>
             @enderror
         </div>
+        --}}
 
         {{-- Password field --}}
+        {{--
         <div class="input-group mb-3">
             <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
                    placeholder="{{ __('adminlte::adminlte.password') }}">
@@ -60,22 +68,15 @@
             @enderror
 
         </div>
-
+        --}}
         <div class="input-group mb-3">
-            <a class="btn" href="{{ url('auth/github') }}"
-               style="background: #313131; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                Login with GitHub
+            <a class="btn btn-info discord-btn" href="{{ url('auth/discord') }}">
+                <img class="discord-logo" src="{{ url('/img/discord_logo.png') }}">
+                <span>Login with Discord</span>
             </a>
         </div>
-
-        <div class="input-group mb-3">
-            <a class="btn btn-info" href="{{ url('auth/discord') }}"
-               style="padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                Login with Discord
-            </a>
-        </div>
-
         {{-- Login field --}}
+        {{--
         <div class="row">
             <div class="col-7">
                 <div class="icheck-primary" title="{{ __('adminlte::adminlte.remember_me_hint') }}">
@@ -94,6 +95,7 @@
                 </button>
             </div>
         </div>
+        --}}
 
     </form>
 @stop
