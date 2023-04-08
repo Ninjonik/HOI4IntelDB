@@ -11,31 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{ url('/landing/images/favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ url('/themes/landing/images/favicon.png') }}" type="image/png">
 
     <!--====== Slick CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/slick.css') }}">
 
     <!--====== Font Awesome CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/font-awesome.min.css') }}">
 
     <!--====== Line Icons CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/LineIcons.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/LineIcons.css') }}">
 
     <!--====== Animate CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/animate.css') }}">
 
     <!--====== Magnific Popup CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/magnific-popup.css') }}">
 
     <!--====== Bootstrap CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/bootstrap.min.css') }}">
 
     <!--====== Default CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/default.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/default.css') }}">
 
     <!--====== Style CSS ======-->
-    <link rel="stylesheet" href="{{ url('/landing/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/landing/css/style.css') }}">
 
 </head>
 
@@ -75,7 +75,7 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
                         <a class="navbar-brand" href="index.html">
-                            <img src="{{ url('/landing/images/logo.png') }}" alt="Logo">
+                            <img src="{{ url('/themes/landing/images/logo.png') }}" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="toggler-icon"></span>
@@ -122,7 +122,7 @@
         </div> <!-- container -->
         <div class="header-hero-image d-flex align-items-center wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="1.1s">
             <div class="image">
-                <img src="{{ url('/landing/images/hoi4logo.jpg') }}" alt="HOI4 Image">
+                <img src="{{ url('/themes/landing/images/hoi4logo.jpg') }}" alt="HOI4 Image">
             </div>
         </div> <!-- header hero image -->
     </div> <!-- header hero -->
@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="about-image mt-60 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <img src="{{ url('/landing/images/lobbysim.png') }}" alt="about">
+                    <img src="{{ url('/themes/landing/images/lobbysim.png') }}" alt="about">
                 </div> <!-- about image -->
             </div>
         </div> <!-- row -->
@@ -240,7 +240,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/stonks.jpg') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/stonks.jpg') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -256,7 +256,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/steam.png') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/steam.png') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -272,7 +272,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/landing/images/eventsystem.png') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/eventsystem.png') }}" alt="service">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -309,48 +309,48 @@
                 <div class="col-lg-4 col-md-7">
                     <div class="single-service d-flex">
                         <div class="service-icon">
-                            <img src="{{ url('/landing/images/service-1.png') }}" alt="Icon">
+                            <img src="{{ url('/themes/landing/images/service-1.png') }}" alt="Icon">
                         </div>
                         <div class="service-content media-body">
                             <h4 class="service-title">Highly Innovative</h4>
                             <p class="text">We continue to add new features frequently and carefully listen to your suggestions.</p>
                         </div>
                         <div class="shape shape-1">
-                            <img src="{{ url('/landing/images/shape/shape-1.svg') }}" alt="shape">
+                            <img src="{{ url('/themes/landing/images/shape/shape-1.svg') }}" alt="shape">
                         </div>
                         <div class="shape shape-2">
-                            <img src="{{ url('/landing/images/shape/shape-2.svg') }}" alt="shape">
+                            <img src="{{ url('/themes/landing/images/shape/shape-2.svg') }}" alt="shape">
                         </div>
                     </div> <!-- single service -->
                 </div>
                 <div class="col-lg-4 col-md-7">
                     <div class="single-service service-border d-flex">
                         <div class="service-icon">
-                            <img src="{{ url('/landing/images/service-2.png') }}" alt="Icon">
+                            <img src="{{ url('/themes/landing/images/service-2.png') }}" alt="Icon">
                         </div>
                         <div class="service-content media-body">
                             <h4 class="service-title">Bunch of Features</h4>
                             <p class="text">Bot has many components that enhance your both HOI4 Hosting & Player's Experiences.</p>
                         </div>
                         <div class="shape shape-3">
-                            <img src="{{ url('/landing/images/shape/shape-3.svg') }}" alt="shape">
+                            <img src="{{ url('/themes/landing/images/shape/shape-3.svg') }}" alt="shape">
                         </div>
                     </div> <!-- single service -->
                 </div>
                 <div class="col-lg-4 col-md-7">
                     <div class="single-service d-flex">
                         <div class="service-icon">
-                            <img src="{{ url('/landing/images/service-3.png') }}" alt="Icon">
+                            <img src="{{ url('/themes/landing/images/service-3.png') }}" alt="Icon">
                         </div>
                         <div class="service-content media-body">
                             <h4 class="service-title">Quality Support</h4>
                             <p class="text">You can contact us anytime at the official support server! <a href="https://discord.gg/world-war-community-820918304176340992">Join here!</a></p>
                         </div>
                         <div class="shape shape-4">
-                            <img src="{{ url('/landing/images/shape/shape-4.svg') }}" alt="shape">
+                            <img src="{{ url('/themes/landing/images/shape/shape-4.svg') }}" alt="shape">
                         </div>
                         <div class="shape shape-5">
-                            <img src="{{ url('/landing/images/shape/shape-5.svg') }}" alt="shape">
+                            <img src="{{ url('/themes/landing/images/shape/shape-5.svg') }}" alt="shape">
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -541,13 +541,13 @@
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.4s">
                     <div class="blog-image">
-                        <a href="blog-details.html"><img src="{{ url('/landing/images/news-1.jpg') }}" alt="news"></a>
+                        <a href="blog-details.html"><img src="{{ url('/themes/landing/images/news-1.jpg') }}" alt="news"></a>
                     </div>
                     <div class="blog-content">
                         <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
                         <div class="blog-author d-flex align-items-center">
                             <div class="author-image">
-                                <img src="{{ url('/landing/images/author-1.jpg') }}" alt="author">
+                                <img src="{{ url('/themes/landing/images/author-1.jpg') }}" alt="author">
                             </div>
                             <div class="author-content media-body">
                                 <h6 class="sub-title">Posted by</h6>
@@ -560,13 +560,13 @@
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.7s">
                     <div class="blog-image">
-                        <a href="blog-details.html"><img src="{{ url('/landing/images/news-2.jpg') }}" alt="news"></a>
+                        <a href="blog-details.html"><img src="{{ url('/themes/landing/images/news-2.jpg') }}" alt="news"></a>
                     </div>
                     <div class="blog-content">
                         <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
                         <div class="blog-author d-flex align-items-center">
                             <div class="author-image">
-                                <img src="{{ url('/landing/images/author-2.jpg') }}" alt="author">
+                                <img src="{{ url('/themes/landing/images/author-2.jpg') }}" alt="author">
                             </div>
                             <div class="author-content media-body">
                                 <h6 class="sub-title">Posted by</h6>
@@ -579,13 +579,13 @@
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="1s">
                     <div class="blog-image">
-                        <a href="blog-details.html"><img src="{{ url('/landing/images/news-3.jpg') }}" alt="news"></a>
+                        <a href="blog-details.html"><img src="{{ url('/themes/landing/images/news-3.jpg') }}" alt="news"></a>
                     </div>
                     <div class="blog-content">
                         <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
                         <div class="blog-author d-flex align-items-center">
                             <div class="author-image">
-                                <img src="{{ url('/landing/images/author-3.jpg') }}" alt="author">
+                                <img src="{{ url('/themes/landing/images/author-3.jpg') }}" alt="author">
                             </div>
                             <div class="author-content media-body">
                                 <h6 class="sub-title">Posted by</h6>
@@ -623,47 +623,47 @@
 
 
 <!--====== Jquery js ======-->
-<script src="{{ url('/landing/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ url('/landing/js/vendor/modernizr-3.7.1.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/vendor/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/vendor/modernizr-3.7.1.min.js') }}"></script>
 
 <!--====== Bootstrap js ======-->
-<script src="{{ url('/landing/js/popper.min.js') }}"></script>
-<script src="{{ url('/landing/js/bootstrap.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/popper.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/bootstrap.min.js') }}"></script>
 
 <!--====== Slick js ======-->
-<script src="{{ url('/landing/js/slick.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/slick.min.js') }}"></script>
 
 <!--====== Isotope js ======-->
-<script src="{{ url('/landing/js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ url('/landing/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/isotope.pkgd.min.js') }}"></script>
 
 <!--====== Counter Up js ======-->
-<script src="{{ url('/landing/js/waypoints.min.js') }}"></script>
-<script src="{{ url('/landing/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/waypoints.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/jquery.counterup.min.js') }}"></script>
 
 <!--====== Circles js ======-->
-<script src="{{ url('/landing/js/circles.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/circles.min.js') }}"></script>
 
 <!--====== Appear js ======-->
-<script src="{{ url('/landing/js/jquery.appear.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/jquery.appear.min.js') }}"></script>
 
 <!--====== WOW js ======-->
-<script src="{{ url('/landing/js/wow.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/wow.min.js') }}"></script>
 
 <!--====== Headroom js ======-->
-<script src="{{ url('/landing/js/headroom.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/headroom.min.js') }}"></script>
 
 <!--====== Jquery Nav js ======-->
-<script src="{{ url('/landing/js/jquery.nav.js') }}"></script>
+<script src="{{ url('/themes/landing/js/jquery.nav.js') }}"></script>
 
 <!--====== Scroll It js ======-->
-<script src="{{ url('/landing/js/scrollIt.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/scrollIt.min.js') }}"></script>
 
 <!--====== Magnific Popup js ======-->
-<script src="{{ url('/landing/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url('/themes/landing/js/jquery.magnific-popup.min.js') }}"></script>
 
 <!--====== Main js ======-->
-<script src="{{ url('/landing/js/main.js') }}"></script>
+<script src="{{ url('/themes/landing/js/main.js') }}"></script>
 
 </body>
 

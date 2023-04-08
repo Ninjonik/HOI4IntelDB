@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+
+
+<!-- Mirrored from html-theme-guia.vercel.app/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Apr 2023 06:28:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Documentation HTML Template</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.html" >
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/uikit.js"></script>
+</head>
+
+<body>
+
+<header class="uk-background-primary uk-background-norepeat uk-background-cover uk-background-center-center uk-light" 
+	style="background-image: url(img/header.html);">
+	<nav class="uk-navbar-container">
+	  <div class="uk-container">
+	    <div data-uk-navbar>
+	      <div class="uk-navbar-left">
+	        <a class="uk-navbar-item uk-logo uk-visible@m" href="index-2.html">Guia</a>
+	        <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-docs" data-uk-toggle><span
+	          data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Articles</span></a>
+	      </div>
+	      <div class="uk-navbar-center uk-hidden@m">
+	        <a class="uk-navbar-item uk-logo" href="index-2.html">Guia</a>
+	      </div>
+	      <div class="uk-navbar-right">
+	        <ul class="uk-navbar-nav uk-visible@m">
+	          <li ><a href="index-2.html">Home</a></li>
+	          <li ><a href="category.html">Category</a></li>
+	          <li ><a href="article.html">Article</a></li>
+	          <li ><a href="changelog.html">Changelog</a></li>
+	          <li>
+	            <a href="#">Dropdown</a>
+	            <div class="uk-navbar-dropdown">
+	              <ul class="uk-navbar-dropdown-nav uk-nav-parent-icon" data-uk-nav>
+	                <li><a href="#">Page one</a></li>
+	                <li><a href="#">Page two</a></li>
+	                <li><a href="#">Page three</a></li>
+	                <li class="uk-parent">
+	                  <a href="#">Parent</a>
+	                  <ul class="uk-nav-sub">
+	                    <li><a href="#">Sub item</a></li>
+	                    <li><a href="#">Sub item</a></li>
+	                  </ul>
+	                </li>                
+	              </ul>
+	            </div>            
+	          </li>
+	          <li>
+	            <div class="uk-navbar-item">
+	              <a class="uk-button uk-button-small uk-button-primary-outline" href="contact.html">Contact</a>
+	            </div>
+	          </li>
+	        </ul>
+	        <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" data-uk-toggle><span
+	          data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span></a>
+	      </div>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div class="uk-section uk-section-small uk-section-hero uk-position-relative" data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
+		<div class="uk-container">
+			<div class="hero-search uk-margin-bottom">
+				<div class="uk-position-relative">
+					<form class="uk-search uk-search-default uk-width-1-1" name="search-hero" onsubmit="return false;">
+						<span data-uk-search-icon="ratio: 1.2"></span>
+						<input id="search-hero" class="uk-search-input uk-form-large uk-border-rounded" type="search"
+							placeholder="Search for answers" autocomplete="off" data-minchars="1" data-maxitems="30">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="uk-section uk-section-muted">
+  <div class="uk-container">
+    <div class="uk-background-default uk-border-rounded uk-box-shadow-small">
+      <div class="uk-container uk-container-xsmall uk-padding-large">
+        <article class="uk-article">
+          <h1 class="uk-article-title">Got Any Questions</h1>
+          <div class="uk-article-content">
+            <p class="uk-text-lead uk-text-muted">Lorem ipsum dolor sit adipiscing elit, sed do eiusmod tempor 
+              incididunt ut labore et dolore magna aliquat aliquip.</p>
+            <form class="uk-form-stacked uk-margin-medium-top">
+              <div class="uk-margin-bottom">
+                <label class="uk-form-label" for="name">Name</label>
+                <div class="uk-form-controls">
+                  <input id="name" class="uk-input uk-border-rounded" name="name" type="text" required="">
+                </div>
+              </div>
+              <div class="uk-margin-bottom">
+                <label class="uk-form-label" for="_replyto">Email</label>
+                <div class="uk-form-controls">
+                  <input id="_replyto" class="uk-input uk-border-rounded" name="_replyto" type="email" required="">
+                </div>
+              </div>
+              <div class="uk-margin-bottom">
+                <label class="uk-form-label" for="_subject">Subject</label>
+                <div class="uk-form-controls">
+                  <input id="_subject" class="uk-input uk-border-rounded" name="_subject" type="text">
+                </div>
+              </div>
+              <div class="uk-margin-bottom">
+                <label class="uk-form-label" for="message">Message</label>
+                <div class="uk-form-controls">
+                  <textarea id="message" class="uk-textarea uk-border-rounded" name="message" rows="5" minlength="10"
+                    required=""></textarea>
+                </div>
+              </div>
+              <div class="uk-text-center">
+                <input class="uk-button uk-button-primary uk-border-rounded" type="submit" value="Send Message">
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="offcanvas-docs" data-uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar">
+    <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+    <h5 class="uk-margin-top">Getting Started</h5>
+    <ul class="uk-nav uk-nav-default doc-nav">
+      <li class="uk-active"><a href="article.html">Template setup</a></li>
+      <li><a href="article.html">Basic theme setup</a></li>
+      <li><a href="article.html">Navigation bar</a></li>
+      <li><a href="article.html">Footer options</a></li>
+      <li><a href="article.html">Creating your first post</a></li>
+      <li><a href="article.html">Creating docs posts</a></li>
+      <li><a href="article.html">Enabling comments</a></li>
+      <li><a href="article.html">Google Analytics</a></li>
+    </ul>
+    <h5 class="uk-margin-top">Product Features</h5>
+    <ul class="uk-nav uk-nav-default doc-nav">
+      <li><a href="article.html">Hero page header</a></li>
+      <li><a href="article.html">Category boxes section</a></li>
+      <li><a href="article.html">Fearured docs section</a></li>
+      <li><a href="article.html">Video lightbox boxes section</a></li>
+      <li><a href="article.html">Frequently asked questions section</a></li>
+      <li><a href="article.html">Team members section</a></li>
+      <li><a href="article.html">Call to action section</a></li>
+      <li><a href="article.html">Creating a changelog</a></li>
+      <li><a href="article.html">Contact form</a></li>
+      <li><a href="article.html">Adding media to post and doc content</a></li>
+      <li><a href="article.html">Adding table of contents to docs</a></li>
+      <li><a href="article.html">Adding alerts to content</a></li>
+    </ul>
+    <h5 class="uk-margin-top">Customization</h5>
+    <ul class="uk-nav uk-nav-default doc-nav">
+      <li><a href="article.html">Translation</a></li>
+      <li><a href="article.html">Customization</a></li>
+      <li><a href="article.html">Development</a></li>
+      <li><a href="article.html">Sources and credits</a></li>
+    </ul>
+    <h5 class="uk-margin-top">Help</h5>
+    <ul class="uk-nav uk-nav-default doc-nav">
+      <li><a href="article.html">Contacting support</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
+  <div class="uk-offcanvas-bar">
+    <a class="uk-logo" href="index-2.html">Guia</a>
+    <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+    <ul class="uk-nav uk-nav-primary uk-nav-offcanvas uk-margin-top uk-text-center">
+      <li ><a href="index-2.html">Home</a></li>
+      <li ><a href="category.html">Category</a></li>
+      <li ><a href="article.html">Article</a></li>
+      <li ><a href="changelog.html">Changelog</a></li>
+      <li class="uk-active"><a href="contact.html">Contact</a></li>
+      <li>
+        <div class="uk-navbar-item"><a class="uk-button uk-button-primary" href="contact.html">Contact</a></div>
+      </li>
+    </ul>
+    <div class="uk-margin-top uk-text-center">
+      <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center">
+        <div>
+          <a href="https://twitter.com/" data-uk-icon="icon: twitter" class="uk-icon-link" target="_blank"></a>
+        </div>
+        <div>
+          <a href="https://www.facebook.com/" data-uk-icon="icon: facebook" class="uk-icon-link" target="_blank"></a>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/" data-uk-icon="icon: instagram" class="uk-icon-link" target="_blank"></a>
+        </div>
+        <div>
+          <a href="https://vimeo.com/" data-uk-icon="icon: vimeo" class="uk-icon-link" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="uk-section uk-text-center uk-text-muted">
+	<div class="uk-container uk-container-small">
+		<div>
+			<ul class="uk-subnav uk-flex-center">
+				<li><a href="index-2.html">Home</a></li>
+				<li><a href="changelog.html">Changelog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<div class="uk-margin-medium">
+			<div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center">
+				<div class="uk-first-column">
+					<a href="https://twitter.com/" data-uk-icon="icon: twitter" class="uk-icon-link uk-icon" target="_blank"></a>
+				</div>
+				<div>
+					<a href="https://www.facebook.com/" data-uk-icon="icon: facebook" class="uk-icon-link uk-icon"
+						target="_blank"></a>
+				</div>
+				<div>
+					<a href="https://www.instagram.com/" data-uk-icon="icon: instagram" class="uk-icon-link uk-icon"
+						target="_blank"></a>
+				</div>
+				<div>
+					<a href="https://vimeo.com/" data-uk-icon="icon: vimeo" class="uk-icon-link uk-icon" target="_blank"></a>
+				</div>
+			</div>
+		</div>
+		<div class="uk-margin-medium uk-text-small uk-link-muted">Made by <a  
+				href="https://unbound.studio/">Unbound Studio</a> in Antigua Guatemala.</div>
+	</div>
+</footer>
+
+<script src="js/awesomplete.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+
+
+<!-- Mirrored from html-theme-guia.vercel.app/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Apr 2023 06:28:43 GMT -->
+</html>

@@ -14,14 +14,14 @@
     <title>4Intel - Steam Verification</title>
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="{{ url('/steam/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ url('/themes/steam/img/favicon.png') }}">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="{{ url('/steam/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ url('/steam/css/main.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/steam/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ url('/themes/steam/css/main.css') }}">
 
 
 </head>
@@ -62,7 +62,7 @@
             <!-- ANIMATION CONTAINER -->
             <div class="animation-container animation-fade-down" data-animation-delay="0">
 
-                <img class="img-responsive logo" src="{{ url('/steam/img/logo.png') }}" alt="image">
+                <img class="img-responsive logo" src="{{ url('/themes/steam/img/logo.png') }}" alt="image">
 
             </div>
             <!-- /ANIMATION CONTAINER -->
@@ -127,8 +127,8 @@
 
 
 <!-- JAVASCRIPTS -->
-<script src="{{ url('/steam/js/plugins.js') }}"></script>
-<script src="{{ url('/steam/js/main.js') }}"></script>
+<script src="{{ url('/themes/steam/js/plugins.js') }}"></script>
+<script src="{{ url('/themes/steam/js/main.js') }}"></script>
 
 </body>
 

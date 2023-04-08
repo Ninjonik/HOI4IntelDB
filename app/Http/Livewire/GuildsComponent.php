@@ -9,15 +9,15 @@ use Livewire\Component;
 
 class GuildsComponent extends Component
 {
-    public $guildId, $serverName, $serverDescription, $guild_edit_id, $guild_delete_id;
+    public $guild_id, $guild_name, $guild_desc, $guild_edit_id, $guild_delete_id;
 
     //Input fields on update validation
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'guildId' => 'required|unique:settings,guildId,'.$this->guild_edit_id, //settings = table name, validation with ignoring own data
-            'serverName' => 'required',
-            'serverDescription' => 'required',
+            'guild_id' => 'required|unique:settings,guild_id,'.$this->guild_edit_id, //settings = table name, validation with ignoring own data
+            'guild_name' => 'required',
+            'guild_desc' => 'required',
         ]);
     }
 
@@ -30,25 +30,25 @@ class GuildsComponent extends Component
 
     public function resetInputs()
     {
-        $this->guildId = "";
-        $this->serverName = "";
-        $this->serverDescription = "";
+        $this->guild_id = "";
+        $this->guild_name = "";
+        $this->guild_desc = "";
         $this->guild_edit_id = "";
     }
 
     public function editGuildData()
     {
         $this->validate([
-            'guildId' => 'required|unique:settings,guildId,'.$this->guild_edit_id, //settings = table name, validation with ignoring own data
-            'serverName' => 'required',
-            'serverDescription' => 'required',
+            'guild_id' => 'required|unique:settings,guild_id,'.$this->guild_edit_id, //settings = table name, validation with ignoring own data
+            'guild_name' => 'required',
+            'guild_desc' => 'required',
         ]);
 
         //Edit Guild Data
         $guild = Settings::where("id", $this->guild_edit_id)->first();
-        $guild->guildId = $this->guildId;
-        $guild->serverName = $this->serverName;
-        $guild->serverDescription = $this->serverDescription;
+        $guild->guild_id = $this->guild_id;
+        $guild->guild_name = $this->guild_name;
+        $guild->guild_desc = $this->guild_desc;
         $guild->save();
 
         $this->resetInputs();
@@ -63,9 +63,9 @@ class GuildsComponent extends Component
         $guild = Settings::where("id", $id)->first();
 
         $this->guild_edit_id = $guild->id;
-        $this->guildId = $guild->guildId;
-        $this->serverName = $guild->serverName;
-        $this->serverDescription = $guild->serverDescription;
+        $this->guild_id = $guild->guild_id;
+        $this->guild_name = $guild->guild_name;
+        $this->guild_desc = $guild->guild_desc;
 
         $this->dispatchBrowserEvent("show-edit-guild-modal");
     }
@@ -74,16 +74,16 @@ class GuildsComponent extends Component
     {
         // on form submit validation
         $this->validate([
-            'guildId' => 'required|unique:settings', //settings = table name
-            'serverName' => 'required',
-            'serverDescription' => 'required',
+            'guild_id' => 'required|unique:settings', //settings = table name
+            'guild_name' => 'required',
+            'guild_desc' => 'required',
         ]);
 
         //Add Guild Data
         $guild = new Settings();
-        $guild->guildId = $this->guildId;
-        $guild->serverName = $this->serverName;
-        $guild->serverDescription = $this->serverDescription;
+        $guild->guild_id = $this->guild_id;
+        $guild->guild_name = $this->guild_name;
+        $guild->guild_desc = $this->guild_desc;
 
         $guild->save();
 

@@ -25,23 +25,23 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="guildId" class="col-3">Guild ID</label>
-                                   <input type="number" id="guildId" class="form-control" wire:model="guildId">
-                                    @error("guildId")
+                                    <label for="guild_id" class="col-3">Guild ID</label>
+                                   <input type="number" id="guild_id" class="form-control" wire:model="guild_id">
+                                    @error("guild_id")
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="serverName" class="col-3">Server Name</label>
-                                    <input type="text" id="serverName" class="form-control" wire:model="serverName">
-                                    @error("serverName")
+                                    <label for="guild_name" class="col-3">Server Name</label>
+                                    <input type="text" id="guild_name" class="form-control" wire:model="guild_name">
+                                    @error("guild_name")
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="serverDescription" class="col-3">Server Description</label>
-                                    <input type="text" id="serverDescription" class="form-control" wire:model="serverDescription">
-                                    @error("serverDescription")
+                                    <label for="guild_desc" class="col-3">Server Description</label>
+                                    <input type="text" id="guild_desc" class="form-control" wire:model="guild_desc">
+                                    @error("guild_desc")
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -69,23 +69,23 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="guildId" class="col-3">Guild ID</label>
-                                    <input type="number" id="guildId" class="form-control" wire:model="guildId">
-                                    @error("guildId")
+                                    <label for="guild_id" class="col-3">Guild ID</label>
+                                    <input type="number" id="guild_id" class="form-control" wire:model="guild_id">
+                                    @error("guild_id")
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="serverName" class="col-3">Server Name</label>
-                                    <input type="text" id="serverName" class="form-control" wire:model="serverName">
-                                    @error("serverName")
+                                    <label for="guild_name" class="col-3">Server Name</label>
+                                    <input type="text" id="guild_name" class="form-control" wire:model="guild_name">
+                                    @error("guild_name")
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="serverDescription" class="col-3">Server Description</label>
-                                    <input type="text" id="serverDescription" class="form-control" wire:model="serverDescription">
-                                    @error("serverDescription")
+                                    <label for="guild_desc" class="col-3">Server Description</label>
+                                    <input type="text" id="guild_desc" class="form-control" wire:model="guild_desc">
+                                    @error("guild_desc")
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -129,13 +129,10 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>GuildID</th>
+                        <th>guild_id</th>
                         <th>Guild Name</th>
                         <th>Created</th>
                         <th>Updated</th>
-                        <th>Verify</th>
-                        <th>Verify Channel</th>
-                        <th>Verify Roles</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -144,13 +141,10 @@
                         @foreach($guilds as $guild)
                             <tr>
                                 <th>{{ $guild->id }}</th>
-                                <th>{{ $guild->guildId }}</th>
-                                <th>{{ $guild->serverName }}</th>
+                                <th>{{ $guild->guild_id }}</th>
+                                <th>{{ $guild->guild_name }}</th>
                                 <th>{{ $guild->created_at }}</th>
                                 <th>{{ $guild->updated_at }}</th>
-                                <th>{{ $guild->verify }}</th>
-                                <th>{{ $guild->verifyChannel }}</th>
-                                <th>{{ $guild->verifyRoles }}</th>
                                 <th>
                                     <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="editGuild({{ $guild->id }})">
                                         <i class="fa fa-lg fa-fw fa-pen"></i>
