@@ -91,7 +91,17 @@ class SteamController extends Controller
 
 
         } catch (Exception $e) {
-            dd($e->getMessage());
+            $status = "There has been an error...";
+            $description = "There has been an error with validating your steam account. This may be caused by either
+                Private Profile or by you not having Hearts of Iron IV bought on your steam account.
+                Or this steam account has already been linked to other discord account.
+                Once you resolve these issues you can try again. Feel free to Contact HOI4Intel's Staff.";
+            $data = [
+                "status" => $status,
+                "description" => $description
+            ];
+            return view("steam_api", ["data"=>$data]);
+            // dd($e->getMessage());
         }
     }
 }
