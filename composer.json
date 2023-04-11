@@ -21,7 +21,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "*",
         "laravolt/avatar": "^4.1",
-        "livewire/livewire": "^2.5",
+        "livewire/livewire": "^2.12",
         "martinbean/socialite-discord-provider": "^1.2",
         "pusher/pusher-php-server": "^7.2",
         "socialiteproviders/discord": "^4.1",

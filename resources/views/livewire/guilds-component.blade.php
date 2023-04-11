@@ -6,7 +6,7 @@
                 <h3 class="card-title">Guilds</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-guild">
+                        <button type="button" class="btn btn-primary" id="add">
                             Add New Guild
                         </button>
                     </div>
