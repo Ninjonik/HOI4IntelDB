@@ -5,7 +5,6 @@
 @section('content_header')
     <h1>Settings</h1>
 @stop
-
 @section('content')
     {{ $slot }}
 @stop
@@ -69,6 +68,17 @@
             $("#modal").modal("show");
             $("#modal-guild").modal("show");
         });
+        const close_button = document.getElementById("close");
+        button.addEventListener('click', function() {
+            $("#modal-guild").modal("hide");
+            $("#edit-modal-guild").modal("hide");
+            $("#delete-modal-guild").modal("hide");
+            $("#view-modal-guild").modal("hide");
+            $("#modal").modal("hide");
+            $("#edit-modal").modal("hide");
+            $("#delete-modal").modal("hide");
+            $("#view-modal").modal("hide");
+        });
 
         window.addEventListener("added", event => {
             Toast.fire({
@@ -97,6 +107,7 @@
         window.addEventListener("show-view-modal", event => {
             $("#view-modal").modal("show");
         });
+
     </script>
 
 @stop

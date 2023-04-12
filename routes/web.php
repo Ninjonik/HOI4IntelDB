@@ -8,6 +8,7 @@ use App\Http\Controllers\StaffChatController;
 use App\Http\Controllers\SteamController;
 use App\Http\Controllers\WikiIndexController;
 use App\Http\Livewire\GuildsComponent;
+use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,7 @@ Route::get('/logout', function () {
 });
 Route::get('/dashboard/guilds', GuildsComponent::class);
 Route::get('/dashboard/wiki/categories', WikiCategory::class);
+Route::get('/dashboard/wiki/articles', WikiArticle::class);
 
 
 Route::view("/websocket/test", "websocket");
