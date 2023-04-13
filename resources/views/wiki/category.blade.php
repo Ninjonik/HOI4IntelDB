@@ -3,105 +3,40 @@
 <div class="uk-section uk-section-muted">
     <div class="uk-container">
         <ul class="uk-breadcrumb">
-            <li><a href="index-2.html">Help Center</a></li>
-            <li><span>Getting Started</span></li>
+            <li><a href="{{ route('wiki') }}">Help Center</a></li>
+            <li><span>{{ $category->title }}</span></li>
         </ul>
         <div class="uk-grid-small" data-uk-grid>
             <div class="uk-width-auto uk-text-primary">
-                <span class="uk-margin-xsmall-top" data-uk-icon="icon: cog; ratio: 2.6"></span>
+                <span class="uk-margin-xsmall-top" data-uk-icon="icon: {{ $category->icon }}; ratio: 2.6"></span>
             </div>
             <div class="uk-width-expand">
-                <h1 class="uk-article-title uk-margin-remove">Getting Started</h1>
-                <p class="uk-text-lead uk-text-muted uk-margin-small-top">Lorem ipsum dolor labore et dolore magna aliquat
-                    sit adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliquat ipsum dolor sit elit, sed do eiusmod aliquip</p>
+                <h1 class="uk-article-title uk-margin-remove">{{ $category->title }}</h1>
+                <p class="uk-text-lead uk-text-muted uk-margin-small-top">{{ $category->description }}</p>
             </div>
         </div>
         <div class="uk-margin-medium-top">
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
+            @foreach($articles as $article)
+                <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
+                    <a class="uk-position-cover" href="{{ route('wiki.article', ['id' => $article->id, 'title' => Str::slug($article->title)]) }}"></a>
+                    <h3 class="uk-card-title uk-margin-remove uk-text-primary">{{ $article->title }}</h3>
+                    @php
+                        // Remove HTML tags and images from the content
+                        $content = preg_replace('/<[^>]+>|<img[^>]+>/i', '', $article->content);
+                        // Truncate the content to 100 characters, preserving full words
+                        $truncatedContent = Str::words($content, 100, '...');
+                    @endphp
+                    <p class="uk-margin-small-top">{{ $truncatedContent }}</p>
+                    <div class="uk-article-meta uk-flex uk-flex-middle">
+                        <img class="uk-border-circle uk-avatar-small" src="{{ getAvatarFunction(100, $article->edit_author_id) }}" alt="Sara Galen">
+                        <div>
+                            Written by {{ $article->author_name }}
+                            <time class="uk-margin-small-right" datetime="2019-10-05">{{ $article->created_at }}</time><br>
+                            Updated by {{ $article->editor_name }} <time datetime="2019-12-30">{{ $article->updated_at }}</time>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card uk-card-category uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded uk-width-1-1">
-                <a class="uk-position-cover" href="article.html"></a>
-                <h3 class="uk-card-title uk-margin-remove uk-text-primary">How does the template integrate with my existing website design?</h3>
-                <p class="uk-margin-small-top">Intrinsicly maximize unique infomediaries without an expanded array of mindshare. Credibly disseminate
-                    resource sucking customer service through functionalized schemas.</p>
-                <div class="uk-article-meta uk-flex uk-flex-middle">
-                    <img class="uk-border-circle uk-avatar-small" src="img/avatar-sara.html" alt="Sara Galen">
-                    <div>
-                        Written by Sara Galen
-                        <time class="uk-margin-small-right" datetime="2019-10-05">October 5 2019</time><br>
-                        Updated <time datetime="2019-12-30">December 30 2019</time>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="uk-text-center uk-margin-medium-top">
             <a href="#"><div class="uk-margin-small-right uk-text-normal" data-uk-spinner="ratio: 0.6"></div>Load more</a>

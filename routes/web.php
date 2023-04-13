@@ -8,13 +8,14 @@ use App\Http\Controllers\PanelIndex;
 use App\Http\Controllers\StaffChatController;
 use App\Http\Controllers\SteamController;
 use App\Http\Controllers\WikiIndexController;
+use App\Http\Controllers\WikiCategoryController;
+use App\Http\Controllers\WikiArticleController;
 use App\Http\Livewire\GuildsComponent;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index']);
 
-Route::get('/wiki', [WikiIndexController::class, 'index']);
+Route::get('/wiki', [WikiIndexController::class, 'index'])->name('wiki');
+Route::get('/wiki/category/{id}/{title}', [WikiCategoryController::class, 'show'])->name('wiki.category');
+Route::get('/wiki/article/{id}/{title}', [WikiArticleController::class, 'show'])->name('wiki.article');
+
 
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
