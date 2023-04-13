@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PanelIndex;
 use App\Http\Controllers\StaffChatController;
@@ -59,4 +60,8 @@ Route::post("/dashboard/chat/send", function (Request $request) {
     $staffChatController->store($request->message);
     return null;
 });
+
+// UPLOADING
+Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
+
 

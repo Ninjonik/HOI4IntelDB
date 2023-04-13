@@ -69,7 +69,7 @@ class WikiArticle extends Component
             'tags' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'image' => 'image|max:8192',
+            // 'image' => 'image|max:16384',
         ]);
 
         $this->category = intval($this->category);
@@ -77,12 +77,14 @@ class WikiArticle extends Component
         $con->title = $this->title;
         $con->tags = $this->tags;
         $con->content = $this->content;
-        $con->image = 'AT_' . time() . '.png';
+        if($con->image){
+            $con->image = 'AT_' . time() . '.png';
+            $this->image->storeAs('article_thumbnails', 'AT_' . time() . '.png');
+        }
         $con->category_id = $this->category;
         $con->author_id = \Auth::id();
         $con->edit_author_id = \Auth::id();
         $con->save();
-        $this->image->storeAs('article_thumbnails', 'AT_' . time() . '.png');
 
 
         $this->resetInputs();
@@ -98,16 +100,21 @@ class WikiArticle extends Component
     {
         $this->validate([
             'title' => 'required',
-            'description' => 'required',
-            'icon' => 'required',
-            'order' => ['required', 'numeric', 'min:0'],
+            'tags' => 'required',
+            'content' => 'required',
+            'category' => 'required',
         ]);
 
         $con = WikiArticleDB::where("id", $this->id_edit)->first();
         $con->title = $this->title;
-        $con->description = $this->description;
-        $con->icon = $this->icon;
-        $con->order = $this->order;
+        $con->tags = $this->tags;
+        $con->content = $this->content;
+        if($con->image){
+            $con->image = 'AT_' . time() . '.png';
+            $this->image->storeAs('article_thumbnails', 'AT_' . time() . '.png');
+        }
+        $con->category_id = $this->category;
+        $con->edit_author_id = \Auth::id();
         $con->save();
 
         $this->resetInputs();
@@ -123,9 +130,10 @@ class WikiArticle extends Component
         $this->id_edit = $con->id;
 
         $this->title = $con->title;
-        $this->description = $con->description;
-        $this->icon = $con->icon;
-        $this->order = $con->order;
+        $this->tags = $con->tags;
+        $this->content = $con->content;
+        $this->category_id = $con->category_id;
+        $this->image = $con->image;
 
         $this->dispatchBrowserEvent("show-edit-modal");
     }

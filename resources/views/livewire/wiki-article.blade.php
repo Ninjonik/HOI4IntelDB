@@ -1,9 +1,8 @@
-
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Categories</h3>
+                <h3 class="card-title">Articles</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <button type="button" class="btn btn-primary" id="add">
@@ -73,6 +72,75 @@
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="edit-modal">
+                <div class="modal-dialog">
+                    <form wire:submit.prevent="editData">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Edit Article</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="title" class="col-3">Article Title</label>
+                                    <input type="text" id="title" class="form-control" wire:model="title">
+                                    @error("title")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="tags" class="col-3">Article Tags</label>
+                                    <input type="text" id="tags" class="form-control" wire:model="tags">
+                                    @error("tags")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="content" class="col-3">Article Content</label>
+                                    <textarea id="content" class="form-control" wire:model="content"></textarea>
+                                    @error('content')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Article Thumbnail</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="image" wire:model="image">
+                                            <label class="custom-file-label" for="image">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
+                                    @error("image")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Article Category</label>
+                                    <select class="form-control" style="width: 100%;" name="category" wire:model="category">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error("category")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
@@ -160,7 +228,11 @@
 
 <script>
     ClassicEditor
-        .create(document.querySelector('#content'))
+        .create( document.querySelector( '#content' ),{
+            ckfinder: {
+                uploadUrl: '{{ route("upload.image") }}?_token='+document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
         .then(editor => {
             editor.model.document.on('change:data', () => {
                 @this.set('content', editor.getData());
