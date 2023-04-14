@@ -11,12 +11,12 @@
 
 @section('css')
     @livewireStyles
-    <link rel="stylesheet" href="{{ url('/resources/css/swal.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/swal.css') }}">
 @stop
 
 @section('js')
     @livewireScripts
-    <script src="{{ url('/resources/js/sweetalert.js') }}">
+    <script src="{{ url('/js/sweetalert.js') }}">
     </script>
     @vite('resources/js/app.js')
     <script>
