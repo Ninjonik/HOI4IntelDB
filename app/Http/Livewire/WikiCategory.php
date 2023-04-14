@@ -126,10 +126,15 @@ class WikiCategory extends Component
     {
         $data = WikiCategoryDB::where("id", $this->id_delete)->first();
         if ($data) {
+            // Delete all related articles
+            WikiArticle::where('category_id', $data->id)->delete();
+
+            // Delete the category
             $data->delete();
         }
-        $this->DispatchBrowserEvent("removed");
-        $this->DispatchBrowserEvent("close-modal");
+        $this->dispatchBrowserEvent("removed");
+        $this->dispatchBrowserEvent("close-modal");
     }
+
 
 }
