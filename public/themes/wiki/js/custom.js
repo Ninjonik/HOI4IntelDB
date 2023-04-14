@@ -1,10 +1,10 @@
 (function () {
   'use strict';
-
+/*
   // Custom scripts
   document.addEventListener("DOMContentLoaded", function() {
 
-    // Live Awesomplete Search 
+    // Live Awesomplete Search
   	var inputHero = document.getElementById("search-hero");
   	var inputNavbar = document.getElementById("search-navbar");
 
@@ -20,7 +20,7 @@
       inputHero.addEventListener("awesomplete-selectcomplete", function(e) {
         window.location.href = e.text.value;
       }, false);
-      
+
       new Awesomplete(inputHero, {
         autoFirst: true,
         list: list,
@@ -34,7 +34,7 @@
       inputNavbar.addEventListener("awesomplete-selectcomplete", function(e) {
         window.location.href = e.text.value;
       }, false);
-      
+
       new Awesomplete(inputNavbar, {
         autoFirst: true,
         list: list,
@@ -45,5 +45,6 @@
     }
 
   });
-
+*/
+    // TODO: IN FUTURE IMPLEMENT?
 }());

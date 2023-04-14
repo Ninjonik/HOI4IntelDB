@@ -200,6 +200,7 @@ return [
 
         \SocialiteProviders\Manager\ServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        \Matchish\ScoutElasticSearch\ElasticSearchServiceProvider::class,
 
     ],
 

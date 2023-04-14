@@ -1,18 +1,18 @@
-@include('wiki.layout.header', ['title' => 'Category'])
+@include('wiki.layout.header', ['title' => 'Search'])
 
 <div class="uk-section uk-section-muted">
     <div class="uk-container">
         <ul class="uk-breadcrumb">
             <li><a href="{{ route('wiki') }}">Help Center</a></li>
-            <li><span>{{ $category->title }}</span></li>
+            <li><span>Search results for {{ $query }}</span></li>
         </ul>
         <div class="uk-grid-small" data-uk-grid>
             <div class="uk-width-auto uk-text-primary">
-                <span class="uk-margin-xsmall-top" data-uk-icon="icon: {{ $category->icon }}; ratio: 2.6"></span>
+                <span class="uk-margin-xsmall-top" data-uk-icon="icon: search; ratio: 2.6"></span>
             </div>
             <div class="uk-width-expand">
-                <h1 class="uk-article-title uk-margin-remove">{{ $category->title }}</h1>
-                <p class="uk-text-lead uk-text-muted uk-margin-small-top">{{ $category->description }}</p>
+                <h1 class="uk-article-title uk-margin-remove">Results for {{ $query }}</h1>
+                <p class="uk-text-lead uk-text-muted uk-margin-small-top">Showing {{ $articles->count() }} results ({{ round(microtime(true) - LARAVEL_START, 2) }} seconds) </p>
             </div>
         </div>
         <div class="uk-margin-medium-top">

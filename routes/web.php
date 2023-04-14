@@ -10,6 +10,7 @@ use App\Http\Controllers\SteamController;
 use App\Http\Controllers\WikiIndexController;
 use App\Http\Controllers\WikiCategoryController;
 use App\Http\Controllers\WikiArticleController;
+use App\Http\Controllers\WikiSearchController;
 use App\Http\Livewire\GuildsComponent;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
@@ -32,6 +33,8 @@ Route::get('/', [LandingController::class, 'index']);
 Route::get('/wiki', [WikiIndexController::class, 'index'])->name('wiki');
 Route::get('/wiki/category/{id}/{title}', [WikiCategoryController::class, 'show'])->name('wiki.category');
 Route::get('/wiki/article/{id}/{title}', [WikiArticleController::class, 'show'])->name('wiki.article');
+Route::post('/wiki/search', [WikiSearchController::class, 'show'])->name('wiki.search');
+
 
 
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
@@ -67,5 +70,4 @@ Route::post("/dashboard/chat/send", function (Request $request) {
 
 // UPLOADING
 Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
-
 

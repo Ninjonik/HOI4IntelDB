@@ -30,33 +30,30 @@
             <li>
                 <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Do you provide customer support?</a>
                 <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>Having support for your purchased item means that we will be available to you to iron out any
-                        potential issues you have in using the item.</p>
-                    <h4>The item support period</h4>
-                    <p>The item includes support for 6 months from the purchase date. If you’re about to purchase the
-                        item, you’ll have the option to purchase extended item support, increasing the item support
-                        period up to a maximum of 12 months from the date of purchase.</p>
-                    <h4>What else is included?</h4>
-                    <p>Answering questions about how to use the item
-                        Answering technical questions about the item (and included third party assets)
-                        Help with defects in the item or included third-party assets
-                        Item updates to ensure ongoing compatibility and to resolve security vulnerabilities
-                        Updates to ensure the item works as described and is protected against major security concerns
-                        Included version updates for all items</p>
-                    <h4>What’s not included in item support?</h4>
-                    <p>Item support does not include services to modify or extend the item beyond the original features,
-                        style and functionality described on the item page. For customization services that will help
-                        you tailor the item to your specific requirements, we recommend contacting us to see if we
-                        privately offer paid customization service.</p>
+                    <p>At HOI4Intel, we do provide customer support to help you with any issues you may encounter while using our hosting bot. We offer support through our Discord server where you can get in touch with our team and receive the assistance you need.</p>
+                    <h4>Who has the right for support?</h4>
+                    <p>We provide support to all HOI4 servers who host games more than 2 times a week / are in partnership with HOI4Intel / have reached more than 1000 members.</p>
+                    <h4>What's included in item support?</h4>
+                    <p>Our support team is here to help you with the following:</p>
                     <ul>
-                        <li>Installation of the item</li>
-                        <li>Hosting, server environment, or software</li>
-                        <li>Help from authors of included third-party assets</li>
+                        <li>Answering any questions you have about how to use the bot.</li>
+                        <li>Answering technical questions about the bot and any included third-party assets.</li>
+                        <li>Helping you with any defects in the bot or third-party assets.</li>
+                        <li>Providing updates to ensure the bot remains compatible and protected against security vulnerabilities.</li>
+                        <li>Included version updates for all items.</li>
+                    </ul>
+                    <h4>What's not included in item support?</h4>
+                    <p>Please note that item support does not include services to modify or extend the bot beyond the original features, style, and functionality described on the bot page. If you require customization services, we recommend contacting us to see if we offer paid customization services.</p>
+                    <ul>
+                        <li>Installation of the bot on your own server.</li>
+                        <li>Hosting, server environment, or software.</li>
+                        <li>Help from authors of included third-party assets.</li>
                     </ul>
                     <h4>Contacting support</h4>
-                    <p>Support is provided Mon - Fri through item <a href="#">support</a> page.</p>
+                    <a target="_blank" href="https://discord.gg/world-war-community-820918304176340992"><p>Our support team is available from Monday to Friday through our item discord server. If you need any help, please don't hesitate to get in touch!</p></a>
                 </div>
             </li>
+            <!--
             <li>
                 <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Are updates and bug fixes included in
                     the cost of the item?</a>
@@ -70,73 +67,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
-                <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Can I extend or renew my item
-                    support?</a>
-                <div class="uk-article-content uk-accordion-content link-primary">
-                    <h4>Item support option</h4>
-                    <p>The support options available to you depend on when you make the support purchase.</p>
-                    <ul>
-                        <li>A support upgrade is 6 months of additional support that can be purchased at the time of
-                            buying the item.</li>
-                        <li>A support extension is 6 months of support that can be purchased at any time after the
-                            initial purchase of the item, provided the current support period hasn’t expired.</li>
-                        <li>A support renewal is 6 months of support that can be purchased after any existing support
-                            for an item has expired.</li>
-                    </ul>
-                    <h4>How do I renew or extend my support?</h4>
-                    <p>In order to extend or renew an item’s support offering, you must have less than 6 months of the
-                        existing support period remaining and also the author must still be offering support on their
-                        item.</p>
-                    <p>To renew the support component on an item, please follow these steps:</p>
-                    <ul>
-                        <li>Log in to your account</li>
-                        <li>Hover over your username and click ‘Downloads’ from the drop-down menu.</li>
-                        <li>The downloads section displays a list of all the items purchased using your account.</li>
-                        <li>Click on ‘Renew support now!’ or ‘Extend now’ next to the item you wish to renew the item
-                            support for and that’s it!</li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Does the item come with installation
-                    and setup documentation?</a>
-                <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>Yes, all our items come with either bundled documentation located in your “All files &amp;
-                        documentation” download zip or online documentation.</p>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Do you provide customization services
-                    for your items?</a>
-                <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>Item support does not include services to modify or extend the item beyond the original features,
-                        style and functionality described on the item page.</p>
-                    <p>For customization services that will help you tailor the item to your specific requirements, please <a href="#">contact us</a> to see if we are available to offer paid customization service or check out service
-                        providers on <a href="https://studio.envato.com/">Envato Studio</a>.</p>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Are updates and bug fixes included in
-                    the cost of the item?</a>
-                <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>Regardless of whether you have support or not:</p>
-                    <ul>
-                        <li>When we release an update, it will be available for you to download for free</li>
-                        <li>You can report bugs</li>
-                        <li>You can expect us to keep the item in good working order, working as described and protected
-                            against major security issues</li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">Does the item come with installation
-                    and setup documentation?</a>
-                <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>Yes, all our items come with either bundled documentation located in your “All files &amp;
-                        documentation” download zip or online documentation.</p>
-                </div>
-            </li>
+            -->
         </ul>
     </div>
 </div>
@@ -144,62 +75,27 @@
 <div class="uk-section uk-section-muted">
     <div class="uk-container">
         <h2 class="uk-text-center">Didn't find an answer?</h2>
-        <p class="uk-text-muted uk-text-center uk-text-lead">Our team is just an email away and ready to answer
+        <p class="uk-text-muted uk-text-center uk-text-lead">Our team is just a message away and ready to answer
             your questions</p>
         <div class="uk-margin-medium-top uk-flex-center uk-text-center uk-margin-medium-top uk-grid-small" data-uk-grid>
             <div>
                 <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/n4KewLKFOZw/200x200" alt="Evan Wells" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Evan Wells</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Support</p>
+                    <img class="uk-avatar uk-border-circle" src="https://cdn.discordapp.com/avatars/231105080961531905/5cb3b799965cec055a4716a7a426493b.png?size=1024" alt="Ninjonik" />
+                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Ninjonik</h5>
+                    <p class="uk-article-meta uk-margin-xsmall-top">Discord Bot and Web Developer</p>
                 </div>
             </div>
             <div>
                 <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/d2MSDujJl2g/200x200" alt="John Brown" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">John Brown</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Support</p>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/OjYD2ADfhjU/200x200" alt="Sara Galen" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Sara Galen</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Lead Developer</p>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/vGqbwex5GFw/200x200" alt="Alex Koch" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Alex Koch</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Design Engineer</p>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/v6CsrFKOxY4/200x200" alt="Tom Farrell" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Tom Farrell</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Developer</p>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/8PMvB4VyVXA/200x200" alt="Daniel Shultz" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Daniel Shultz</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Developer</p>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card">
-                    <img class="uk-avatar uk-border-circle" src="https://source.unsplash.com/5EIW3DDX6dw/200x200" alt="John Brown" />
-                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">John Brown</h5>
-                    <p class="uk-article-meta uk-margin-xsmall-top">Support</p>
+                    <img class="uk-avatar uk-border-circle" src="https://cdn.discordapp.com/avatars/718559880419475467/70fee7383c07e98e45b5ead159e9544c.png?size=1024" alt="Nullingo" />
+                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">Nullingo</h5>
+                    <p class="uk-article-meta uk-margin-xsmall-top">Community Management and Partnerships</p>
                 </div>
             </div>
         </div>
         <div class="uk-margin-medium-top uk-text-center"
              data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
-            <a class="uk-button uk-button-primary uk-border-rounded" href="contact.html">Contact Us</a>
+            <a class="uk-button uk-button-primary uk-border-rounded" target="_blank" href="https://discord.gg/world-war-community-820918304176340992">Contact Us</a>
         </div>
     </div>
 </div>
