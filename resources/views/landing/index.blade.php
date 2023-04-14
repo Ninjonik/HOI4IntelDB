@@ -97,6 +97,9 @@
                                 <li class="nav-item">
                                     <a href="#blog">Blog</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('wiki') }}">Wiki</a>
+                                </li>
                             </ul>
                         </div> <!-- navbar collapse -->
 
