@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\WikiCategory as WikiCategoryDB;
+use App\Models\WikiArticle;
 
 class WikiCategory extends Component
 {
