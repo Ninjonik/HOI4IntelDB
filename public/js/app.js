@@ -2,6 +2,7 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 import Echo from 'laravel-echo'
+
 window.echo = new Echo({
     broadcaster: "pusher",
     key: import.meta.env.VITE_PUSHER_APP_KEY,
