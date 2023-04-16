@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::view('/test', "test");
 
 Route::get('/wiki', [WikiIndexController::class, 'index'])->name('wiki');
 Route::get('/wiki/category/{id}/{title}', [WikiCategoryController::class, 'show'])->name('wiki.category');

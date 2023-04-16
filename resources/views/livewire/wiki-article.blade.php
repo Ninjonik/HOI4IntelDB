@@ -37,7 +37,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" wire:ignore>
                                     <label for="content" class="col-3">Article Content</label>
                                     <textarea id="content" class="form-control" wire:model="content"></textarea>
                                     @error('content')
@@ -196,9 +196,9 @@
                                 <th>{{ $unit->title }}</th>
                                 <th>{{ $unit->tags }}</th>
                                 <th>{{ $unit->image }}</th>
-                                <th>{{ $unit->category }}</th>
-                                <th>{{ $unit->author }}</th>
-                                <th>{{ $unit->edit_author }}</th>
+                                <th>{{ $unit->category->title }}</th>
+                                <th>{{ $unit->author["name"] }}</th>
+                                <th>{{ !empty($unit->edit_author["name"]) ? $unit->edit_author["name"] : '-' }}</th>
                                 <th>{{ $unit->created_at }}</th>
                                 <th>{{ $unit->updated_at }}</th>
                                 <th>
@@ -224,21 +224,154 @@
 
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/super-build/ckeditor.js"></script>
 
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#content' ),{
-            ckfinder: {
-                uploadUrl: '{{ route("upload.image") }}?_token='+document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
-        })
-        .then(editor => {
-            editor.model.document.on('change:data', () => {
-                @this.set('content', editor.getData());
+    initializeEditor();
+
+    function initializeEditor() {
+        CKEDITOR.ClassicEditor
+            .create(document.getElementById("content"), {
+
+                toolbar: {
+                    items: [
+                        'exportPDF','exportWord', '|',
+                        'findAndReplace', 'selectAll', '|',
+                        'heading', '|',
+                        'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        'outdent', 'indent', '|',
+                        'undo', 'redo',
+                        '-',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                        'alignment', '|',
+                        'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
+                        'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                        'textPartLanguage', '|',
+                        'sourceEditing'
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+
+                list: {
+                    properties: {
+                        styles: true,
+                        startIndex: true,
+                        reversed: true
+                    }
+                },
+
+                heading: {
+                    options: [
+                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+                        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+                        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
+                    ]
+                },
+
+                fontFamily: {
+                    options: [
+                        'default',
+                        'Arial, Helvetica, sans-serif',
+                        'Courier New, Courier, monospace',
+                        'Georgia, serif',
+                        'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                        'Tahoma, Geneva, sans-serif',
+                        'Times New Roman, Times, serif',
+                        'Trebuchet MS, Helvetica, sans-serif',
+                        'Verdana, Geneva, sans-serif'
+                    ],
+                    supportAllValues: true
+                },
+
+                fontSize: {
+                    options: [ 10, 12, 14, 'default', 18, 20, 22 ],
+                    supportAllValues: true
+                },
+
+                htmlSupport: {
+                    allow: [
+                        {
+                            name: /.*/,
+                            attributes: true,
+                            classes: true,
+                            styles: true
+                        }
+                    ]
+                },
+
+                htmlEmbed: {
+                    showPreviews: true
+                },
+
+                link: {
+                    decorators: {
+                        addTargetToExternalLinks: true,
+                        defaultProtocol: 'https://',
+                        toggleDownloadable: {
+                            mode: 'manual',
+                            label: 'Downloadable',
+                            attributes: {
+                                download: 'file'
+                            }
+                        }
+                    }
+                },
+
+                mention: {
+                    feeds: [
+                        {
+                            marker: '@',
+                            feed: [
+                                '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
+                                '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
+                                '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
+                                '@sugar', '@sweet', '@topping', '@wafer'
+                            ],
+                            minimumCharacters: 1
+                        }
+                    ]
+                },
+
+                removePlugins: [
+
+                    'CKBox',
+                    'CKFinder',
+                    'EasyImage',
+
+                    'RealTimeCollaborativeComments',
+                    'RealTimeCollaborativeTrackChanges',
+                    'RealTimeCollaborativeRevisionHistory',
+                    'PresenceList',
+                    'Comments',
+                    'TrackChanges',
+                    'TrackChangesData',
+                    'RevisionHistory',
+                    'Pagination',
+                    'WProofreader',
+
+                    'MathType'
+                ]
             })
-        })
-        .catch(error => {
-            console.error(error);
-        });
+            .then(editor => {
+                editorInitialized = editor;
+                editor.model.document.on('change:data', () => {
+                    @this.set('content', editor.getData());
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
 </script>
+
+
+
+
+

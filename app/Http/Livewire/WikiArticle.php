@@ -16,8 +16,6 @@ class WikiArticle extends Component
 
     use WithFileUploads;
 
-    // GENERAL
-
     //Input fields on update validation
     public function updated($fields)
     {
