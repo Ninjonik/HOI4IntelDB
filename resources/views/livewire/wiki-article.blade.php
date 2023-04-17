@@ -31,6 +31,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="emoji" class="col-3">Article Emoji</label>
+                                    <input type="text" id="emoji" class="form-control" wire:model="emoji">
+                                    @error("emoji")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="tags" class="col-3">Article Tags</label>
                                     <input type="text" id="tags" class="form-control" wire:model="tags">
                                     @error("tags")
@@ -102,6 +109,13 @@
                                     <label for="tags" class="col-3">Article Tags</label>
                                     <input type="text" id="tags" class="form-control" wire:model="tags">
                                     @error("tags")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="emoji" class="col-3">Article Emoji</label>
+                                    <input type="text" id="emoji" class="form-control" wire:model="emoji">
+                                    @error("emoji")
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -180,6 +194,7 @@
                         <th>Title</th>
                         <th>Tags</th>
                         <th>Image</th>
+                        <th>Emoji</th>
                         <th>Category</th>
                         <th>Author</th>
                         <th>Edit Author</th>
@@ -196,6 +211,7 @@
                                 <th>{{ $unit->title }}</th>
                                 <th>{{ $unit->tags }}</th>
                                 <th>{{ $unit->image }}</th>
+                                <th>{{ $unit->emoji }}</th>
                                 <th>{{ $unit->category->title }}</th>
                                 <th>{{ $unit->author["name"] }}</th>
                                 <th>{{ !empty($unit->edit_author["name"]) ? $unit->edit_author["name"] : '-' }}</th>

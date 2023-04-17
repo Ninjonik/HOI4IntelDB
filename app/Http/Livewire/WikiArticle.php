@@ -8,7 +8,7 @@ use Livewire\WithFileUploads;
 
 class WikiArticle extends Component
 {
-    public $data_id, $title, $tags, $content, $image, $category, $categories, $id_edit, $id_delete;
+    public $data_id, $title, $tags, $content, $image, $emoji, $category, $categories, $id_edit, $id_delete;
 
     protected $messages = [
         'required' => 'This field cannot be empty.',
@@ -48,6 +48,7 @@ class WikiArticle extends Component
         $this->tags = "";
         $this->content = "";
         $this->image = "";
+        $this->emoji = "";
         $this->category = "";
         $this->id_delete = "";
         $this->id_edit = "";
@@ -79,6 +80,7 @@ class WikiArticle extends Component
             $con->image = 'AT_' . time() . '.png';
             $this->image->storeAs('article_thumbnails', 'AT_' . time() . '.png');
         }
+        $con->emoji = $this->emoji;
         $con->category_id = $this->category;
         $con->author_id = \Auth::id();
         $con->edit_author_id = \Auth::id();
@@ -111,6 +113,7 @@ class WikiArticle extends Component
             $con->image = 'AT_' . time() . '.png';
             $this->image->storeAs('article_thumbnails', 'AT_' . time() . '.png');
         }
+        $con->emoji = $this->emoji;
         $con->category_id = $this->category;
         $con->edit_author_id = \Auth::id();
         $con->save();
@@ -132,6 +135,7 @@ class WikiArticle extends Component
         $this->content = $con->content;
         $this->category_id = $con->category_id;
         $this->image = $con->image;
+        $this->emoji = $con->emoji;
 
         $this->dispatchBrowserEvent("show-edit-modal");
     }

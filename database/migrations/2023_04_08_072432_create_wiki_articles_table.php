@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tags')->index();
             $table->text('content');
             $table->string('image')->nullable();
+            $table->string('emoji')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('edit_author_id');
