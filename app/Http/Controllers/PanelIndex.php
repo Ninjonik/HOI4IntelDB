@@ -8,6 +8,7 @@ use App\Models\Settings;
 use Carbon\Carbon;
 use App\Models\Statistics;
 use Illuminate\Support\Facades\DB;
+use GuzzleHttp\Client;
 
 class PanelIndex extends Controller
 {
@@ -34,6 +35,18 @@ class PanelIndex extends Controller
         $data_stats["player_count"] = Players::all()->count();
         $data_stats["event_count"] = Event::all()->count();
 
-        return view('panel/index', compact('labels', 'data', 'difference', 'data_stats'));
+        $client = new Client();
+        $response = $client->request('GET', 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/', [
+            'query' => [
+                'appid' => 394360,
+                'count' => 3,
+                'maxlength' => 30000,
+                'format' => 'json',
+                'key' => env("STEAM_CLIENT_SECRET"),
+            ],
+        ]);
+        $news = json_decode($response->getBody(), true)['appnews']['newsitems'];
+
+        return view('panel/index', compact('labels', 'data', 'difference', 'data_stats', 'news'));
     }
 }

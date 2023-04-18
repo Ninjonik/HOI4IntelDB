@@ -17,6 +17,7 @@ use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use GuzzleHttp\Client;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +68,21 @@ Route::post("/dashboard/chat/send", function (Request $request) {
     $staffChatController = new StaffChatController;
     $staffChatController->store($request->message);
     return null;
+});
+Route::get("/steamtest", function(){
+
+    $client = new Client();
+    $response = $client->request('GET', 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/', [
+        'query' => [
+            'appid' => 394360,
+            'count' => 3,
+            'maxlength' => 30000,
+            'format' => 'json',
+            'key' => env("STEAM_CLIENT_SECRET"),
+        ],
+    ]);
+    $news = json_decode($response->getBody(), true)['appnews']['newsitems'];
+    dd($news);
 });
 
 // UPLOADING
