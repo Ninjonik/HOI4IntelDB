@@ -113,16 +113,21 @@
                             HOI4 News
                         </h3>
                     </div>
+                    <style>
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                        }
+
+                    </style>
                     @foreach($news as $new)
                         <div class="card-body">
                             <div class="callout callout-info">
                                 <h5>{{ $new["title"] }} | {{ Carbon\Carbon::createFromTimestamp($new["date"])->toDateTimeString() }}</h5>
                                     <?php
                                     $contentWithImages = str_replace("{STEAM_CLAN_IMAGE}", "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/", $new["contents"]);
-                                    $contentWithImagesHTML = preg_replace('/(https?:\/\/[\S]+\.(png|jpg|jpeg|gif))/i', '<img src="$1" style=\"max-width: 100%; height: auto;\">', $contentWithImages);
+                                    $contentWithImagesHTML = preg_replace('/(https?:\/\/[\S]+\.(png|jpg|jpeg|gif))/i', '<img src="$1" style="max-width: 100%; height: auto;">', $contentWithImages);
                                     ?>
-                                <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans//9948323/01e86b42e0d41141f381b857b68d66784e31cd0f.png">
-
                                 <p>{!! $contentWithImagesHTML !!}</p>
                             </div>
                         </div>
