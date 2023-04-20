@@ -89,7 +89,7 @@
                         const data = {
                             labels: labels,
                             datasets: [{
-                                label: 'Members in servers with WWCBot [Last 7 Days]',
+                                label: 'Members in servers with HOI4Bot [Last 7 Days]',
                                 backgroundColor: 'rgb(255, 99, 132)',
                                 borderColor: 'rgb(255, 99, 132)',
                                 data: users,

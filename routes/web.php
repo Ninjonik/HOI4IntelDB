@@ -12,6 +12,7 @@ use App\Http\Controllers\WikiCategoryController;
 use App\Http\Controllers\WikiArticleController;
 use App\Http\Controllers\WikiSearchController;
 use App\Http\Livewire\GuildsComponent;
+use App\Http\Livewire\PlayersIndex;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
@@ -54,6 +55,7 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 Route::get('/dashboard/guilds', GuildsComponent::class);
+Route::get('/dashboard/players', PlayersIndex::class);
 Route::get('/dashboard/wiki/categories', WikiCategory::class);
 Route::get('/dashboard/wiki/articles', WikiArticle::class);
 
