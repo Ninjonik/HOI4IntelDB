@@ -9,10 +9,34 @@
                         <div class="input-group-append">
                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                         </div>
+                        <button type="button" class="btn btn-primary" id="add" hidden>
+                        </button>
                     </div>
                 </div>
             </div>
 
+            <div wire:ignore.self class="modal fade" id="delete-modal">
+                <div class="modal-dialog">
+                    <form wire:submit.prevent="deleteData">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete Confirmation</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Are you sure you want to delete this article?</h6>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" wire:click="deleteData()">Yes, delete.</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
 
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap" id="data">
@@ -34,15 +58,12 @@
                             <tr>
                                 <th>{{ $unit->id }}</th>
                                 <th>{{ $unit->discord_id }}</th>
-                                <th>{{ $unit->discord_id}}</th>
+                                <th>{{ $unit->discord_name}}</th>
                                 <th>{{ $unit->rating*100 }}%</th>
                                 <th>{{ $unit->profile_link }}</th>
                                 <th>{{ $unit->created_at }}</th>
                                 <th>{{ $unit->updated_at }}</th>
                                 <th>
-                                    <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="edit({{ $unit->id }})">
-                                        <i class="fa fa-lg fa-fw fa-pen"></i>
-                                    </button>
                                     <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" wire:click="deleteConfirmation({{ $unit->id }})">
                                         <i class="fa fa-lg fa-fw fa-trash"></i>
                                     </button>

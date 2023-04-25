@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('steam_id')->unique()->nullable();
             $table->bigInteger('discord_id')->unique()->index();
+            $table->string('discord_name')->nullable();
             $table->float('rating')->default(0.5);
             $table->string('profile_link')->nullable();
             $table->timestamps();

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('global_database');
             $table->string('title');
             $table->string('description');
+            $table->boolean('started')->default(0);
             $table->foreign('guild_id')->references('guild_id')->on('settings');
             $table->foreign('host_id')->references('discord_id')->on('players');
             $table->timestamps();
