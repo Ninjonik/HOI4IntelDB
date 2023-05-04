@@ -169,6 +169,12 @@
                     <h5 class="uk-margin-remove-bottom uk-margin-small-top">Nullingo</h5>
                     <p class="uk-article-meta uk-margin-xsmall-top">Community Management and Partnerships</p>
                 </div>
+            </div><div>
+                <div class="uk-card">
+                    <img class="uk-avatar uk-border-circle" src="https://cdn.discordapp.com/avatars/326789382101008396/fb556eb67e3d233b3fba438cc837a25d.png?size=1024" alt="Nullingo" />
+                    <h5 class="uk-margin-remove-bottom uk-margin-small-top">DragonMan</h5>
+                    <p class="uk-article-meta uk-margin-xsmall-top">Quality Assurance & Web Developer</p>
+                </div>
             </div>
         </div>
         <div class="uk-margin-medium-top uk-text-center"
