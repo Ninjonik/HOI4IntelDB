@@ -144,6 +144,7 @@
                                 <div class="form-group">
                                     <label>Article Category</label>
                                     <select class="form-control" style="width: 100%;" name="category" wire:model="category">
+                                        @foreachif
                                         @foreach($categories as $category)
                                             <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
                                         @endforeach

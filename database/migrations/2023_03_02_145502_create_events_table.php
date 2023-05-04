@@ -18,6 +18,8 @@ return new class extends Migration
             $table->bigInteger('guild_id');
             $table->bigInteger('host_id');
             $table->bigInteger('channel_id')->nullable();
+            $table->bigInteger('voice_channel_id');
+            $table->bigInteger('guild_event_id');
             $table->bigInteger('message_id')->unique()->index();
             $table->dateTime('event_start');
             $table->string('timezone')->default('UTC');
