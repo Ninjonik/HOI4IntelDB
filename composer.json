@@ -26,8 +26,7 @@
         "matchish/laravel-scout-elasticsearch": "^7.2",
         "pusher/pusher-php-server": "^7.2",
         "socialiteproviders/discord": "^4.1",
-        "socialiteproviders/steam": "^4.2",
-        "vormkracht10/laravel-open-graph-image": "^0.3.1"
+        "socialiteproviders/steam": "^4.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
