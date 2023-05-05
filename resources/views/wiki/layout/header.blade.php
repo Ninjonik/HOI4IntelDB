@@ -10,13 +10,25 @@
     <script src="{{ url('/themes/wiki/js/uikit.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <meta content="Discord - Free Voice and Text Chat" property="og:title">
-    <meta content="All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
-    Stop paying for TeamSpeak servers and hassling with Skype. Simplify your life." property="og:description">
-    <meta content='https://discordapp.com/assets/ba74954dde74ff40a32ff58069e78c36.png' property='og:image'>
-    <link type="application/json+oembed" href="https://owo.whats-th.is//e61180.json" />
-    <meta name="theme-color" content="#7289DA">
+    <!-- HTML Meta Tags -->
+    <title>HOI4Intel - The Revolutionary HOI4 Discord Bot</title>
+    <meta name="description" content="Your Assistant Partner for HOI4. ">
+    <meta name="theme-color" content="#e6331c">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HOI4Intel - The Revolutionary HOI4 Discord Bot">
+    <meta property="og:description" content="Your Assistant Partner for HOI4. ">
+    <meta property="og:image" content="https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633">
+
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="hoi.theorganization.eu">
+    <meta property="twitter:url" content="https://hoi.theorganization.eu/wiki">
+    <meta name="twitter:title" content="HOI4Intel - The Revolutionary HOI4 Discord Bot">
+    <meta name="twitter:description" content="Your Assistant Partner for HOI4. ">
+    <meta name="twitter:image" content="https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633">
 </head>
 
 <body>
