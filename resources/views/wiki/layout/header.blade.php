@@ -14,7 +14,27 @@
     <title>HOI4Intel - The Revolutionary HOI4 Discord Bot</title>
     <meta name="description" content="Your Assistant Partner for HOI4. ">
     <meta name="theme-color" content="#e6331c">
-    <link type="application/json+oembed" href="{{ url('/themes/wiki/og.json') }}" />
+    <script type="application/json+oembed">
+    var ogData = {
+        "author_name": "It's time to ditch Skype and TeamSpeak.",
+        "author_url": "https://discordapp.com",
+        "provider_name": "We are hiring! Click here to join us.",
+        "provider_url": "https://discordapp.com/jobs"
+    };
+
+    ogData.author_name = "New author name";
+    ogData.provider_name = "New provider name";
+
+    var ogJsonString = JSON.stringify(ogData);
+</script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="My Article Title" />
+    <meta property="og:description" content="My article description." />
+    <meta property="og:image" content="https://example.com/article-image.jpg" />
+
+    <meta property="og:data" content=' + ogJsonString + ' />
+
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
