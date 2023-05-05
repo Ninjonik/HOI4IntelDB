@@ -14,6 +14,7 @@
     <title>HOI4Intel - The Revolutionary HOI4 Discord Bot</title>
     <meta name="description" content="Your Assistant Partner for HOI4. ">
     <meta name="theme-color" content="#e6331c">
+    <link type="application/json+oembed" href="{{ url('/themes/wiki/og.json') }}" />
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
@@ -29,6 +30,7 @@
     <meta name="twitter:title" content="HOI4Intel - The Revolutionary HOI4 Discord Bot">
     <meta name="twitter:description" content="Your Assistant Partner for HOI4. ">
     <meta name="twitter:image" content="https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633">
+
 </head>
 
 <body>
