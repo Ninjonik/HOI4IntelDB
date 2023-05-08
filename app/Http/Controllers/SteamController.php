@@ -14,8 +14,8 @@ class SteamController extends Controller
 
     public function init($id)
     {
+        return view("pre_steam_api", ["data"=>$id]);
         Session::put('discord_id', $id);
-        return redirect('/auth/steam');
     }
 
     public function redirect()

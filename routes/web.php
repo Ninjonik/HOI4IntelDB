@@ -43,7 +43,7 @@ Route::post('/wiki/search', [WikiSearchController::class, 'show'])->name('wiki.s
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 Route::get('steam/{id}', [SteamController::class, 'init']);
-Route::get('auth/steam', [SteamController::class, 'redirect']);
+Route::get('auth/steam', [SteamController::class, 'redirect'])->name('auth/steam');;
 Route::get('auth/steam/callback', [SteamController::class, 'callback']);
 Route::get('auth/discord', [DiscordController::class, 'Redirect']);
 Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
@@ -70,21 +70,6 @@ Route::post("/dashboard/chat/send", function (Request $request) {
     $staffChatController = new StaffChatController;
     $staffChatController->store($request->message);
     return null;
-});
-Route::get("/steamtest", function(){
-
-    $client = new Client();
-    $response = $client->request('GET', 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/', [
-        'query' => [
-            'appid' => 394360,
-            'count' => 3,
-            'maxlength' => 30000,
-            'format' => 'json',
-            'key' => env("STEAM_CLIENT_SECRET"),
-        ],
-    ]);
-    $news = json_decode($response->getBody(), true)['appnews']['newsitems'];
-    dd($news);
 });
 
 // UPLOADING
