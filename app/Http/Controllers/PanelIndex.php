@@ -9,11 +9,16 @@ use Carbon\Carbon;
 use App\Models\Statistics;
 use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
+use Bouncer;
+use JetBrains\PhpStorm\NoReturn;
 
 class PanelIndex extends Controller
 {
     public function index()
     {
+        if (!Bouncer::can("view-dashboard")) {
+            return redirect("/403");
+        }
         // Get the Members in servers with WWCBot (Last 7 Days) Graph
         $results = Statistics::select(
             DB::raw("SUM(count) as count"),

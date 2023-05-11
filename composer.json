@@ -25,6 +25,7 @@
         "martinbean/socialite-discord-provider": "^1.2",
         "matchish/laravel-scout-elasticsearch": "^7.2",
         "pusher/pusher-php-server": "^7.2",
+        "silber/bouncer": "^1.0",
         "socialiteproviders/discord": "^4.1",
         "socialiteproviders/steam": "^4.2"
     },

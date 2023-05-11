@@ -7,9 +7,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use HasRolesAndAbilities;
     /**
      * The attributes that are mass assignable.
      *

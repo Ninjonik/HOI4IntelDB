@@ -31,6 +31,7 @@ use GuzzleHttp\Client;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/403', [LandingController::class, 'index']);
 Route::view('/test', "test");
 
 Route::get('/wiki', [WikiIndexController::class, 'index'])->name('wiki');
@@ -47,18 +48,28 @@ Route::get('auth/steam', [SteamController::class, 'redirect'])->name('auth/steam
 Route::get('auth/steam/callback', [SteamController::class, 'callback']);
 Route::get('auth/discord', [DiscordController::class, 'Redirect']);
 Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
-
-Route::get('/dashboard', [PanelIndex::class, 'index'])->middleware(['auth'])->name('dashboard');
-Route::get('/dashboard/chat', [StaffChatController::class, 'index'])->middleware(['auth'])->name('dashboard/chat');
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
-Route::get('/dashboard/guilds', GuildsComponent::class);
-Route::get('/dashboard/players', PlayersIndex::class);
-Route::get('/dashboard/wiki/categories', WikiCategory::class);
-Route::get('/dashboard/wiki/articles', WikiArticle::class);
 
+Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->group(function () {
+    Route::get('/', [PanelIndex::class, 'index'])->name('dashboard');
+    Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
+    Route::get('/guilds', GuildsComponent::class);
+    Route::get('/players', PlayersIndex::class);
+    Route::get('/wiki/categories', WikiCategory::class);
+    Route::get('/wiki/articles', WikiArticle::class);
+    Route::post('/chat/send', function (Request $request) {
+        $staffChatController = new StaffChatController;
+        $staffChatController->store($request->message);
+        return null;
+    });
+});
+
+
+// UPLOADING
+Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
 
 Route::view("/websocket/test", "websocket");
 
@@ -66,12 +77,4 @@ Route::get("/websocket", function () {
     event(new \App\Events\StaffChatEvent("test", Auth::user()));
     return null;
 });
-Route::post("/dashboard/chat/send", function (Request $request) {
-    $staffChatController = new StaffChatController;
-    $staffChatController->store($request->message);
-    return null;
-});
-
-// UPLOADING
-Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
 
