@@ -120,6 +120,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('wiki') }}">Wiki</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('status') }}">Status</a>
+                                </li>
                             </ul>
                         </div> <!-- navbar collapse -->
 

@@ -31,6 +31,7 @@ use GuzzleHttp\Client;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::redirect('/status', 'https://status.theorganization.eu');
 Route::get('/403', [LandingController::class, 'index']);
 Route::view('/test', "test");
 
