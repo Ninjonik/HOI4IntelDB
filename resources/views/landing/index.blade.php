@@ -552,7 +552,7 @@
 <!--====== TESTIMONIAL PART ENDS ======-->
 
 <!--====== BLOG PART START ======-->
-
+<!--
 <section id="blog" class="blog-area pt-115">
     <div class="container">
         <div class="row justify-content-center">
@@ -560,9 +560,9 @@
                 <div class="section-title text-center pb-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                     <h6 class="sub-title">Our Blog</h6>
                     <h4 class="title">Letest <span>News.</span></h4>
-                </div> <!-- section title -->
+                </div>
             </div>
-        </div> <!-- row -->
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.4s">
@@ -581,7 +581,7 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- single blog -->
+                </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.7s">
@@ -600,7 +600,7 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- single blog -->
+                </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="1s">
@@ -619,12 +619,12 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- single blog -->
+                </div>
             </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
+        </div>
+    </div>
 </section>
-
+-->
 <!--====== BLOG PART ENDS ======-->
 
 <!--====== FOOTER PART START ======-->
