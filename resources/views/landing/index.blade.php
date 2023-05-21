@@ -106,23 +106,38 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav m-auto">
                                 <li class="nav-item active">
-                                    <a href="#home">Home</a>
+                                    <a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#about">About </a>
+                                    <a href="#about"><i class="fa fa-users" aria-hidden="true"></i> About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#services">Features</a>
+                                    <a href="#services"><i class="fa fa-list" aria-hidden="true"></i> Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#blog">Blog</a>
+                                    <a href="#blog"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('wiki') }}">Wiki</a>
+                                    <a href="{{ route('wiki') }}"><i class="fa fa-book" aria-hidden="true"></i> Wiki</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('status') }}">Status</a>
+                                    <a href="{{ route('status') }}"><i class="fa fa-server" aria-hidden="true"></i> Status</a>
                                 </li>
+                                @auth
+                                <li class="nav-item">
+                                    <a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a>
+                                </li>
+                                @endauth
+                                @guest
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
+                                </li>
+                                @endguest
+                                @can('view-dashboard')
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}"><i class="fa fa-wrench"></i> Panel</a>
+                                </li>
+                                @endcan
                             </ul>
                         </div> <!-- navbar collapse -->
 

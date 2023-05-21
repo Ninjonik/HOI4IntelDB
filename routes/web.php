@@ -51,7 +51,7 @@ Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
-});
+})->name('logout');
 
 Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->group(function () {
     Route::get('/', [PanelIndex::class, 'index'])->name('dashboard');
