@@ -34,6 +34,7 @@
             $("#modal").modal("hide");
             $("#edit-modal").modal("hide");
             $("#delete-modal").modal("hide");
+            $("#ban-modal").modal("hide");
             $("#view-modal").modal("hide");
         });
         window.addEventListener("guild-added", event => {
@@ -77,6 +78,7 @@
             $("#modal").modal("hide");
             $("#edit-modal").modal("hide");
             $("#delete-modal").modal("hide");
+            $("#ban-modal").modal("hide");
             $("#view-modal").modal("hide");
         });
 
@@ -98,11 +100,20 @@
                 title: 'Record has been successfully removed!',
             })
         });
+        window.addEventListener("banned", event => {
+            Toast.fire({
+                icon: 'success',
+                title: 'User successfully banned/unbanned!',
+            })
+        });
         window.addEventListener("show-edit-modal", event => {
             $("#edit-modal").modal("show");
         });
         window.addEventListener("show-delete-modal", event => {
             $("#delete-modal").modal("show");
+        });
+        window.addEventListener("show-ban-modal", event => {
+            $("#ban-modal").modal("show");
         });
         window.addEventListener("show-view-modal", event => {
             $("#view-modal").modal("show");

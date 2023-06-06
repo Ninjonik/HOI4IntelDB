@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('discord_name')->nullable();
             $table->float('rating')->default(0.5);
             $table->string('profile_link')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

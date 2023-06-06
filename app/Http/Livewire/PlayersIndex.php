@@ -10,6 +10,7 @@ use Livewire\WithPagination;
 class PlayersIndex extends Component
 {
     public $id_delete;
+    public $id_ban;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search = '';
@@ -29,6 +30,27 @@ class PlayersIndex extends Component
     public function updatedSearch()
     {
         $this->resetPage();
+    }
+
+    // BAN
+
+    public function banConfirmation($id)
+    {
+        $this->id_ban = $id;
+        $this->DispatchBrowserEvent("show-ban-modal");
+    }
+
+    public function banData()
+    {
+        $data = Players::where("id", $this->id_ban)->first();
+        // TODO: Fix, behaves very weirdly
+        if ($data["status"] == 0) {
+            Players::where('id',$this->id_ban)->update(['status'=>2]);
+        } else {
+            Players::where('id',$this->id_ban)->update(['status'=>0]);
+        }
+        $this->DispatchBrowserEvent("banned");
+        $this->DispatchBrowserEvent("close-modal");
     }
 
     // DELETE
