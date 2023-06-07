@@ -32,6 +32,12 @@ class PlayersIndex extends Component
         $this->resetPage();
     }
 
+    public function resetInputs()
+    {
+        $this->id_ban = "";
+        $this->id_delete = "";
+    }
+
     // BAN
 
     public function banConfirmation($id)
@@ -42,15 +48,18 @@ class PlayersIndex extends Component
 
     public function banData()
     {
-        $data = Players::where("id", $this->id_ban)->first();
-        // TODO: Fix, behaves very weirdly
-        if ($data["status"] == 0) {
-            Players::where('id',$this->id_ban)->update(['status'=>2]);
-        } else {
-            Players::where('id',$this->id_ban)->update(['status'=>0]);
+        $data = Players::where('id', $this->id_ban)->first();
+        if ($data){
+            if ($data->status == 0) {
+                $data->status = 2;
+            } else {
+                $data->status = 0;
+            }
+            $data->save();
+            $this->resetInputs();
+            $this->DispatchBrowserEvent("banned");
+            $this->DispatchBrowserEvent("close-modal");
         }
-        $this->DispatchBrowserEvent("banned");
-        $this->DispatchBrowserEvent("close-modal");
     }
 
     // DELETE
@@ -69,6 +78,7 @@ class PlayersIndex extends Component
             PlayerRecords::where("player_id", $discord_id)->delete();
             $data->delete();
         }
+        $this->resetInputs();
         $this->DispatchBrowserEvent("removed");
         $this->DispatchBrowserEvent("close-modal");
     }
