@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class Players extends Eloquent
 {
     use HasFactory;
+
+    public function ban()
+    {
+        return $this->hasOne(Ban::class, 'player_id', 'discord_id');
+    }
 }
+

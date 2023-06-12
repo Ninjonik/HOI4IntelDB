@@ -30,7 +30,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" wire:click="banData()">Yes, I do.</button>
+                                <button type="submit" class="btn btn-danger">Yes, I do.</button>
                             </div>
                         </div>
                     </form>
@@ -52,10 +52,30 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" wire:click="deleteData()">Yes, delete.</button>
+                                <button type="submit" class="btn btn-danger">Yes, delete.</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="banInfoModal" tabindex="-1" role="dialog" aria-labelledby="banInfoModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="banInfoModalLabel">Ban Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="banHost"></p>
+                            <p id="banDate"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -75,39 +95,37 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if($data->count() > 0)
-                        @foreach($data as $unit)
+                    @if ($data->count() > 0)
+                        @foreach ($data as $unit)
                             <tr>
-                                <th>{{ $unit->id }}</th>
-                                <th>{{ $unit->discord_id }}</th>
-                                <th>{{ $unit->discord_name}}</th>
-                                <th>{{ $unit->rating*100 }}%</th>
-                                <th>{{ $unit->profile_link }}</th>
-                                <th>
-                                    @switch($unit->status)
-                                        @case(0)
-                                            Normal
-                                            @break
-                                        @case(1)
-                                            Suspended
-                                            @break
-                                        @case(2)
-                                            Banned
-                                            @break
-                                        @default
-                                            -
-                                    @endswitch
-                                </th>
-                                <th>{{ $unit->created_at }}</th>
-                                <th>{{ $unit->updated_at }}</th>
-                                <th>
-                                    <button class="btn btn-xs btn-default text-warning mx-1 shadow" title="Ban" wire:click="banConfirmation({{ $unit->id }})">
+                                <td>{{ $unit->id }}</td>
+                                <td>{{ $unit->discord_id }}</td>
+                                <td>{{ $unit->discord_name }}</td>
+                                <td>{{ $unit->rating * 100 }}%</td>
+                                <td>{{ $unit->profile_link }}</td>
+                                <td>
+                                    @if ($unit->ban)
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#banInfoModal" data-ban-host="{{ getNameFunction($unit->banHost) }}" data-ban-date="{{ $unit->banCreatedAt }}">Banned</button>
+                                    @else
+                                        <button class="btn btn-success">Not Banned</button>
+                                    @endif
+                                </td>
+                                <td>{{ $unit->created_at }}</td>
+                                <td>{{ $unit->updated_at }}</td>
+                                <td>
+                                    @if ($unit->ban)
+                                    <button class="btn btn-xs btn-default text-success mx-1 shadow" title="UnBan" wire:click="banConfirmation('{{ $unit->discord_id }}')">
+                                        <i class="fa fa-lg fa-fw fa-sign-in-alt"></i>
+                                    </button>
+                                    @else
+                                    <button class="btn btn-xs btn-default text-warning mx-1 shadow" title="Ban" wire:click="banConfirmation('{{ $unit->discord_id }}')">
                                         <i class="fa fa-lg fa-fw fa-ban"></i>
                                     </button>
+                                    @endif
                                     <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" wire:click="deleteConfirmation({{ $unit->id }})">
                                         <i class="fa fa-lg fa-fw fa-trash"></i>
                                     </button>
-                                </th>
+                                </td>
                             </tr>
                         @endforeach
                     @else
@@ -115,22 +133,15 @@
                             <td colspan="8" style="text-align: center;"><small>No Player Found</small></td>
                         </tr>
                     @endif
+
                     </tbody>
                 </table>
-
             </div>
             <div class="card-footer clearfix">
                 {{ $data->links() }}
             </div>
-
         </div>
-
     </div>
 </div>
-
-
-
-
-
 
 

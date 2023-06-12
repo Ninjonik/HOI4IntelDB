@@ -45,7 +45,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/GetAvatar.php"
+            "app/Helpers/GetAvatar.php",
+            "app/Helpers/GetName.php"
         ]
     },
     "autoload-dev": {

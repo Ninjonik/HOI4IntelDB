@@ -121,4 +121,18 @@
 
     </script>
 
+    <script>
+        $(document).ready(function() {
+            $('#banInfoModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var banHost = button.data('ban-host');
+                var banDate = button.data('ban-date');
+
+                var modal = $(this);
+                modal.find('#banHost').text('Banned by: ' + banHost);
+                modal.find('#banDate').text('Banned on: ' + banDate);
+            });
+        });
+    </script>
+
 @stop

@@ -219,6 +219,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'GetAvatar' => App\Helpers\GetAvatar::class,
+        'GetName' => App\Helpers\GetName::class,
     ])->toArray(),
 
 ];

@@ -2,10 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Players;
 use App\Models\PlayerRecords;
+use App\Models\Ban;
 use Livewire\WithPagination;
+use GetName;
 
 class PlayersIndex extends Component
 {
@@ -17,15 +20,23 @@ class PlayersIndex extends Component
 
     public function render()
     {
-        $data = Players::when($this->search, function($query, $search) {
-            return $query->where('profile_link', 'like', '%'.$search.'%')
-                ->orWhere('discord_id', 'like', '%'.$search.'%')
-                ->orWhere('discord_name', 'like', '%'.$search.'%');
+        $data = Players::when($this->search, function ($query, $search) {
+            return $query->where('profile_link', 'like', '%' . $search . '%')
+                ->orWhere('discord_id', 'like', '%' . $search . '%')
+                ->orWhere('discord_name', 'like', '%' . $search . '%');
         })
+            ->with('ban') // Eager load the ban relationship
             ->paginate(10);
 
-        return view('livewire.players-index', ["data"=>$data])->layout('livewire.layouts.base');
+        $data->each(function ($player) {
+            $player->isBanned = $player->ban ? true : false;
+            $player->banHost = $player->ban ? $player->ban->host_id : null;
+            $player->banCreatedAt = $player->ban ? $player->ban->created_at : null;
+        });
+
+        return view('livewire.players-index', compact('data'))->layout('livewire.layouts.base');
     }
+
 
     public function updatedSearch()
     {
@@ -48,19 +59,26 @@ class PlayersIndex extends Component
 
     public function banData()
     {
-        $data = Players::where('id', $this->id_ban)->first();
-        if ($data){
-            if ($data->status == 0) {
-                $data->status = 2;
-            } else {
-                $data->status = 0;
+        $this->id_ban = intval($this->id_ban);
+        $ban = Ban::where('player_id', $this->id_ban)->first();
+        if ($ban) {
+            $ban->delete();
+        } else {
+            if($this->id_ban) {
+                $ban = new Ban();
+                $ban->player_id = $this->id_ban;
+                $ban->host_id = intval(Auth::user()->discord_id);
+                // TODO: Hardcoded for now
+                $ban->guild_id = 1035627488828735518;
+                $ban->save();
             }
-            $data->save();
-            $this->resetInputs();
-            $this->DispatchBrowserEvent("banned");
-            $this->DispatchBrowserEvent("close-modal");
         }
+
+        $this->resetInputs();
+        $this->dispatchBrowserEvent("banned");
+        $this->dispatchBrowserEvent("close-modal");
     }
+
 
     // DELETE
 
