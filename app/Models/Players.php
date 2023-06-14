@@ -14,5 +14,10 @@ class Players extends Eloquent
     {
         return $this->hasOne(Ban::class, 'player_id', 'discord_id');
     }
+
+    public function playerRecords()
+    {
+        return $this->hasMany(PlayerRecords::class, 'host_id', 'discord_id');
+    }
 }
 

@@ -18,6 +18,7 @@ use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\PlayerRecordsModal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

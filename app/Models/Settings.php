@@ -10,4 +10,9 @@ class Settings extends Model
     use HasFactory;
 
     protected $ŧable ="Settings";
+
+    public function playerRecords()
+    {
+        return $this->hasMany(PlayerRecords::class, 'guild_id', 'guild_id');
+    }
 }

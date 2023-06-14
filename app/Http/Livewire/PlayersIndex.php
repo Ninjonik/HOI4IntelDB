@@ -34,9 +34,27 @@ class PlayersIndex extends Component
             $player->banCreatedAt = $player->ban ? $player->ban->created_at : null;
         });
 
-        return view('livewire.players-index', compact('data'))->layout('livewire.layouts.base');
+        $playerRecords = [];
+
+        return view('livewire.players-index', [
+            'data' => $data,
+            'playerRecords' => $playerRecords, // Add this line
+        ])->layout('livewire.layouts.base');
     }
 
+    public function viewRecords($playerId)
+    {
+        $playerId = intval($playerId);
+        $this->playerRecords = PlayerRecords::where('player_id', $playerId)->with('host')->with('guild')->get();
+        $this->dispatchBrowserEvent("openPlayerRecordsModal");
+    }
+
+    public function cancel()
+    {
+        $this->id_delete = "";
+        $this->id_ban = "";
+        $this->dispatchBrowserEvent("close-modal");
+    }
 
     public function updatedSearch()
     {

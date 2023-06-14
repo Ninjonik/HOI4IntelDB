@@ -119,6 +119,11 @@
             $("#view-modal").modal("show");
         });
 
+        window.addEventListener('openPlayerRecordsModal', event => {
+            console.log("Opening the modal with");
+            $('#playerRecordsModal').modal('show');
+        });
+
     </script>
 
     <script>

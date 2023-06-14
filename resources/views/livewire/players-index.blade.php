@@ -15,13 +15,55 @@
                 </div>
             </div>
 
+            <!-- Player Records Modal -->
+            <div class="modal" id="playerRecordsModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Player Records</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Rating</th>
+                                    <th>Host</th>
+                                    <th>Server</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($playerRecords as $record)
+                                    <tr>
+                                        <td>{{ $record->id }}</td>
+                                        <td>{{ $record->rating * 100 }} %</td>
+                                        <td>{{ $record->host->discord_name }}</td>
+                                        <td>{{ $record->guild->guild_name }}</td>
+                                        <td>{{ $record->updated_at }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div wire:ignore.self class="modal fade" id="ban-modal">
                 <div class="modal-dialog">
                     <form wire:submit.prevent="banData">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Ban/Unban Confirmation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -43,7 +85,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Delete Confirmation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -51,7 +93,7 @@
                                 <h6>Are you sure you want to delete this article?</h6>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal" id="close">Close</button>
                                 <button type="submit" class="btn btn-danger">Yes, delete.</button>
                             </div>
                         </div>
@@ -73,7 +115,7 @@
                             <p id="banDate"></p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
                         </div>
                     </div>
                 </div>
@@ -122,6 +164,9 @@
                                         <i class="fa fa-lg fa-fw fa-ban"></i>
                                     </button>
                                     @endif
+                                        <button class="btn btn-xs btn-default text-success mx-1 shadow" title="View" wire:click="viewRecords('{{ $unit->discord_id }}')">
+                                            <i class="fa fa-lg fa-fw fa-eye"></i>
+                                        </button>
                                     <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" wire:click="deleteConfirmation({{ $unit->id }})">
                                         <i class="fa fa-lg fa-fw fa-trash"></i>
                                     </button>
@@ -143,5 +188,3 @@
         </div>
     </div>
 </div>
-
-
