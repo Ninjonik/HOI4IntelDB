@@ -64,5 +64,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'permissions.view-dashboard' => \App\Http\Middleware\ViewDashboardCheck::class,
+        'permissions.admin-dashboard' => \App\Http\Middleware\AdminDashboardCheck::class,
+        // TODO: finish the rest of permissions
     ];
 }

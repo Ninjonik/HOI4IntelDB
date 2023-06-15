@@ -42,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ban()
+    {
+        return $this->hasOne(Ban::class, 'player_id', 'discord_id');
+    }
 }

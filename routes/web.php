@@ -13,6 +13,7 @@ use App\Http\Controllers\WikiArticleController;
 use App\Http\Controllers\WikiSearchController;
 use App\Http\Livewire\GuildsComponent;
 use App\Http\Livewire\PlayersIndex;
+use App\Http\Livewire\UsersIndex;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
 use Illuminate\Http\Request;
@@ -56,16 +57,18 @@ Route::get('/logout', function () {
 
 Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->group(function () {
     Route::get('/', [PanelIndex::class, 'index'])->name('dashboard');
-    Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
-    Route::get('/guilds', GuildsComponent::class);
-    Route::get('/players', PlayersIndex::class);
-    Route::get('/wiki/categories', WikiCategory::class);
-    Route::get('/wiki/articles', WikiArticle::class);
     Route::post('/chat/send', function (Request $request) {
         $staffChatController = new StaffChatController;
         $staffChatController->store($request->message);
         return null;
     });
+    Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
+    Route::get('/players', PlayersIndex::class);
+
+    Route::get('/users', UsersIndex::class)->middleware(['auth', 'permissions.admin-dashboard']);
+    Route::get('/guilds', GuildsComponent::class)->middleware(['auth', 'permissions.admin-dashboard']);
+    Route::get('/wiki/categories', WikiCategory::class)->middleware(['auth', 'permissions.admin-dashboard']);
+    Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
 });
 
 

@@ -335,6 +335,11 @@ return [
                 'icon' => 'fas fa-fw fa-cog',
             ],
             [
+                'text' => 'Users',
+                'url'  => '/dashboard/users',
+                'icon' => 'fas fa-fw fa-user',
+            ],
+            [
                 'text'    => 'Wiki',
                 'icon'    => 'fas fa-fw fa-share',
                 'submenu' => [
