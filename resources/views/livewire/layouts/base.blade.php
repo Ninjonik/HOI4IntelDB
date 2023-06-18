@@ -20,13 +20,8 @@
     </script>
     @vite('resources/js/app.js')
     <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 4000
-        });
-        window.addEventListener("close-modal", event => {
+
+        function hideModal(){
             $("#modal-guild").modal("hide");
             $("#edit-modal-guild").modal("hide");
             $("#delete-modal-guild").modal("hide");
@@ -36,6 +31,18 @@
             $("#delete-modal").modal("hide");
             $("#ban-modal").modal("hide");
             $("#view-modal").modal("hide");
+            $("#playerRecordsModal").modal("hide");
+            console.log("hiding")
+        }
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000
+        });
+        window.addEventListener("close-modal", event => {
+            hideModal();
         });
         window.addEventListener("guild-added", event => {
             Toast.fire({
@@ -71,15 +78,7 @@
         });
         const close_button = document.getElementById("close");
         button.addEventListener('click', function() {
-            $("#modal-guild").modal("hide");
-            $("#edit-modal-guild").modal("hide");
-            $("#delete-modal-guild").modal("hide");
-            $("#view-modal-guild").modal("hide");
-            $("#modal").modal("hide");
-            $("#edit-modal").modal("hide");
-            $("#delete-modal").modal("hide");
-            $("#ban-modal").modal("hide");
-            $("#view-modal").modal("hide");
+            hideModal();
         });
 
         window.addEventListener("added", event => {
