@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('guild_id')->references('guild_id')->on('settings');
             $table->foreign('host_id')->references('discord_id')->on('players');
             $table->float('rating')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }
