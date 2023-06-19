@@ -118,9 +118,7 @@
                     <ul>
                         <li>Inviting more people to use our bot and spreading the word about it.</li>
                         <li>Giving us feedback and suggestions on how to improve our bot.</li>
-                        <li>Donating to us via PayPal or Patreon to help us cover our hosting and development costs.</li>
                     </ul>
-                    <p>You can find our donation links on our website or by typing !donate in any channel where the bot is present.</p>
                 </div>
             </li>
             <li>
