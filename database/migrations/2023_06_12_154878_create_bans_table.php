@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('player_id')->references('discord_id')->on('players');
             $table->foreign('guild_id')->references('guild_id')->on('settings');
             $table->foreign('host_id')->references('discord_id')->on('players');
-            $table->float('reason')->nullable();
+            $table->string('reason')->nullable();
             $table->timestamps();
         });
     }
