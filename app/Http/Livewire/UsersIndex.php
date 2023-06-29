@@ -104,7 +104,7 @@ class UsersIndex extends Component
     public function editGuildsData()
     {
         // Serialize the selected guild IDs
-        $serializedGuilds = serialize($this->id_guild);
+        $serializedGuilds = json_encode($this->id_guild);
 
         // Update the user's guilds field with serialized guild IDs
         $user = User::find($this->id_user);
@@ -126,7 +126,7 @@ class UsersIndex extends Component
         // Fetch and update the guilds_data
         $user = User::find($this->id_user);
         if($user->guilds){
-            $guilds = unserialize($user->guilds);
+            $guilds = json_decode($user->guilds);
             $this->guilds_data = Settings::whereIn('id', $guilds)->get();
         }
 

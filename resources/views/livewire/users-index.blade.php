@@ -187,13 +187,18 @@
                                 </td>
                                 <td>
                                     <div>
-                                        @if (unserialize($unit->guilds))
-                                            @foreach (unserialize($unit->guilds) as $guild)
+                                        @php
+                                            $decodedGuilds = json_decode($unit->guilds);
+                                        @endphp
+
+                                        @if ($decodedGuilds)
+                                            @foreach ($decodedGuilds as $guild)
                                                 <button data-toggle="tooltip" data-placement="top" title="{{ $guilds->firstWhere('id', $guild)->guild_name ?? '-' }}">{{ $guild }}</button>
                                             @endforeach
                                         @else
                                             -
                                         @endif
+
                                         <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="editGuilds({{ $unit->id }})">
                                             <i class="fa fa-lg fa-fw fa-pen"></i>
                                         </button>
