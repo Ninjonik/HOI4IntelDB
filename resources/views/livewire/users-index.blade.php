@@ -21,7 +21,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Ban/Unban Confirmation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()" onclick="hideModal();">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -29,7 +29,7 @@
                                 <h6>Are you sure you want to ban/unban this player?</h6>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal" onclick="hideModal();">Close</button>
                                 <button type="submit" class="btn btn-danger">Yes, I do.</button>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Delete Confirmation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="cancel()" onclick="hideModal();">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -51,7 +51,7 @@
                                 <h6>Are you sure you want to delete this article?</h6>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal" id="close">Close</button>
+                                <button type="button" class="btn btn-default" wire:click="cancel()" data-dismiss="modal" id="close" onclick="hideModal();">Close</button>
                                 <button type="submit" class="btn btn-danger">Yes, delete.</button>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="banInfoModalLabel">Ban Information</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -73,7 +73,7 @@
                             <p id="banDate"></p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close" onclick="hideModal();">Close</button>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Edit User's Group</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -105,7 +105,41 @@
 
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="hideModal();">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="guilds-modal">
+                <div class="modal-dialog">
+                    <form wire:submit.prevent="editGuildsData">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Edit User's Guilds</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id_group" class="col-3">User's Guilds</label>
+                                    <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" wire:model="id_guild" id="id_guild">
+                                        @foreach($guilds as $guild)
+                                            <option value="{{ $guild->id }}">{{ $guild->guild_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error("id_guild")
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="hideModal();">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
@@ -123,6 +157,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Group</th>
+                        <th>Guilds</th>
                         <th>Status</th>
                         <th>Created</th>
                         <th>Updated</th>
@@ -145,6 +180,21 @@
                                             -
                                         @endforelse
                                         <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="edit({{ $unit->id }})">
+                                            <i class="fa fa-lg fa-fw fa-pen"></i>
+                                        </button>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div>
+                                        @if (unserialize($unit->guilds))
+                                            @foreach (unserialize($unit->guilds) as $guild)
+                                                <button data-toggle="tooltip" data-placement="top" title="{{ $guilds->firstWhere('id', $guild)->guild_name ?? '-' }}">{{ $guild }}</button>
+                                            @endforeach
+                                        @else
+                                            -
+                                        @endif
+                                        <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="editGuilds({{ $unit->id }})">
                                             <i class="fa fa-lg fa-fw fa-pen"></i>
                                         </button>
                                     </div>

@@ -9,6 +9,8 @@
     {{ $slot }}
 @stop
 
+@section('plugins.Select2', true)
+
 @section('css')
     @livewireStyles
     <link rel="stylesheet" href="{{ url('/css/swal.css') }}">
@@ -32,6 +34,7 @@
             $("#ban-modal").modal("hide");
             $("#view-modal").modal("hide");
             $("#playerRecordsModal").modal("hide");
+            $("#guilds-modal").modal("hide");
             console.log("hiding")
         }
 
@@ -123,6 +126,10 @@
             $('#playerRecordsModal').modal('show');
         });
 
+        window.addEventListener("show-guilds-modal", event => {
+            $("#guilds-modal").modal("show");
+        })
+
     </script>
 
     <script>
@@ -136,6 +143,12 @@
                 modal.find('#banHost').text('Banned by: ' + banHost);
                 modal.find('#banDate').text('Banned on: ' + banDate);
             });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 

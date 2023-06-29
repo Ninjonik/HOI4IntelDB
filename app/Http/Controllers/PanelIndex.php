@@ -11,15 +11,19 @@ use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
 use Bouncer;
 use JetBrains\PhpStorm\NoReturn;
+use Illuminate\Support\Facades\Cache;
 
 class PanelIndex extends Controller
 {
     public function index()
     {
-        if (!Bouncer::can("view-dashboard")) {
-            return redirect("/403");
+        $cachedData = Cache::get('panel_data');
+
+        if ($cachedData) {
+            return $cachedData;
         }
-        // Get the Members in servers with WWCBot (Last 7 Days) Graph
+
+        // Fetch the Members in servers with HOI4Intel (Last 7 Days) Graph
         $results = Statistics::select(
             DB::raw("SUM(count) as count"),
             DB::raw("date(updated_at) as date")
@@ -52,6 +56,10 @@ class PanelIndex extends Controller
         ]);
         $news = json_decode($response->getBody(), true)['appnews']['newsitems'];
 
-        return view('panel/index', compact('labels', 'data', 'difference', 'data_stats', 'news'));
+        // Cache the data for future requests
+        $cachedData = view('panel/index', compact('labels', 'data', 'difference', 'data_stats', 'news'))->render();
+        Cache::put('panel_data', $cachedData, 720); // Cache the data for 60 minutes
+
+        return $cachedData;
     }
 }
