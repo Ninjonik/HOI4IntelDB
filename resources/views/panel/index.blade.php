@@ -16,7 +16,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{ $difference }}</h3>
-                        <p>New Members [Last 7 days]</p>
+                        <p>New Members [Last 7 days] (Server)</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -24,12 +24,14 @@
                 </div>
             </div>
 
+            @if(!$guild)
+
             <div class="col-lg-3 col-6">
 
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h3>{{ $data_stats["player_count"] }}</h3>
-                        <p>Member Count</p>
+                        <p>Player Count</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -63,6 +65,8 @@
                 </div>
             </div>
 
+            @endif
+
         </div>
         <style>
             .grid-container {
@@ -89,7 +93,11 @@
                         const data = {
                             labels: labels,
                             datasets: [{
-                                label: 'Members in servers with HOI4Bot [Last 7 Days]',
+                                @if($guild)
+                                    label: 'Members in {{ $guild }}',
+                                @else
+                                    label: 'Members in servers with HOI4Bot [Last 7 Days]',
+                                @endif
                                 backgroundColor: 'rgb(255, 99, 132)',
                                 borderColor: 'rgb(255, 99, 132)',
                                 data: users,

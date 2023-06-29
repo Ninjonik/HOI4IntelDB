@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\GuildController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PanelIndex;
@@ -69,6 +70,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/guilds', GuildsComponent::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/categories', WikiCategory::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
+    Route::get('/guild/{id}', [GuildController::class, 'index'])->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild");
 });
 
 

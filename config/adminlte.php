@@ -323,36 +323,6 @@ return [
             'url'  => '/dashboard/players',
             'icon' => 'fas fa-fw fa-user',
         ],
-        ['header' => 'Administration'],
-            [
-                'text' => 'Statistics',
-                'url'  => '/dashboard/administration',
-                'icon' => 'fas fa-fw fa-file',
-            ],
-            [
-                'text' => 'Guilds',
-                'url'  => '/dashboard/guilds',
-                'icon' => 'fas fa-fw fa-cog',
-            ],
-            [
-                'text' => 'Users',
-                'url'  => '/dashboard/users',
-                'icon' => 'fas fa-fw fa-user',
-            ],
-            [
-                'text'    => 'Wiki',
-                'icon'    => 'fas fa-fw fa-share',
-                'submenu' => [
-                    [
-                        'text' => 'Categories',
-                        'url'  => '/dashboard/wiki/categories',
-                    ],
-                    [
-                        'text' => 'Articles',
-                        'url'  => '/dashboard/wiki/articles',
-                    ],
-                ],
-            ],
     ],
 
     /*
