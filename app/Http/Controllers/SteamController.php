@@ -72,7 +72,7 @@ class SteamController extends Controller
                         $description = "Your steam account has been successfully linked with your discord account. Please run /verify command again on the discord server.";
                     } catch (Exception $e) {
                         $status = "There has been an error...";
-                        $description = "Your steam account has already been linked with this discord account. ".$e;
+                        $description = "Your steam account has already been linked with this discord account. ";
                     }
                 }
             } else {
@@ -87,7 +87,7 @@ class SteamController extends Controller
             return view("steam_api", ["data" => $data]);
         } catch (Exception $e) {
             $status = "There has been an error...";
-            $description = "There has been an error with validating your steam account. This may be caused by either Private Profile or by you not having Hearts of Iron IV bought on your steam account. How to: https://asapguide.com/how-to-make-steam-profile-public/ - once you resolve these issues, you can try again. Feel free to Contact HOI4Intel's Staff.".$e;
+            $description = "There has been an error with validating your steam account. This may be caused by either Private Profile or by you not having Hearts of Iron IV bought on your steam account. How to: https://asapguide.com/how-to-make-steam-profile-public/ - once you resolve these issues, you can try again. Feel free to Contact HOI4Intel's Staff.";
 
             $data = [
                 "status" => $status,
