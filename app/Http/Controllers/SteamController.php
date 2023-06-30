@@ -72,7 +72,7 @@ class SteamController extends Controller
                         $description = "Your steam account has been successfully linked with your discord account. Please run /verify command again on the discord server.";
                     } catch (Exception $e) {
                         $status = "There has been an error...";
-                        $description = "Your steam account has already been linked with this discord account. ";
+                        $description = "Your steam account has already been linked with discord account. ";
                     }
                 }
             } else {
