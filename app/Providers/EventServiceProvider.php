@@ -50,8 +50,18 @@ class EventServiceProvider extends ServiceProvider
 
                 foreach ($guildsData as $guildData) {
                     $event->menu->add([
-                        'text' => $guildData->guild_name,
-                        'url' => route('dashboard.guild', ['id' => $guildData->id]),
+                        'text'    => $guildData->guild_name,
+                        'icon'    => 'fas fa-fw fa-share',
+                        'submenu' => [
+                            [
+                                'text' => 'Statistics',
+                                'url'  => route('dashboard.guild', ['id' => $guildData->id]),
+                            ],
+                            [
+                                'text' => 'Settings',
+                                'url'  => route('dashboard.guild.settings', ['id' => $guildData->id]),
+                            ],
+                        ],
                     ]);
                 }
             }

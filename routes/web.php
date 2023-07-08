@@ -71,6 +71,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/wiki/categories', WikiCategory::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/guild/{id}', [GuildController::class, 'index'])->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild");
+    Route::get('/guild/{id}/settings', [GuildController::class, 'index'])->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild.settings");
 });
 
 
