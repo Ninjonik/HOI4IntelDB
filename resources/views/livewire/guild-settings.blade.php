@@ -21,7 +21,7 @@
                     <input type="checkbox" name="steam_verification" true-value="1" false-value="0" wire:model="steam_verification">
                     @error('steam_verification') <span class="error">{{ $message }}</span> @enderror
                 </div>
-                <div class="form-group">
+                <div class="form-group" wire:ignore>
                     <label for="log_channel" class="col-3">Logs Channel</label>
                     <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="log_channel" wire:model="log_channel">
                         @foreach($channels as $channel)
