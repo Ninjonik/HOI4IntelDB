@@ -65,6 +65,18 @@
                 title: 'Guild has been successfully removed!',
             })
         });
+        window.addEventListener("guild-edited", event => {
+            Toast.fire({
+                icon: 'success',
+                title: 'Guild has been successfully updated!',
+            })
+        });
+        window.addEventListener("guild-not-edited", event => {
+            Toast.fire({
+                icon: 'error',
+                title: 'There has been an error while processing your changes. They have not been applied to discord.',
+            })
+        });
         window.addEventListener("show-edit-guild-modal", event => {
             $("#edit-modal-guild").modal("show");
         });

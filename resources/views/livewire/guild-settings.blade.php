@@ -21,6 +21,20 @@
                     <input type="checkbox" name="steam_verification" true-value="1" false-value="0" wire:model="steam_verification">
                     @error('steam_verification') <span class="error">{{ $message }}</span> @enderror
                 </div>
+                <div class="form-group">
+                    <label for="log_channel" class="col-3">Logs Channel</label>
+                    <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="log_channel" wire:model="log_channel">
+                        @foreach($channels as $channel)
+                            <option value="{{ $channel['channel_id'] }}">
+                                {{ $channel['channel_name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error("log_channel")
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
 
             <div class="card-footer">
@@ -29,3 +43,17 @@
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+
+        // Manually trigger Livewire update when select2 value changes
+        $('#log_channel').on('change', function() {
+            @this.set('log_channel', $(this).val());
+        });
+    });
+</script>
