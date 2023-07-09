@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Players;
 use App\Models\Settings;
-use Carbon\Carbon;
 use App\Models\Statistics;
 use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
 use Bouncer;
-use JetBrains\PhpStorm\NoReturn;
 use Illuminate\Support\Facades\Cache;
 
 class GuildController extends Controller

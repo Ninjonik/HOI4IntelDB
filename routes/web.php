@@ -13,6 +13,7 @@ use App\Http\Controllers\WikiCategoryController;
 use App\Http\Controllers\WikiArticleController;
 use App\Http\Controllers\WikiSearchController;
 use App\Http\Livewire\GuildsComponent;
+use App\Http\Livewire\GuildSettings;
 use App\Http\Livewire\PlayersIndex;
 use App\Http\Livewire\UsersIndex;
 use App\Http\Livewire\WikiArticle;
@@ -71,7 +72,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/wiki/categories', WikiCategory::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/guild/{id}', [GuildController::class, 'index'])->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild");
-    Route::get('/guild/{id}/settings', [GuildController::class, 'index'])->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild.settings");
+    Route::get('/guild/{id}/settings', GuildSettings::class)->middleware(['auth', 'permissions.admin-dashboard'])->name("dashboard.guild.settings");
 });
 
 
