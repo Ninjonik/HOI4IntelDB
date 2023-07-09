@@ -1,5 +1,3 @@
-@section('plugins.BootstrapSwitch', true)
-
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
@@ -31,6 +29,3 @@
         </form>
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{{ asset('livewire/livewire.js') }}"></script>
