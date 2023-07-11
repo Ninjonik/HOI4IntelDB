@@ -117,7 +117,19 @@
         window.addEventListener("banned", event => {
             Toast.fire({
                 icon: 'success',
-                title: 'User successfully banned/unbanned!',
+                title: 'User successfully banned!',
+            })
+        });
+        window.addEventListener("unbanned", event => {
+            Toast.fire({
+                icon: 'success',
+                title: 'User successfully unbanned!',
+            })
+        });
+        window.addEventListener("banned-error", event => {
+            Toast.fire({
+                icon: 'error',
+                title: 'There has been an error while banning/unbanning this user. Contact HOI4Intel support.',
             })
         });
         window.addEventListener("show-edit-modal", event => {
@@ -147,13 +159,15 @@
     <script>
         $(document).ready(function() {
             $('#banInfoModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var banHost = button.data('ban-host');
-                var banDate = button.data('ban-date');
+                let button = $(event.relatedTarget);
+                let banHost = button.data('ban-host');
+                let banDate = button.data('ban-date');
+                let banReason = button.data('ban-reason');
 
-                var modal = $(this);
+                let modal = $(this);
                 modal.find('#banHost').text('Banned by: ' + banHost);
                 modal.find('#banDate').text('Banned on: ' + banDate);
+                modal.find('#banReason').text('Reason: ' + banReason);
             });
         });
     </script>

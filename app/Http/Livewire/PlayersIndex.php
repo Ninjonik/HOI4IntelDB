@@ -9,6 +9,8 @@ use App\Models\PlayerRecords;
 use App\Models\Ban;
 use Livewire\WithPagination;
 use GetName;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class PlayersIndex extends Component
 {
@@ -32,6 +34,7 @@ class PlayersIndex extends Component
             $player->isBanned = $player->ban ? true : false;
             $player->banHost = $player->ban ? $player->ban->host_id : null;
             $player->banCreatedAt = $player->ban ? $player->ban->created_at : null;
+            $player->banReason = $player->ban ? $player->ban->reason : null;
         });
 
         $playerRecords = [];
@@ -79,21 +82,52 @@ class PlayersIndex extends Component
     {
         $this->id_ban = intval($this->id_ban);
         $ban = Ban::where('player_id', $this->id_ban)->first();
+
+        $client = new Client();
+
         if ($ban) {
-            $ban->delete();
+            try {
+                $response = $client->patch(env('COMMS_URL').'/user/unban', [
+                    'json' => [
+                        'token' => env("COMMS_TOKEN"),
+                        'player_id' => $this->id_ban,
+                        'reason' => 'Unbanned using dashboard by '.Auth::user()->name,
+                    ],
+                ]);
+                if ($response->getStatusCode() === 200) {
+                    $this->dispatchBrowserEvent("unbanned");
+                } else {
+                    $this->dispatchBrowserEvent("banned-error");
+                }
+            } catch (RequestException $e) {
+                // Handle request timeout or other exceptions
+                $this->dispatchBrowserEvent("banned-error");
+            }
         } else {
             if($this->id_ban) {
-                $ban = new Ban();
-                $ban->player_id = $this->id_ban;
-                $ban->host_id = intval(Auth::user()->discord_id);
-                // TODO: Hardcoded for now
-                $ban->guild_id = 1035627488828735518;
-                $ban->save();
+                try {
+                    $response = $client->post(env('COMMS_URL').'/user/ban', [
+                        'json' => [
+                            'token' => env("COMMS_TOKEN"),
+                            'player_id' => $this->id_ban,
+                            'player_name' => 'undefined',
+                            'host_id' => Auth::user()->discord_id,
+                            'reason' => 'Banned using dashboard by '.Auth::user()->name,
+                        ],
+                    ]);
+                    if ($response->getStatusCode() === 200) {
+                        $this->dispatchBrowserEvent("banned");
+                    } else {
+                        $this->dispatchBrowserEvent("banned-error");
+                    }
+                } catch (RequestException $e) {
+                    // Handle request timeout or other exceptions
+                    $this->dispatchBrowserEvent("banned-error");
+                }
             }
         }
 
         $this->resetInputs();
-        $this->dispatchBrowserEvent("banned");
         $this->dispatchBrowserEvent("close-modal");
     }
 

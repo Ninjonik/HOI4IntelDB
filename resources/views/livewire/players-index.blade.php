@@ -123,6 +123,7 @@
                         <div class="modal-body">
                             <p id="banHost"></p>
                             <p id="banDate"></p>
+                            <p id="banReason"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal();">Close
@@ -166,7 +167,7 @@
                                     @if ($unit->ban)
                                         <button class="btn btn-danger" data-toggle="modal" data-target="#banInfoModal"
                                                 data-ban-host="{{ getNameFunction($unit->banHost) }}"
-                                                data-ban-date="{{ $unit->banCreatedAt }}">Banned
+                                                data-ban-date="{{ $unit->banCreatedAt }}" data-ban-reason="{{ $unit->banReason }}">Banned
                                         </button>
                                     @else
                                         <button class="btn btn-success">Not Banned</button>
