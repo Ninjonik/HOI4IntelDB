@@ -87,12 +87,12 @@
             $("#view-modal-guild").modal("show");
         });
         const button = document.getElementById("add");
-        button.addEventListener('click', function() {
+        button?.addEventListener('click', function() {
             $("#modal").modal("show");
             $("#modal-guild").modal("show");
         });
         const close_button = document.getElementById("close");
-        button.addEventListener('click', function() {
+        button?.addEventListener('click', function() {
             hideModal();
         });
 

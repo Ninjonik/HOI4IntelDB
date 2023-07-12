@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\LobbyEvent;
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
 use App\Http\Controllers\GuildController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\WikiArticleController;
 use App\Http\Controllers\WikiSearchController;
 use App\Http\Livewire\GuildsComponent;
 use App\Http\Livewire\GuildSettings;
+use App\Http\Livewire\LobbyController;
 use App\Http\Livewire\PlayersIndex;
 use App\Http\Livewire\UsersIndex;
 use App\Http\Livewire\WikiArticle;
@@ -57,6 +59,15 @@ Route::get('/logout', function () {
     return redirect('/');
 })->name('logout');
 
+Route::post('/lobby/send', function (Request $request) {
+    if ($request->token == env('COMMS_TOKEN')) {
+        event(new LobbyEvent($request->user, $request->action, auth()->user()));
+        return response()->json(['success' => 'success']);
+    } else {
+        return response()->json(['error' => 'invalid token'], 400);
+    }
+});
+
 Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->group(function () {
     Route::get('/', [PanelIndex::class, 'index'])->name('dashboard');
     Route::post('/chat/send', function (Request $request) {
@@ -64,6 +75,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
         $staffChatController->store($request->message);
         return null;
     });
+    Route::get('/lobby', LobbyController::class);
     Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
     Route::get('/players', PlayersIndex::class);
 

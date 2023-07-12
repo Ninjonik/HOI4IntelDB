@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/member_chart.js',
                 'resources/js/staff_chat.js',
+                'resources/js/lobby.js',
             ],
             refresh: true,
         }),

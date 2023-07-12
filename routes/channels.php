@@ -20,3 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel("presence.dashboard.staff_chat.{id}", function ($user, $id){
     return $user;
 });
+
+Broadcast::channel("presence.dashboard.lobby.{id}", function ($user, $id){
+    return $user;
+});
