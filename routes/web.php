@@ -20,6 +20,7 @@ use App\Http\Livewire\PlayersIndex;
 use App\Http\Livewire\UsersIndex;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,10 +62,27 @@ Route::get('/logout', function () {
 
 Route::post('/lobby/send', function (Request $request) {
     if ($request->token == env('COMMS_TOKEN')) {
-        event(new LobbyEvent($request->user, $request->action, auth()->user()));
-        return response()->json(['success' => 'success']);
+        event(new LobbyEvent($request->user, $request->action, auth()->user(), $request->lobby_id));
+        return response()->json(['success' => $request->lobby_id]);
     } else {
         return response()->json(['error' => 'invalid token'], 400);
+    }
+});
+Route::post('/lobby/edit', function (Request $request) {
+    $client = new Client();
+    $response = $client->patch(env('COMMS_URL').'/edit/user', [
+        'json' => [
+            'token' => env("COMMS_TOKEN"),
+            'guild_id' => $request->guild_id,
+            'player_id' => $request->player_id,
+            'player_new_name' => $request->player_new_name,
+        ],
+    ]);
+
+    if ($response->getStatusCode() === 200) {
+        return response()->json(['success' => $request], 200);
+    } else {
+        return response()->json(['error' => "error"], 400);
     }
 });
 
@@ -75,7 +93,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
         $staffChatController->store($request->message);
         return null;
     });
-    Route::get('/lobby', LobbyController::class);
+    Route::get('/lobby/{guild_id}/{id}', LobbyController::class);
     Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
     Route::get('/players', PlayersIndex::class);
 

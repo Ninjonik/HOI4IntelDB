@@ -4,14 +4,11 @@ namespace App\Events;
 
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use GetAvatar;
 
 class LobbyEvent implements ShouldBroadcast
 {
@@ -19,7 +16,8 @@ class LobbyEvent implements ShouldBroadcast
 
     private $user;
     private $action;
-    private /*User*/ $host;
+    private $host;
+    private $lobby_id;
     private Carbon $time;
 
     /**
@@ -27,11 +25,12 @@ class LobbyEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($user, $action, $host)
+    public function __construct($user, $action, $host, $lobby_id)
     {
         $this->action = $action;
         $this->user = $user;
         $this->host = $host ?? '';
+        $this->lobby_id = $lobby_id;
         $this->time = Carbon::now();
     }
 
@@ -42,12 +41,12 @@ class LobbyEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('presence.dashboard.lobby.1');
+        return new PresenceChannel('presence.dashboard.lobby.'.$this->lobby_id);
     }
 
     public function broadcastAs()
     {
-        return "lobby";
+        return "lobby.".$this->lobby_id;
     }
 
     public function broadcastWith()
@@ -56,6 +55,7 @@ class LobbyEvent implements ShouldBroadcast
             "action" => $this->action,
             "user" => $this->user,
             "host" => $this->host,
+            "lobby_id" => $this->lobby_id,
             "time" => $this->time->toDateTimeString()
         ];
     }

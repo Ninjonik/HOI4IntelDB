@@ -2,7 +2,8 @@ import './app.js';
 
 let usersOnline = [];
 
-const channel = echo.join("presence.dashboard.lobby.1");
+const channel = echo.join("presence.dashboard.lobby." + window.lobbyId);
+console.log(channel);
 channel.here((users) => {
     usersOnline = [...users];
     console.log({ users });
@@ -17,10 +18,9 @@ channel.here((users) => {
     .leaving(() => {
         console.log("left");
     })
-    .listen(".lobby", (event) => {
+    .listen(".lobby." + window.lobbyId, (event) => {
         console.log(event);
 
-        const table = document.getElementById('table');
         const tableBody = document.querySelector("#data tbody");
 
         if (event.action === "delete" && event.user?.discord_id) {
@@ -46,7 +46,31 @@ channel.here((users) => {
             tr.appendChild(nameCell);
 
             const countryCell = document.createElement("td");
-            countryCell.textContent = event.user.country;
+            const editModeContainer = document.createElement("div");
+            editModeContainer.id = `editModeContainer_${event.user.discord_id}`;
+            const editModeDiv = document.createElement("div");
+            editModeDiv.id = `edit_${event.user.discord_id}`;
+            editModeDiv.style.display = "none";
+            const inputElement = document.createElement("input");
+            inputElement.id = `input_${event.user.discord_id}`;
+            inputElement.name = `country_${event.user.discord_id}`;
+            inputElement.type = "text";
+            inputElement.onblur = () => updateCountry(inputElement.value, event.user.discord_id);
+            editModeDiv.appendChild(inputElement);
+            editModeContainer.appendChild(editModeDiv);
+            const countrySpan = document.createElement("span");
+            countrySpan.id = `country_${event.user.discord_id}`;
+            countrySpan.textContent = event.user.country;
+            editModeContainer.appendChild(countrySpan);
+            countryCell.appendChild(editModeContainer);
+
+            const editButton = document.createElement("button");
+            editButton.className = "btn btn-xs btn-default text-primary mx-1 shadow";
+            editButton.title = "Edit";
+            editButton.innerHTML = '<i class="fa fa-lg fa-fw fa-pen"></i>';
+            editButton.onclick = () => editMode(event.user.discord_id);
+            countryCell.appendChild(editButton);
+
             tr.appendChild(countryCell);
 
             const ratingCell = document.createElement("td");
@@ -54,22 +78,22 @@ channel.here((users) => {
             tr.appendChild(ratingCell);
 
             const joinedCell = document.createElement("td");
-            const joinedDate = new Date(event.user.joined * 1000);
+            const joinedDate = new Date().toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(',', '');
             joinedCell.textContent = joinedDate.toLocaleString();
             tr.appendChild(joinedCell);
 
             const actionsCell = document.createElement("td");
-            const editButton = document.createElement("button");
-            editButton.className = "btn btn-xs btn-default text-primary mx-1 shadow";
-            editButton.title = "Edit";
-            editButton.innerHTML = '<i class="fa fa-lg fa-fw fa-pen"></i>';
-            actionsCell.appendChild(editButton);
+            const editActionButton = document.createElement("button");
+            editActionButton.className = "btn btn-xs btn-default text-primary mx-1 shadow";
+            editActionButton.title = "Edit";
+            editActionButton.innerHTML = '<i class="fa fa-lg fa-fw fa-pen"></i>';
+            actionsCell.appendChild(editActionButton);
 
-            const deleteButton = document.createElement("button");
-            deleteButton.className = "btn btn-xs btn-default text-danger mx-1 shadow";
-            deleteButton.title = "Delete";
-            deleteButton.innerHTML = '<i class="fa fa-lg fa-fw fa-trash"></i>';
-            actionsCell.appendChild(deleteButton);
+            const deleteActionButton = document.createElement("button");
+            deleteActionButton.className = "btn btn-xs btn-default text-danger mx-1 shadow";
+            deleteActionButton.title = "Delete";
+            deleteActionButton.innerHTML = '<i class="fa fa-lg fa-fw fa-trash"></i>';
+            actionsCell.appendChild(deleteActionButton);
 
             tr.appendChild(actionsCell);
 
