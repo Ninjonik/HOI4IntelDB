@@ -37,8 +37,8 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => false,
-                'encrypted' => false,
+                #'useTLS' => env('PUSHER_USE_TLS'),
+                'encrypted' => env('PUSHER_ENCRYPTED'),
                 'host' => env('PUSHER_HOST'),
                 'port' => env('PUSHER_PORT'),
                 'scheme' => env('PUSHER_SCHEME')
@@ -46,6 +46,10 @@ return [
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
             ],
+            'curl_options' => [
+                CURLOPT_SSL_VERIFYHOST => 0,
+                CURLOPT_SSL_VERIFYPEER => 0,
+            ]
         ],
 
         'ably' => [
