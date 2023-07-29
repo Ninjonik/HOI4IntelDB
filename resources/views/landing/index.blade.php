@@ -647,6 +647,9 @@
 <footer id="footer" class="footer-area bg_cover">
     <div class="container">
         <div class="footer-copyright text-center">
+            <p class="text">
+                <a href="/PrivacyPolicyJuly2023.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </p>
             <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved.</p>
         </div>
     </div> <!-- container -->
@@ -719,6 +722,11 @@
     })();
 </script>
 <!--End of Tawk.to Script-->
+
+<script type="text/javascript" id="cookieinfo"
+        src="//cookieinfoscript.com/js/cookieinfo.min.js">
+</script>
+
 
 </body>
 
