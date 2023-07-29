@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('rating')->default(0.5);
             $table->string('profile_link')->nullable();
             $table->integer('status')->default(0);
+            $table->float('currency')->default(0);
             $table->timestamps();
         });
     }

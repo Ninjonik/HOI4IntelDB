@@ -27,4 +27,13 @@ class WikiArticle extends Model
     {
         return $this->belongsTo(User::class, 'edit_author_id');
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
+
 }
