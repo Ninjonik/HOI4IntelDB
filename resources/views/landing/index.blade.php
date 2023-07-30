@@ -140,10 +140,11 @@
                                 @endcan
                             </ul>
                         </div> <!-- navbar collapse -->
-
-                        <div class="navbar-btn d-none d-sm-inline-block">
-                            <a class="main-btn" data-scroll-nav="0" href="https://discord.com/api/oauth2/authorize?client_id=1063766598197981215&permissions=2197412118359&scope=bot%20applications.commands" target="_blank">Invite</a>
-                        </div>
+                        <a class="main-btn" href="https://discord.com/api/oauth2/authorize?client_id=1063766598197981215&permissions=2197412118359&scope=bot%20applications.commands" target="_blank">
+                            <div class="navbar-btn d-none d-sm-inline-block">
+                                Invite
+                            </div>
+                        </a>
                     </nav> <!-- navbar -->
                 </div>
             </div> <!-- row -->
