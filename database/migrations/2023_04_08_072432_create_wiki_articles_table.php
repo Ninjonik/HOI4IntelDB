@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->index();
             $table->string('tags')->index();
-            $table->text('content');
+            $table->mediumText('content');
             $table->string('image')->nullable();
             $table->string('emoji')->nullable();
             $table->unsignedBigInteger('category_id');
