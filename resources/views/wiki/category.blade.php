@@ -21,12 +21,12 @@
                     <a class="uk-position-cover" href="{{ route('wiki.article', ['id' => $article->id, 'title' => Str::slug($article->title)]) }}"></a>
                     <h3 class="uk-card-title uk-margin-remove uk-text-primary">{{ $article->title }}</h3>
                     @php
-                        // Remove HTML tags and images from the content
-                        $content = preg_replace('/<[^>]+>|<img[^>]+>/i', '', $article->content);
-                        // Truncate the content to 100 characters, preserving full words
-                        $truncatedContent = Str::words($content, 100, '...');
+                         $content = preg_replace('/<[^>]+>|<img[^>]+>/i', '', $article->content);
+                         $textContent = preg_replace('/\[data-custom-class=.*?\](.*?\[\/data-custom-class\])?/i', '', $content);
+                         $plainTextContent = strip_tags($textContent);
+                         $truncatedContent = Str::words($plainTextContent, 100, '...');
                     @endphp
-                    <p class="uk-margin-small-top">{{ $truncatedContent }}</p>
+                    <p class="uk-margin-small-top">{{htmlspecialchars(trim(strip_tags($truncatedContent)))}}</p>
                     <div class="uk-article-meta uk-flex uk-flex-middle">
                         <img class="uk-border-circle uk-avatar-small" src="{{ getAvatarFunction(100, $article->edit_author_id) }}" alt="Sara Galen">
                         <div>

@@ -114,9 +114,11 @@
                                 <li class="nav-item">
                                     <a href="#services"><i class="fa fa-list" aria-hidden="true"></i> Features</a>
                                 </li>
+                                <!--
                                 <li class="nav-item">
                                     <a href="#blog"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog</a>
                                 </li>
+                                -->
                                 <li class="nav-item">
                                     <a href="{{ route('wiki') }}"><i class="fa fa-book" aria-hidden="true"></i> Wiki</a>
                                 </li>
@@ -411,7 +413,7 @@
 <!--====== SERVICE PART ENDS ======-->
 
 <!--====== TESTIMONIAL PART START ======-->
-
+<!--
 <section id="testimonial" class="testimonial-area pt-70 pb-120">
     <div class="container">
         <div class="row justify-content-between">
@@ -420,7 +422,7 @@
                     <div class="section-title">
                         <h6 class="sub-title">Testimonials</h6>
                         <h4 class="title">The Customer Is Always Right</h4>
-                    </div> <!-- section title -->
+                    </div>
                     <ul class="testimonial-line">
                         <li></li>
                         <li></li>
@@ -428,7 +430,7 @@
                         <li></li>
                     </ul>
                     <p class="text">The Testimonials section is where you can read reviews from satisfied customers who have used our HOI4 Discord bot. Our customers' opinions matter to us, and we value their feedback. From the Event System to the Rating System and Steam Verification feature, our customers have shared their experiences with using the bot and how it has made their HOI4 gaming experience better. Read on to see what our customers have to say and decide for yourself if our bot is right for you.</p>
-                </div> <!-- testimonial left content -->
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="testimonial-right-content mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
@@ -460,7 +462,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> <!-- single testimonial -->
+                        </div>
 
                         <div class="single-testimonial">
                             <div class="testimonial-text">
@@ -484,7 +486,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> <!-- single testimonial -->
+                        </div>
 
                         <div class="single-testimonial">
                             <div class="testimonial-text">
@@ -507,7 +509,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> <!-- single testimonial -->
+                        </div>
 
                         <div class="single-testimonial">
                             <div class="testimonial-text">
@@ -532,7 +534,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> <!-- single testimonial -->
+                        </div>
 
                         <div class="single-testimonial">
                             <div class="testimonial-text">
@@ -556,14 +558,15 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> <!-- single testimonial -->
+                        </div>
 
-                    </div> <!-- testimonial content wrapper -->
-                </div> <!-- testimonial right content -->
+                    </div>
+                </div>
             </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
+        </div>
+    </div>
 </section>
+-->
 
 <!--====== TESTIMONIAL PART ENDS ======-->
 
@@ -649,7 +652,8 @@
     <div class="container">
         <div class="footer-copyright text-center">
             <p class="text">
-                <a href="/PrivacyPolicyJuly2023.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://hoi.theorganization.eu/wiki/article/22/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> -
+                <a href="https://hoi.theorganization.eu/wiki/article/23/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
             </p>
             <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved.</p>
         </div>
