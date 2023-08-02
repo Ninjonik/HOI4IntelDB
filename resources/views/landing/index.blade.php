@@ -114,6 +114,9 @@
                                 <li class="nav-item">
                                     <a href="#services"><i class="fa fa-list" aria-hidden="true"></i> Features</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="#video"><i class="fa fa-video-camera" aria-hidden="true"></i> How to</a>
+                                </li>
                                 <!--
                                 <li class="nav-item">
                                     <a href="#blog"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog</a>
@@ -335,6 +338,32 @@
 </section>
 
 <!--====== OUR SERVICE PART ENDS ======-->
+
+<!--====== ABOUT PART START ======-->
+
+<section id="video" class="about-area pt-115">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="about-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <h6 class="welcome">HOW TO</h6>
+                    <h3 class="title">Video guide explaining HOI4Intel's <span>Installation & Basic Usage</span></h3>
+                </div>
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <div class="col-lg-12" style="height: 70vh;">
+                <div class="about-image mt-60 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s" style="display: flex; width: 100%; height: 100%; flex-direction: column; background-color: blue; overflow: hidden;">
+                    <iframe style="flex-grow: 1;"
+                            src="https://www.youtube.com/embed/n4ltNFrooqU">
+                    </iframe>
+                </div> <!-- about image -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== ABOUT PART ENDS ======-->
 
 <!--====== SERVICE PART START ======-->
 
