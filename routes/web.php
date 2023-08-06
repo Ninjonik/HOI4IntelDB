@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\LobbyEvent;
+use App\Http\Controllers\DataRequestController;
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\GitHubController;
 use App\Http\Controllers\GuildController;
@@ -37,6 +38,7 @@ use App\Http\Livewire\PlayerRecordsModal;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/data-request/{id}', [DataRequestController::class, 'generatePdf']);
 Route::get('/PrivacyPolicy.pdf', function () {
     $filePath = public_path('PrivacyPolicy.pdf');
     return response()->file($filePath);
