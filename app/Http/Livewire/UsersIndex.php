@@ -85,7 +85,7 @@ class UsersIndex extends Component
         $user = User::find($this->id_user);
 
         $user->roles()->detach();
-        if (!empty($this->id_group)) $user->assign($this->id_group);
+        if ($this->id_group !== null) $user->assign($this->id_group);
 
         $this->DispatchBrowserEvent("updated");
         $this->DispatchBrowserEvent("close-modal");

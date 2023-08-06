@@ -38,7 +38,7 @@ use App\Http\Livewire\PlayerRecordsModal;
 */
 
 Route::get('/', [LandingController::class, 'index']);
-Route::get('/data-request/{id}', [DataRequestController::class, 'generatePdf']);
+Route::get('/data-request', [DataRequestController::class, 'generatePdf'])->name('data-request');
 Route::get('/PrivacyPolicy.pdf', function () {
     $filePath = public_path('PrivacyPolicy.pdf');
     return response()->file($filePath);
@@ -64,7 +64,7 @@ Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 Route::get('steam/{id}', [SteamController::class, 'init']);
 Route::get('auth/steam', [SteamController::class, 'redirect'])->name('auth/steam');;
 Route::get('auth/steam/callback', [SteamController::class, 'callback']);
-Route::get('auth/discord', [DiscordController::class, 'Redirect']);
+Route::get('auth/discord', [DiscordController::class, 'Redirect'])->name('auth/discord');
 Route::get('auth/discord/callback', [DiscordController::class, 'Callback']);
 Route::get('/logout', function () {
     Auth::logout();

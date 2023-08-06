@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Ban;
 use App\Models\PlayerRecords;
 use App\Models\Players;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Socialite;
 
 class DataRequestController extends Controller
 {
-    public function generatePdf($discordId)
+    public function generatePdf()
     {
-        // Fetch player based on discord_id
-        $player = Players::where('discord_id', $discordId)->first();
+
+        if(!auth()->check()){
+            return redirect('auth/discord');
+        }
+
+        $user = User::where('id', auth()->id())->first();
+        $player = Players::where('discord_id', $user->discord_id)->first();
 
         if (!$player) {
             return response()->json(['error' => 'Player not found.'], 404);

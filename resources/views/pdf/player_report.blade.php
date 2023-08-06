@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Player Report</title>
+    <title>Data Request</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<h1>Player Report for {{ $player->discord_name }}</h1>
+<h1>Data Request - {{ $player->discord_name }}</h1>
 
 <h2>Player Information</h2>
 <table>

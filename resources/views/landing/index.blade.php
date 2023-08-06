@@ -684,6 +684,9 @@
                 <a href="https://hoi.theorganization.eu/wiki/article/22/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> -
                 <a href="https://hoi.theorganization.eu/wiki/article/23/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
             </p>
+            <p>
+                <a href="{{ route('data-request') }}" target="_blank" rel="noopener noreferrer">Data Request</a>
+            </p>
             <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved.</p>
         </div>
     </div> <!-- container -->

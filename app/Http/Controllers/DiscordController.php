@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Auth;
 use Exception;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 use Socialite;
 class DiscordController extends Controller
 {
@@ -15,30 +17,24 @@ class DiscordController extends Controller
     public function Callback()
     {
         try {
-
             $user = Socialite::driver('discord')->user();
-
             $searchUser = User::where('discord_id', $user->id)->first();
 
-            if($searchUser){
-
+            if ($searchUser) {
                 Auth::login($searchUser);
-
-                return redirect('/dashboard');
-
             } else {
                 $gitUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'discord_id'=> $user->id,
-                    'auth_type'=> 'discord',
+                    'discord_id' => $user->id,
+                    'auth_type' => 'discord',
                     'password' => encrypt('randomencryptos2568')
                 ]);
 
                 Auth::login($gitUser);
-
-                return redirect('/dashboard');
             }
+
+            return Redirect::to('/');
 
         } catch (Exception $e) {
             dd($e->getMessage());
