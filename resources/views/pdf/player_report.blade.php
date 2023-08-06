@@ -32,6 +32,28 @@
 <body>
 <h1>Data Request - {{ $player->discord_name }}</h1>
 
+<h2>Usr</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Profile Photo Path</th>
+        <th>Github ID</th>
+        <th>Discord ID</th>
+        <th>Guilds</th>
+    </tr>
+    <tr>
+        <td>{{ $user->id }}</td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
+        <td>{{ $user->profile_photo_path }}</td>
+        <td>{{ $user->github_id }}</td>
+        <td>{{ $user->discord_id }}</td>
+        <td>{{ $user->guilds }}</td>
+    </tr>
+</table>
+
 <h2>Player Information</h2>
 <table>
     <tr>
@@ -89,5 +111,6 @@
         </tr>
     @endforeach
 </table>
+
 </body>
 </html>

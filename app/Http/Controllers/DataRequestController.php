@@ -15,8 +15,7 @@ class DataRequestController extends Controller
 {
     public function generatePdf()
     {
-
-        if(!auth()->check()){
+        if (!auth()->check()) {
             return redirect('auth/discord');
         }
 
@@ -34,7 +33,7 @@ class DataRequestController extends Controller
         $bans = Ban::where('player_id', $player->discord_id)->get();
 
         // Generate PDF using the fetched data
-        $pdf = PDF::loadView('pdf.player_report', compact('player', 'playerRecords', 'bans'));
+        $pdf = PDF::loadView('pdf.player_report', compact('player', 'playerRecords', 'bans', 'user'));
 
         // Set the filename for the downloaded PDF
         $filename = 'player_report_' . $player->discord_id . '.pdf';
