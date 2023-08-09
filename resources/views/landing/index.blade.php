@@ -117,11 +117,6 @@
                                 <li class="nav-item">
                                     <a href="#video"><i class="fa fa-video-camera" aria-hidden="true"></i> How to</a>
                                 </li>
-                                <!--
-                                <li class="nav-item">
-                                    <a href="#blog"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog</a>
-                                </li>
-                                -->
                                 <li class="nav-item">
                                     <a href="{{ route('wiki') }}"><i class="fa fa-book" aria-hidden="true"></i> Wiki</a>
                                 </li>
