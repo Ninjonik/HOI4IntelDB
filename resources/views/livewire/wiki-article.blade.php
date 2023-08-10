@@ -18,7 +18,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Create new Article</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -93,7 +93,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Edit Article</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -144,7 +144,6 @@
                                 <div class="form-group">
                                     <label>Article Category</label>
                                     <select class="form-control" style="width: 100%;" name="category" wire:model="category">
-                                        @foreachif
                                         @foreach($categories as $category)
                                             <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
                                         @endforeach

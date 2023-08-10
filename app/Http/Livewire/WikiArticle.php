@@ -133,7 +133,7 @@ class WikiArticle extends Component
         $this->title = $con->title;
         $this->tags = $con->tags;
         $this->content = $con->content;
-        $this->category_id = $con->category_id;
+        $this->category = $con->category_id;
         $this->image = $con->image;
         $this->emoji = $con->emoji;
 
