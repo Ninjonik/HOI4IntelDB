@@ -9,8 +9,8 @@ window.echo = new Echo({
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
     forceTLS: import.meta.env.PUSHER_USE_TLS,
     wsHost: window.location.hostname,
-    wsPort: 6001,
-    wssPort: 6001,
+    wsPort: import.meta.env.PUSHER_PORT,
+    wssPort: import.meta.env.PUSHER_PORT,
     encrypted: import.meta.env.PUSHER_ENCRYPTED,
     disableStats: false,
     enabledTransports: ["ws", "wss"]
