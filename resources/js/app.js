@@ -11,7 +11,7 @@ window.echo = new Echo({
     wsHost: window.location.hostname,
     wsPort: import.meta.env.PUSHER_PORT,
     wssPort: import.meta.env.PUSHER_ENCRYPTED_PORT,
-    encrypted: import.meta.env.PUSHER_ENCRYPTED,
+    encrypted: 3000,
     disableStats: false,
     enabledTransports: ["ws", "wss"]
 })
