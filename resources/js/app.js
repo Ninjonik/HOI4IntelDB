@@ -10,7 +10,7 @@ window.echo = new Echo({
     forceTLS: import.meta.env.PUSHER_USE_TLS,
     wsHost: window.location.hostname,
     wsPort: import.meta.env.PUSHER_PORT,
-    wssPort: import.meta.env.PUSHER_PORT,
+    wssPort: import.meta.env.PUSHER_ENCRYPTED_PORT,
     encrypted: import.meta.env.PUSHER_ENCRYPTED,
     disableStats: false,
     enabledTransports: ["ws", "wss"]
