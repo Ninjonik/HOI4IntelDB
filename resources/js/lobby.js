@@ -83,6 +83,7 @@ channel.here((users) => {
             tr.appendChild(joinedCell);
 
             const actionsCell = document.createElement("td");
+/*
             const editActionButton = document.createElement("button");
             editActionButton.className = "btn btn-xs btn-default text-primary mx-1 shadow";
             editActionButton.title = "Edit";
@@ -94,6 +95,15 @@ channel.here((users) => {
             deleteActionButton.title = "Delete";
             deleteActionButton.innerHTML = '<i class="fa fa-lg fa-fw fa-trash"></i>';
             actionsCell.appendChild(deleteActionButton);
+*/
+            const viewActionButton = document.createElement("button");
+            viewActionButton.className = "btn btn-xs btn-default text-success mx-1 shadow";
+            viewActionButton.title = "View";
+            viewActionButton.innerHTML = '<i class="fa fa-lg fa-fw fa-eye"></i>';
+            const viewActionHref = document.createElement('a');
+            viewActionHref.href = 'https://db.theorganization.eu/' + event.user.discord_id;
+            viewActionHref.appendChild(viewActionButton)
+            actionsCell.appendChild(viewActionHref);
 
             tr.appendChild(actionsCell);
 

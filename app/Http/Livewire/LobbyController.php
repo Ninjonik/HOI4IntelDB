@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\PlayerRecords;
 use Livewire\Component;
 
 class LobbyController extends Component
@@ -17,6 +18,15 @@ class LobbyController extends Component
 
     public function render()
     {
-        return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id])->layout('livewire.layouts.base');
+        $playerRecords = [];
+        return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id, 'playerRecords' => $playerRecords])->layout('livewire.layouts.base');
+    }
+
+
+    public function viewRecords($playerId)
+    {
+        $playerId = intval($playerId);
+        $this->playerRecords = PlayerRecords::where('player_id', $playerId)->with('host')->with('guild')->get();
+        $this->dispatchBrowserEvent("openPlayerRecordsModal");
     }
 }

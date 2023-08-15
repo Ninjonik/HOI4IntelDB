@@ -5,6 +5,49 @@
                 <h3 class="card-title">Players in current lobby</h3>
             </div>
 
+            <!-- Player Records Modal -->
+            <div class="modal" id="playerRecordsModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Player Records</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Rating</th>
+                                    <th>Country</th>
+                                    <th>Host</th>
+                                    <th>Server</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($playerRecords as $record)
+                                    <tr>
+                                        <td>{{ $record->id }}</td>
+                                        <td>{{ $record->rating * 100 }} %</td>
+                                        <td>{{ $record->country ? : '-' }}</td>
+                                        <td>{{ $record->host->discord_name }}</td>
+                                        <td>{{ $record->guild->guild_name }}</td>
+                                        <td>{{ $record->updated_at }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal();">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap" id="data">
                     <thead>
@@ -114,7 +157,7 @@
             countrySpan.style.display = 'inline';
         }
     </script>
-
+    @livewireScripts
     @vite("resources/js/lobby.js")
 @stop
 
