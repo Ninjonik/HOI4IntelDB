@@ -12,24 +12,23 @@
 
     <!-- HTML Meta Tags -->
     <title>HOI4Intel - The Revolutionary HOI4 Discord Bot</title>
-    <meta name="description" content="Your Assistant Partner for HOI4. ">
+    <meta name="description" content="@yield('description', 'Your Assistant Partner for HOI4. ')">
     <meta name="theme-color" content="#e6331c">
-    <!--<link type="application/json+oembed" href="{{ url('/themes/wiki/og.json') }}" /> -->
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="HOI4Intel - The Revolutionary HOI4 Discord Bot">
-    <meta property="og:description" content="Your Assistant Partner for HOI4. ">
-    <meta property="og:image" content="https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633">
+    <meta property="og:title" content="@yield('og_title', 'HOI4Intel - The Revolutionary HOI4 Discord Bot')">
+    <meta property="og:description" content="@yield('og_description', 'Your Assistant Partner for HOI4.')">
+    <meta property="og:image" content="@yield('og_image', 'https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633')">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="hoi.theorganization.eu">
     <meta property="twitter:url" content="https://hoi.theorganization.eu/wiki">
-    <meta name="twitter:title" content="HOI4Intel - The Revolutionary HOI4 Discord Bot">
-    <meta name="twitter:description" content="Your Assistant Partner for HOI4. ">
-    <meta name="twitter:image" content="https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633">
+    <meta name="twitter:title" content="@yield('twitter_title', 'HOI4Intel - The Revolutionary HOI4 Discord Bot')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'Your Assistant Partner for HOI4.')">
+    <meta name="twitter:image" content="@yield('twitter_image', 'https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633')">
 
 </head>
 

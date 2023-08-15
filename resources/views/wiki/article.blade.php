@@ -1,4 +1,5 @@
 @include('wiki.layout.header', ['title' => 'Wiki Article'])
+@section('og_title', $article->title)
 
 <div class="uk-section uk-section-muted">
     <div class="uk-container">
