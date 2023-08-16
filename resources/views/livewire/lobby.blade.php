@@ -2,52 +2,16 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Players in current lobby</h3>
-            </div>
-
-            <!-- Player Records Modal -->
-            <div class="modal" id="playerRecordsModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Player Records</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Rating</th>
-                                    <th>Country</th>
-                                    <th>Host</th>
-                                    <th>Server</th>
-                                    <th>Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($playerRecords as $record)
-                                    <tr>
-                                        <td>{{ $record->id }}</td>
-                                        <td>{{ $record->rating * 100 }} %</td>
-                                        <td>{{ $record->country ? : '-' }}</td>
-                                        <td>{{ $record->host->discord_name }}</td>
-                                        <td>{{ $record->guild->guild_name }}</td>
-                                        <td>{{ $record->updated_at }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal();">Close</button>
-                        </div>
-                    </div>
+                <h3 class="card-title">Players in <b>{{ $event['title'] }}</b> Lobby</h3>
+                <div class="card-tools">
+                    <button wire:click="fetchLobbyData" class="btn btn-success" id="fetchData">
+                        Refresh
+                    </button>
+                    <button wire:click="saveLobbyData" class="btn btn-primary mr-2" id="saveData">
+                        Save
+                    </button>
                 </div>
             </div>
-
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap" id="data">
                     <thead>
@@ -62,32 +26,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>7847848974784</th>
-                        <th>Ninjonik</th>
-                        <th>
-                            <div id="editModeContainer_7847848974784">
-                                <div id="edit_7847848974784" style="display: none">
-                                    <input id="input_7847848974784" name="country_7847848974784" type="text" onblur="updateCountry(this.value, '7847848974784')">
+                    @foreach ($lobbyData as $player)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $player['user']['discord_id'] }}</td>
+                            <td>{{ $player['user']['discord_name'] }}</td>
+                            <th>
+                                <div id="editModeContainer_{{ $player['user']['discord_id'] }}">
+                                    <div id="edit_{{ $player['user']['discord_id'] }}" style="display: none">
+                                        <input id="input_{{ $player['user']['discord_id'] }}" name="country_{{ $player['user']['discord_id'] }}" type="text" onblur="updateCountry(this.value, '{{ $player['user']['discord_id'] }}')">
+                                    </div>
+                                    <span id="country_{{ $player['user']['discord_id'] }}">{{ $player['user']['country'] }}</span>
                                 </div>
-                                <span id="country_7847848974784">Soviet Union</span>
-                            </div>
-                            <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" onclick="editMode('7847848974784')">
-                                <i class="fa fa-lg fa-fw fa-pen"></i>
-                            </button>
-                        </th>
-                        <th>100%</th>
-                        <th>25.6.2023 15:47</th>
-                        <th>
-                            <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                                <i class="fa fa-lg fa-fw fa-pen"></i>
-                            </button>
-                            <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
-                                <i class="fa fa-lg fa-fw fa-trash"></i>
-                            </button>
-                        </th>
-                    </tr>
+                                <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" onclick="editMode('{{ $player['user']['discord_id'] }}')">
+                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                                </button>
+                            </th>
+                            <td>{{ $player['user']['rating'] * 100 }}%</td>
+                            <td>{{ date('d.m.Y H:i:s', strtotime(date('Y-m-d H:i:s', $player['user']['joined']))) }}</td>
+                            <th>
+                                <a href="{{ env('HOI4DB_URL') }}/profile/{{ $player['user']['discord_id'] }}" target="_blank">
+                                    <button class="btn btn-xs btn-default text-success mx-1 shadow" title="View">
+                                        <i class="fa fa-lg fa-fw fa-eye"></i>
+                                    </button>
+                                </a>
+                            </th>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

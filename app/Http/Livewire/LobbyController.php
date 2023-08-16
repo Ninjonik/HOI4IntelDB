@@ -3,12 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\PlayerRecords;
+use App\Models\Event as GuildEvents;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class LobbyController extends Component
 {
     public $guild_id;
     public $lobby_id;
+    public $event;
+    public $lobbyData = [];
 
     public function mount($guild_id, $id)
     {
@@ -19,14 +24,52 @@ class LobbyController extends Component
     public function render()
     {
         $playerRecords = [];
-        return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id, 'playerRecords' => $playerRecords])->layout('livewire.layouts.base');
+        $this->event = GuildEvents::where('voice_channel_id', intval($this->lobby_id))
+            ->orderBy('id', 'desc')
+            ->first();
+        return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id, 'playerRecords' => $playerRecords, 'event' => $this->event])->layout('livewire.layouts.base');
     }
 
-
-    public function viewRecords($playerId)
+    public function fetchLobbyData()
     {
-        $playerId = intval($playerId);
-        $this->playerRecords = PlayerRecords::where('player_id', $playerId)->with('host')->with('guild')->get();
-        $this->dispatchBrowserEvent("openPlayerRecordsModal");
+        $client = new Client();
+        $response = $client->get(env('COMMS_URL').'/get/lobby', [
+            'json' => [
+                'token' => env("COMMS_TOKEN"),
+                'lobby_id' => str($this->lobby_id),
+            ],
+        ]);
+
+        if ($response->getStatusCode() === 200) {
+            $responseData = json_decode($response->getBody(), true);
+        } else {
+            $responseData = json_decode($response->getBody(), true);
+        }
+
+        $this->lobbyData = $responseData;
+        return $responseData;
+    }
+
+    public function saveLobbyData()
+    {
+        $players = $this->fetchLobbyData();
+
+        if ($this->event) {
+            $countries = [];
+            foreach ($players as $player) {
+                $discordId = $player['user']['discord_id'];
+                $country = $player['user']['country'];
+                $countries[$discordId] = $country;
+            }
+            $this->event->countries = json_encode($countries);
+            $this->event->save();
+        }
+
+        $this->dispatchBrowserEvent('show-success-toast');
+    }
+
+    public function saveData()
+    {
+        dd(json_encode($this->data));
     }
 }

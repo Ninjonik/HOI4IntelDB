@@ -154,6 +154,13 @@
             $("#guilds-modal").modal("show");
         })
 
+        window.addEventListener('show-success-toast', event => {
+            console.log("AAAAAAAAAAAAAAAAAA")
+            Toast.fire({
+                icon: 'success',
+                title: 'Playerlist has been saved!',
+            });
+        });
     </script>
 
     <script>

@@ -33,7 +33,7 @@ channel.here((users) => {
             tr.setAttribute("data-discord-id", event.user.discord_id);
 
             const idCell = document.createElement("td");
-            idCell.textContent = "1";
+            idCell.textContent = "-";
             tr.appendChild(idCell);
 
             const discordIdCell = document.createElement("td");
@@ -101,7 +101,8 @@ channel.here((users) => {
             viewActionButton.title = "View";
             viewActionButton.innerHTML = '<i class="fa fa-lg fa-fw fa-eye"></i>';
             const viewActionHref = document.createElement('a');
-            viewActionHref.href = 'https://db.theorganization.eu/' + event.user.discord_id;
+            viewActionHref.href = import.meta.env.VITE_HOI4DB_URL + '/profile/' + event.user.discord_id;
+            viewActionHref.target = '_blank';
             viewActionHref.appendChild(viewActionButton)
             actionsCell.appendChild(viewActionHref);
 
