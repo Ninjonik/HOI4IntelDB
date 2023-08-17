@@ -15,7 +15,7 @@ return [
     */
 
     'title' => 'HOI4Intel',
-    'title_prefix' => '',
+    'title_prefix' => 'HOI4Intel |',
     'title_postfix' => '',
 
     /*

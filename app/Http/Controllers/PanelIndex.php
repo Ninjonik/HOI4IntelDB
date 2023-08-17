@@ -17,6 +17,7 @@ class PanelIndex extends Controller
 {
     public function index()
     {
+
         $cachedData = Cache::get('panel_data');
 
         if ($cachedData) {

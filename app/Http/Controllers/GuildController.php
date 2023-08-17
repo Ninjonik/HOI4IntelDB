@@ -62,7 +62,7 @@ class GuildController extends Controller
 
         // Cache the data for future requests
         $cachedData = view('panel/index', compact('labels', 'data', 'difference', 'data_stats', 'news', 'guild'))->render();
-        Cache::put('panel_data', $cachedData, 720); // Cache the data for 60 minutes
+        Cache::put('guild_data_'.$id, $cachedData, 720); // Cache the data for 60 minutes
 
         return $cachedData;
     }
