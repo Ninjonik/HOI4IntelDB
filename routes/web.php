@@ -48,7 +48,7 @@ Route::get('/cookies.pdf', function () {
     return response()->file($filePath);
 })->name('cookies_pdf');
 
-Route::redirect('/status', 'https://status.theorganization.eu')->name('status');
+Route::redirect('/status', env("STATUS_URL"))->name('status');
 Route::view('/403', 'errors.403');
 Route::view('/test', "test");
 
