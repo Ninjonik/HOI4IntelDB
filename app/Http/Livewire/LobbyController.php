@@ -12,7 +12,7 @@ class LobbyController extends Component
 {
     public $guild_id;
     public $lobby_id;
-    public $event;
+    public $event = [];
     public $lobbyData = [];
 
     public function mount($guild_id, $id)
