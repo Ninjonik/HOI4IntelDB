@@ -78,7 +78,7 @@
             <div class="animation-container animation-fade-up" data-animation-delay="1200">
 
                 <p>© 2023 HOI4 Intel | Design by <a href="https://templatefoundation.com">Template Foundation</a> |
-                    Support on <a href="https://discord.gg/world-war-community-820918304176340992">WWC Discord</a></p>
+                    Support on <a href="{{ env("DISCORD_INVITE_URL") }}">HOI4Intel Discord</a></p>
 
             </div>
             <!-- /ANIMATION CONTAINER -->

@@ -50,7 +50,7 @@
                         <li class="uk-active"><a href="{{ route('wiki') }}">Home</a></li>
                         <li>
                             <div class="uk-navbar-item">
-                                <a class="uk-button uk-button-small uk-button-primary-outline" target="_blank" href="https://discord.gg/world-war-community-820918304176340992">Contact</a>
+                                <a class="uk-button uk-button-small uk-button-primary-outline" target="_blank" href="{{ env("DISCORD_INVITE_URL") }}">Contact</a>
                             </div>
                         </li>
                     </ul>

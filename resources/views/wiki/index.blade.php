@@ -50,7 +50,7 @@
                         <li>Help from authors of included third-party assets.</li>
                     </ul>
                     <h4>Contacting support</h4>
-                    <a target="_blank" href="https://discord.gg/world-war-community-820918304176340992"><p>Our support team is available from Monday to Friday through our item discord server. If you need any help, please don't hesitate to get in touch!</p></a>
+                    <a target="_blank" href="{{ env("DISCORD_INVITE_URL") }}"><p>Our support team is available from Monday to Friday through our item discord server. If you need any help, please don't hesitate to get in touch!</p></a>
                 </div>
             </li>
             <li>
@@ -124,7 +124,7 @@
             <li>
                 <a class="uk-accordion-title uk-box-shadow-hover-small" href="#">How can I contact you?</a>
                 <div class="uk-article-content uk-accordion-content link-primary">
-                    <p>If you have any questions, issues, or feedback about our bot, you can contact us anytime at our official support server. You can join our server by clicking on this link: <a target="_blank" href="https://discord.gg/world-war-community-820918304176340992">https://discord.gg/world-war-community-820918304176340992</a>. You can also reach us by email at hoi4intel@gmail.com.</p>
+                    <p>If you have any questions, issues, or feedback about our bot, you can contact us anytime at our official support server. You can join our server by clicking on this link: <a target="_blank" href="{{ env("DISCORD_INVITE_URL") }}">https://discord.gg/world-war-community-820918304176340992</a>. You can also reach us by email at hoi4intel@gmail.com.</p>
                 </div>
             </li>
 
@@ -177,7 +177,7 @@
         </div>
         <div class="uk-margin-medium-top uk-text-center"
              data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
-            <a class="uk-button uk-button-primary uk-border-rounded" target="_blank" href="https://discord.gg/world-war-community-820918304176340992">Contact Us</a>
+            <a class="uk-button uk-button-primary uk-border-rounded" target="_blank" href="{{ env("DISCORD_INVITE_URL") }}">Contact Us</a>
         </div>
     </div>
 </div>

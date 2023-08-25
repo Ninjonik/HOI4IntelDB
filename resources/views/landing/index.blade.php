@@ -413,7 +413,7 @@
                         </div>
                         <div class="service-content media-body">
                             <h4 class="service-title">Quality Support</h4>
-                            <p class="text">You can contact us anytime at the official support server! <a href="https://discord.gg/world-war-community-820918304176340992">Join here!</a></p>
+                            <p class="text">You can contact us anytime at the official support server! <a href="{{ env("DISCORD_INVITE_URL") }}">Join here!</a></p>
                         </div>
                         <div class="shape shape-4">
                             <img src="{{ url('/themes/landing/images/shape/shape-4.svg') }}" alt="shape">

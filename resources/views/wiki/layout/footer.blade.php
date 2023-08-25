@@ -5,7 +5,7 @@
         <ul class="uk-nav uk-nav-primary uk-nav-offcanvas uk-margin-top uk-text-center">
             <li class="uk-active"><a href="{{ route('wiki') }}">Home</a></li>
             <li>
-                <div class="uk-navbar-item"><a class="uk-button uk-button-primary" target="_blank" href="https://discord.gg/world-war-community-820918304176340992">Contact</a></div>
+                <div class="uk-navbar-item"><a class="uk-button uk-button-primary" target="_blank" href="{{ env("DISCORD_INVITE_URL") }}">Contact</a></div>
             </li>
         </ul>
     </div>
@@ -16,7 +16,7 @@
         <div class="uk-margin-medium">
             <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center">
                 <div class="uk-first-column">
-                    <a href="https://discord.gg/world-war-community-820918304176340992" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                    <a href="{{ env("DISCORD_INVITE_URL") }}" target="_blank"><i class="fa-brands fa-discord"></i></a>
                 </div>
             </div>
         </div>

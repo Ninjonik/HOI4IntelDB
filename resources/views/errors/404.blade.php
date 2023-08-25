@@ -20,7 +20,7 @@
         <!-- ANIMATION CONTAINER -->
         <div class="animation-container animation-fade-left" data-animation-delay="600">
             <p class="subline">It seems we misplaced it in the virtual realm. Our team of digital explorers is on the hunt!</p>
-            <a href="https://discord.gg/world-war-community-820918304176340992" class="steambutton" target="_blank">
+            <a href="{{ env("DISCORD_INVITE_URL") }}" class="steambutton" target="_blank">
                 <span>Join Discord</span>
                 <div class="icon">
                     <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png" alt="Icon" style="width: 30px; height: 24px; vertical-align: middle;">
