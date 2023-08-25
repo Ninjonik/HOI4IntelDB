@@ -683,7 +683,7 @@
             <p>
                 <a href="{{ route('data-request') }}" target="_blank" rel="noopener noreferrer">Data Request</a>
             </p>
-            <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved. HOI4Intel is not associated with Paradox Interactive</p>
+            <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved. HOI4Intel is not associated with Paradox Interactive.</p>
         </div>
     </div> <!-- container -->
 </footer>
