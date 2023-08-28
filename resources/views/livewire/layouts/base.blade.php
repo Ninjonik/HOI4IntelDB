@@ -132,6 +132,13 @@
                 title: 'There has been an error while banning/unbanning this user. Contact HOI4Intel support.',
             })
         });
+        window.addEventListener("not-enough-permissions", event => {
+            Toast.fire({
+                icon: 'error',
+                title: 'Not enough permissions for performing this action!',
+            })
+            hideModal()
+        });
         window.addEventListener("show-edit-modal", event => {
             $("#edit-modal").modal("show");
         });

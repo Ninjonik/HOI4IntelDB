@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Players;
@@ -81,6 +82,17 @@ class PlayersIndex extends Component
     public function banData()
     {
         $this->id_ban = intval($this->id_ban);
+
+        $banUser = User::where('discord_id', $this->id_ban)->first();
+        if($banUser){
+            $userRole = (config('enums.ROLES')[Auth::user()->roles()->pluck('name')[0]]);
+            $banUserRole = config('enums.ROLES')[$banUser->roles()->pluck('name')[0]];
+            if($userRole <= $banUserRole){
+                $this->DispatchBrowserEvent("not-enough-permissions");
+                return;
+            }
+        }
+
         $ban = Ban::where('player_id', $this->id_ban)->first();
 
         $client = new Client();
