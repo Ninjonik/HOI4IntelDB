@@ -21,8 +21,6 @@ class PlayersIndex extends Component
     protected $paginationTheme = 'bootstrap';
     public $search = '';
 
-    // RENDER
-
     public function render()
     {
         $data = Players::when($this->search, function ($query, $search) {
