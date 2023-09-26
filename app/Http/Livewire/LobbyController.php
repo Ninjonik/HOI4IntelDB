@@ -52,7 +52,11 @@ class LobbyController extends Component
 
     public function saveLobbyData()
     {
-        $players = $this->fetchLobbyData();
+
+        $this->dispatchBrowserEvent('show-success-toast');
+
+        // $players = $this->fetchLobbyData();
+        $players = $this->lobbyData;
 
         if ($this->event) {
             $countries = [];
@@ -64,12 +68,19 @@ class LobbyController extends Component
             $this->event->countries = json_encode($countries);
             $this->event->save();
         }
-
-        $this->dispatchBrowserEvent('show-success-toast');
     }
 
-    public function saveData()
+    protected $listeners = ['playerJoined', 'playerLeft'];
+
+    public function playerJoined($player)
     {
-        dd(json_encode($this->data));
+        $this->lobbyData[$player['discord_id']] = ['user' => $player];
     }
+
+
+    public function playerLeft($discord_id)
+    {
+        unset($this->lobbyData[$discord_id]);
+    }
+
 }

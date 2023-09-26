@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("guild_id")->unique()->index();;
-            $table->boolean("steam_verification")->nullable();
+            $table->boolean("steam_verification")->default(false);
             $table->bigInteger("log_channel")->nullable();
             $table->bigInteger("custom_channel")->nullable();
             $table->bigInteger("custom_channel_2")->nullable();
@@ -24,6 +24,8 @@ return new class extends Migration
             $table->bigInteger("verify_role")->nullable();
             $table->string("guild_name")->nullable();
             $table->string("guild_desc")->nullable();
+            $table->boolean("tts")->default(true);
+            $table->integer("minimal_age")->default(0);
             $table->timestamps();
         });
     }

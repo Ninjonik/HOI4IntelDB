@@ -50,6 +50,11 @@
                                         <i class="fa fa-lg fa-fw fa-eye"></i>
                                     </button>
                                 </a>
+                                <a wire:click="playerLeft('{{ $player['user']['discord_id'] }}')">
+                                <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Remove">
+                                        <i class="fa fa-lg fa-fw fa-times"></i>
+                                    </button>
+                                </a>
                             </th>
                         </tr>
                     @endforeach
@@ -60,74 +65,68 @@
         </div>
 
     </div>
-</div>
-@section('js')
-    <script>
-        window.lobbyId = '{{ $lobby_id }}';
+    @section('js')
+        <script>
+            window.lobbyId = '{{ $lobby_id }}';
 
-        function editMode(id) {
-            var editModeText = document.getElementById("edit_" + id);
-            var countryText = document.getElementById("country_" + id);
+            function editMode(id) {
+                var editModeText = document.getElementById("edit_" + id);
+                var countryText = document.getElementById("country_" + id);
 
-            var editMode = (countryText.style.display !== "none");
+                var editMode = (countryText.style.display !== "none");
 
-            if (editMode) {
-                editModeText.style.display = "block";
-                countryText.style.display = "none";
-            } else {
-                editModeText.style.display = "none";
-                countryText.style.display = "block";
+                if (editMode) {
+                    editModeText.style.display = "block";
+                    countryText.style.display = "none";
+                } else {
+                    editModeText.style.display = "none";
+                    countryText.style.display = "block";
+                }
             }
-        }
-    </script>
-    <script>
-        async function updateCountry(value, id) {
-            const countrySpan = document.getElementById(`country_${id}`);
-            const inputElement = document.getElementById(`input_${id}`);
-            const editModeText = document.getElementById(`edit_${id}`);
+        </script>
+        <script>
+            async function updateCountry(value, id) {
+                const countrySpan = document.getElementById(`country_${id}`);
+                const inputElement = document.getElementById(`input_${id}`);
+                const editModeText = document.getElementById(`edit_${id}`);
 
-            // Update the country span text
-            countrySpan.textContent = value;
+                // Update the country span text
+                countrySpan.textContent = value;
 
-            try {
-                // Trigger the Laravel API route
-                const response = await fetch('/lobby/edit', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        "guild_id": '{{ $guild_id }}',
-                        "player_id": id,
-                        "player_new_name": value
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
+                try {
+                    // Trigger the Laravel API route
+                    const response = await fetch('/lobby/edit', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            "guild_id": '{{ $guild_id }}',
+                            "player_id": id,
+                            "player_new_name": value
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    // Check if the response was successful
+                    if (!response.ok) {
+                        throw new Error('Request failed with status ' + response.status);
                     }
-                });
 
-                // Check if the response was successful
-                if (!response.ok) {
-                    throw new Error('Request failed with status ' + response.status);
+                    // Parse the response as JSON
+                    const data = await response.json();
+                    // Handle the parsed JSON data
+                    console.log(data);
+                } catch (error) {
+                    // Handle any errors that occur during the API request
+                    console.error(error);
                 }
 
-                // Parse the response as JSON
-                const data = await response.json();
-                // Handle the parsed JSON data
-                console.log(data);
-            } catch (error) {
-                // Handle any errors that occur during the API request
-                console.error(error);
+                // Hide the input and show the country span
+                editModeText.style.display = 'none';
+                countrySpan.style.display = 'inline';
             }
-
-            // Hide the input and show the country span
-            editModeText.style.display = 'none';
-            countrySpan.style.display = 'inline';
-        }
-    </script>
-    @livewireScripts
-    @vite("resources/js/lobby.js")
-@stop
-
-
-
-
-
-
+        </script>
+        @livewireScripts
+        @vite("resources/js/lobby.js")
+    @stop
+</div>
