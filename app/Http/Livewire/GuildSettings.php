@@ -31,7 +31,7 @@ class GuildSettings extends Component
 
     public function submit()
     {
-        $this->validate();
+//        $this->validate();
 
         $data = Settings::find($this->id_guild);
         $data->guild_name = $this->guild_name;

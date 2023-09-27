@@ -26,7 +26,7 @@
                 @if($steam_verification)
                     <div class="form-group" wire:ignore>
                         <label for="verify_role" class="col-3">Role that user gets after being verified</label>
-                        <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="verify_role" wire:model="verify_role">
+                        <select class="select2" data-placeholder="Select a Role" style="width: 100%;" id="verify_role" wire:model="verify_role">
                             @foreach($roles as $role)
                                 <option value="{{ $role['role_id'] }}">
                                     {{ $role['role_name'] }}
@@ -42,7 +42,7 @@
                 <h2>Custom Channels (optional)</h2>
                 <div class="form-group" wire:ignore>
                     <label for="log_channel" class="col-3">Logs Channel</label>
-                    <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="log_channel" wire:model="log_channel">
+                    <select class="select2" data-placeholder="Select a Channel" style="width: 100%;" id="log_channel" wire:model="log_channel">
                         @foreach($channels as $channel)
                             <option value="{{ $channel['channel_id'] }}">
                                 {{ $channel['channel_name'] }}
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group" wire:ignore>
                     <label for="custom_channel" class="col-3">Channel for creating temporary custom channels</label>
-                    <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="custom_channel" wire:model="custom_channel">
+                    <select class="select2" data-placeholder="Select a Channel" style="width: 100%;" id="custom_channel" wire:model="custom_channel">
                         @foreach($voice_channels as $channel)
                             <option value="{{ $channel['channel_id'] }}">
                                 {{ $channel['channel_name'] }}
@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group" wire:ignore>
                     <label for="custom_channel_2" class="col-3">Channel for creating permanent custom channels</label>
-                    <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="custom_channel_2" wire:model="custom_channel_2">
+                    <select class="select2" data-placeholder="Select a Channel" style="width: 100%;" id="custom_channel_2" wire:model="custom_channel_2">
                         @foreach($voice_channels as $channel)
                             <option value="{{ $channel['channel_id'] }}">
                                 {{ $channel['channel_name'] }}
