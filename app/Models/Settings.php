@@ -9,6 +9,9 @@ class Settings extends Model
 {
     use HasFactory;
 
+    /**
+     * @var \Illuminate\Support\HigherOrderCollectionProxy|mixed
+     */
     protected $ŧable ="Settings";
 
     public function playerRecords()

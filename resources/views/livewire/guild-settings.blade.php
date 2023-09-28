@@ -8,14 +8,24 @@
             <div class="card-body">
                 <h2>Basic Settings</h2>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
+                    <label>Title</label>
                     <input type="text" wire:model="guild_name" class="form-control">
                     @error('guild_name') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Description (optional)</label>
+                    <label>Description (optional)</label>
                     <input type="text" wire:model="guild_desc" class="form-control">
                     @error('guild_desc') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="form-group">
+                    <label for="minimal_age">Minimal account age for joining server (in days)</label>
+                    <input type="number" wire:model="minimal_age" class="form-control">
+                    @error('minimal_age') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="tts" true-value="1" false-value="0" wire:model="tts">
+                    <label for="tts"><b class="text-primary">TTS</b> Use text-to-speech for announcements?</label>
+                    @error('tts') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <h2>Steam Verification (optional)</h2>
                 <div class="form-group">
@@ -89,30 +99,30 @@
             </div>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+
+            // Manually trigger Livewire update when select2 value changes
+            $('#log_channel').on('change', function() {
+                @this.set('log_channel', $(this).val());
+            });
+
+            $('#custom_channel').on('change', function() {
+                @this.set('custom_channel', $(this).val());
+            });
+
+            $('#custom_channel_2').on('change', function() {
+                @this.set('custom_channel_2', $(this).val());
+            });
+
+            $('#verify_role').on('change', function() {
+                @this.set('custom_channel_2', $(this).val());
+            });
+        });
+    </script>
+
 </div>
-
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-
-
-<script>
-    $(document).ready(function() {
-        $('.select2').select2();
-
-        // Manually trigger Livewire update when select2 value changes
-        $('#log_channel').on('change', function() {
-            @this.set('log_channel', $(this).val());
-        });
-
-        $('#custom_channel').on('change', function() {
-            @this.set('custom_channel', $(this).val());
-        });
-
-        $('#custom_channel_2').on('change', function() {
-            @this.set('custom_channel_2', $(this).val());
-        });
-
-        $('#verify_role').on('change', function() {
-            @this.set('custom_channel_2', $(this).val());
-        });
-    });
-</script>

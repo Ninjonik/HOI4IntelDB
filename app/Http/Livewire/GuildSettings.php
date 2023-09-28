@@ -18,6 +18,8 @@ class GuildSettings extends Component
     public $custom_channel;
     public $custom_channel_2;
     public $verify_role;
+    public $tts;
+    public $minimal_age;
 
     protected $rules = [
         'guild_name' => 'required|min:6',
@@ -27,6 +29,8 @@ class GuildSettings extends Component
         'custom_channel' => '',
         'custom_channel_2' => '',
         'verify_role' => '',
+        'tts' => '',
+        'minimal_age' => 'required|int|min:0'
     ];
 
     public function submit()
@@ -41,6 +45,8 @@ class GuildSettings extends Component
         $data->custom_channel = $this->custom_channel;
         $data->custom_channel_2 = $this->custom_channel_2;
         $data->verify_role = $this->verify_role;
+        $data->tts = $this->tts;
+        $data->minimal_age = $this->minimal_age;
         $data->save();
 
         $client = new Client();
@@ -80,6 +86,8 @@ class GuildSettings extends Component
         $this->custom_channel = str($this->data->custom_channel);
         $this->custom_channel_2 = str($this->data->custom_channel_2);
         $this->verify_role = str($this->data->verify_role);
+        $this->tts = $this->data->tts;
+        $this->minimal_age = $this->data->minimal_age;
     }
 
     public function render()
