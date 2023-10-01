@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'discord_id', 'host_id');
+    }
 }

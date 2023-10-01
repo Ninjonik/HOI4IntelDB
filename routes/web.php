@@ -14,6 +14,7 @@ use App\Http\Controllers\WikiIndexController;
 use App\Http\Controllers\WikiCategoryController;
 use App\Http\Controllers\WikiArticleController;
 use App\Http\Controllers\WikiSearchController;
+use App\Http\Livewire\Events;
 use App\Http\Livewire\GuildsComponent;
 use App\Http\Livewire\GuildSettings;
 use App\Http\Livewire\LobbyController;
@@ -114,6 +115,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/guild/{id}', [GuildController::class, 'index'])->name("dashboard.guild");
     Route::get('/guild/{id}/settings', GuildSettings::class)->name("dashboard.guild.settings");
+    Route::get('/guild/{id}/events', Events::class)->name("dashboard.guild.events");
 });
 
 

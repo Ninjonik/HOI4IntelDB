@@ -61,6 +61,10 @@ class EventServiceProvider extends ServiceProvider
                                 'text' => 'Settings',
                                 'url'  => route('dashboard.guild.settings', ['id' => $guildData->id]),
                             ],
+                            [
+                                'text' => 'Events',
+                                'url'  => route('dashboard.guild.events', ['id' => $guildData->guild_id]),
+                            ],
                         ],
                     ]);
                 }
