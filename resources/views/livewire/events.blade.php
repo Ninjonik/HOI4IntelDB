@@ -84,7 +84,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Players</h3>
+            <h3 class="card-title">Events</h3>
             <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" wire:model.debounce.500ms="search" class="form-control float-right"
@@ -126,26 +126,38 @@
                             <th>{{ $unit->title }}</th>
                             <th>{{ $unit->description }}</th>
                             <th>{{ $unit->guild_id }}</th>
-                            <th>{{ $unit->host_id }}</th>
+                            <th>{{ $unit->user->name }}</th>
                             <th>{{ $unit->channel_id }}</th>
                             <th>{{ $unit->voice_channel_id }}</th>
                             <th>{{ $unit->steam_required }}</th>
                             <th>{{ $unit->rating_required * 100 }}%</th>
                             <th>{{ $unit->global_database }}</th>
-                            <th>{{ $unit->status }}</th>
+                            <th>
+                                @switch($unit->started)
+                                    @case(0)
+                                        Scheduled
+                                        @break
+                                    @case(1)
+                                        Started
+                                        @break
+                                    @case(2)
+                                        Ended
+                                        @break
+                                @endswitch
+                            </th>
                             <th>{{ $unit->countries }}</th>
                             <th>{{ $unit->created_at }}</th>
                             <th>{{ $unit->updated_at }}</th>
                             <th>
-                                <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" wire:click="edit({{ $unit->id }})">
+                                <a class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" href="{{ route('dashboard.guild.view-event', ['id' => $unit->guild_id, 'event_id' => $unit->id]) }}">
                                     <i class="fa fa-lg fa-fw fa-pen"></i>
-                                </button>
+                                </a>
                             </th>
                         </tr>
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="8" style="text-align: center;"><small>No Article Found</small></td>
+                        <td colspan="8" style="text-align: center;"><small>No Events Found</small></td>
                     </tr>
                 @endif
                 </tbody>

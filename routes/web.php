@@ -20,6 +20,7 @@ use App\Http\Livewire\GuildSettings;
 use App\Http\Livewire\LobbyController;
 use App\Http\Livewire\PlayersIndex;
 use App\Http\Livewire\UsersIndex;
+use App\Http\Livewire\ViewEvent;
 use App\Http\Livewire\WikiArticle;
 use App\Http\Livewire\WikiCategory;
 use GuzzleHttp\Client;
@@ -116,6 +117,7 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/guild/{id}', [GuildController::class, 'index'])->name("dashboard.guild");
     Route::get('/guild/{id}/settings', GuildSettings::class)->name("dashboard.guild.settings");
     Route::get('/guild/{id}/events', Events::class)->name("dashboard.guild.events");
+    Route::get('/guild/{id}/events/{event_id}', ViewEvent::class)->name("dashboard.guild.view-event");
 });
 
 

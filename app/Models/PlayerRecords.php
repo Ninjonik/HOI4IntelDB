@@ -15,6 +15,11 @@ class PlayerRecords extends Model
         return $this->belongsTo(Players::class, 'host_id', 'discord_id');
     }
 
+    public function player()
+    {
+        return $this->belongsTo(Players::class, 'player_id', 'discord_id');
+    }
+
     public function guild()
     {
         return $this->belongsTo(Settings::class, 'guild_id', 'guild_id');

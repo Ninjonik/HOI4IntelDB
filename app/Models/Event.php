@@ -13,4 +13,9 @@ class Event extends Model
     {
         return $this->hasOne(User::class, 'discord_id', 'host_id');
     }
+
+    public function player_records()
+    {
+        return $this->hasMany(PlayerRecords::class, 'event_id', 'message_id');
+    }
 }

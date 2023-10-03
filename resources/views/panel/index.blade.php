@@ -16,10 +16,10 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{ $difference }}</h3>
-                        <p>New Members [Last 7 days] (Server)</p>
+                        <p>New Members [Last 7 days]</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         <p>Player Count</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,10 @@
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h3>{{ $data_stats["guild_count"] }}</h3>
-                        <p>Guild Count</p>
+                        <p>Guilds</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fa fa-server" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         <p>Events</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
