@@ -9,7 +9,7 @@
                     <p>New Members [Last 7 days] (Server)</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="fa fa-paperclip" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         <p>Player Count</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -103,6 +103,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
+                    <th>Status</th>
                     <th>Description</th>
                     <th>Guild</th>
                     <th>Host</th>
@@ -111,7 +112,6 @@
                     <th>Steam Req</th>
                     <th>Rating Req</th>
                     <th>Global DB</th>
-                    <th>Status</th>
                     <th>Countries</th>
                     <th>Created</th>
                     <th>Updated</th>
@@ -124,6 +124,20 @@
                         <tr>
                             <th>{{ $unit->id }}</th>
                             <th>{{ $unit->title }}</th>
+                            <th>
+                                @switch($unit->started)
+                                    @case(0)
+                                        Scheduled
+                                        @break
+                                    @case(1)
+                                        Started -
+                                        <a href="{{ route('dashboard.lobby', ['id' => $unit->guild_id, 'lobby_id' => $unit->voice_channel_id]) }}">Lobby</a>
+                                        @break
+                                    @case(2)
+                                        Ended
+                                        @break
+                                @endswitch
+                            </th>
                             <th>{{ $unit->description }}</th>
                             <th>{{ $unit->guild_id }}</th>
                             <th>{{ $unit->user->name }}</th>
@@ -132,19 +146,6 @@
                             <th>{{ $unit->steam_required }}</th>
                             <th>{{ $unit->rating_required * 100 }}%</th>
                             <th>{{ $unit->global_database }}</th>
-                            <th>
-                                @switch($unit->started)
-                                    @case(0)
-                                        Scheduled
-                                        @break
-                                    @case(1)
-                                        Started
-                                        @break
-                                    @case(2)
-                                        Ended
-                                        @break
-                                @endswitch
-                            </th>
                             <th>{{ $unit->countries }}</th>
                             <th>{{ $unit->created_at }}</th>
                             <th>{{ $unit->updated_at }}</th>

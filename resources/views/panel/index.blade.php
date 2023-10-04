@@ -19,7 +19,7 @@
                         <p>New Members [Last 7 days]</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        <i class="fa fa-paperclip" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         <p>Events</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -147,11 +147,8 @@
     </div>
 
     </div>
-    </section>
-
-@stop
-
-@section('js')
     @vite('resources/js/member_chart.js')
     @vite('resources/js/app.js')
+    </section>
+
 @stop

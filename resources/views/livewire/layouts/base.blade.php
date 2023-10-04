@@ -161,11 +161,17 @@
             $("#guilds-modal").modal("show");
         })
 
-        window.addEventListener('show-success-toast', event => {
-            console.log("AAAAAAAAAAAAAAAAAA")
+        window.addEventListener('pl-show-success-toast', event => {
             Toast.fire({
                 icon: 'success',
-                title: 'Playerlist has been saved!',
+                title: 'Player-list has been saved!',
+            });
+        });
+
+        window.addEventListener('pl-show-refresh-toast', event => {
+            Toast.fire({
+                icon: 'success',
+                title: 'Player-list has been refreshed!',
             });
         });
     </script>
@@ -191,5 +197,4 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-
 @stop

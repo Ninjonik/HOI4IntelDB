@@ -15,10 +15,10 @@ class LobbyController extends Component
     public $event = [];
     public $lobbyData = [];
 
-    public function mount($guild_id, $id)
+    public function mount($id, $lobby_id)
     {
-        $this->guild_id = (string) $guild_id;
-        $this->lobby_id = (string) $id;
+        $this->guild_id = (string) $id;
+        $this->lobby_id = (string) $lobby_id;
     }
 
     public function render()
@@ -47,13 +47,12 @@ class LobbyController extends Component
         }
 
         $this->lobbyData = $responseData;
+        $this->dispatchBrowserEvent('pl-show-refresh-toast');
         return $responseData;
     }
 
     public function saveLobbyData()
     {
-
-        $this->dispatchBrowserEvent('show-success-toast');
 
         // $players = $this->fetchLobbyData();
         $players = $this->lobbyData;
@@ -68,6 +67,8 @@ class LobbyController extends Component
             $this->event->countries = json_encode($countries);
             $this->event->save();
         }
+
+        $this->dispatchBrowserEvent('pl-show-success-toast');
     }
 
     protected $listeners = ['playerJoined', 'playerLeft'];

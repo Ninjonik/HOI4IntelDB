@@ -106,7 +106,6 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
         $staffChatController->store($request->message);
         return null;
     });
-    Route::get('/lobby/{guild_id}/{id}', LobbyController::class);
     Route::get('/chat', [StaffChatController::class, 'index'])->name('dashboard.chat');
     Route::get('/players', PlayersIndex::class);
 
@@ -114,10 +113,13 @@ Route::prefix('dashboard')->middleware(['auth', 'permissions.view-dashboard'])->
     Route::get('/guilds', GuildsComponent::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/categories', WikiCategory::class)->middleware(['auth', 'permissions.admin-dashboard']);
     Route::get('/wiki/articles', WikiArticle::class)->middleware(['auth', 'permissions.admin-dashboard']);
-    Route::get('/guild/{id}', [GuildController::class, 'index'])->name("dashboard.guild");
-    Route::get('/guild/{id}/settings', GuildSettings::class)->name("dashboard.guild.settings");
-    Route::get('/guild/{id}/events', Events::class)->name("dashboard.guild.events");
-    Route::get('/guild/{id}/events/{event_id}', ViewEvent::class)->name("dashboard.guild.view-event");
+    Route::prefix('guild')->middleware(['auth', 'permissions.view-guild'])->group(function () {
+        Route::get('/{id}', [GuildController::class, 'index'])->name("dashboard.guild");
+        Route::get('/{id}/settings', GuildSettings::class)->name("dashboard.guild.settings");
+        Route::get('/{id}/events', Events::class)->name("dashboard.guild.events");
+        Route::get('/{id}/events/{event_id}', ViewEvent::class)->name("dashboard.guild.view-event");
+        Route::get('/{id}/lobby/{lobby_id}', LobbyController::class)->name("dashboard.lobby");
+    });
 });
 
 

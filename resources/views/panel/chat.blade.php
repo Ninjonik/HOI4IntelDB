@@ -39,9 +39,6 @@
                 </div>
             </form>
         </div>
+        @vite("resources/js/staff_chat.js")
     </div>
-@stop
-
-@section('js')
-    @vite("resources/js/staff_chat.js")
 @stop

@@ -13,8 +13,10 @@ class ViewEvent extends Component
 {
     public $event_id;
     public $search = '';
+    public $id_delete;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['updateRating'];
 
     public function mount($id, $event_id)
     {
@@ -40,4 +42,27 @@ class ViewEvent extends Component
             "average_rating" => $average_rating
         ])->layout('livewire.layouts.base');
     }
+
+    public function updateRating($params){
+        PlayerRecords::where('player_id', intval($params[1]))->update(['rating' => $params[0] / 100]);
+        $this->dispatchBrowserEvent('updated');
+    }
+
+    public function deleteConfirmation($id)
+    {
+        $this->id_delete = $id;
+        $this->dispatchBrowserEvent("show-delete-modal");
+    }
+
+    public function removePlayerRecord(){
+        PlayerRecords::where('player_id', $this->id_delete)->delete();
+        $this->dispatchBrowserEvent('removed');
+    }
+
+    public function cancel()
+    {
+        $this->id_delete = "";
+        $this->dispatchBrowserEvent("close-modal");
+    }
+
 }
