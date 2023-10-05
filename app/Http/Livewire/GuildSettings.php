@@ -37,7 +37,7 @@ class GuildSettings extends Component
     {
 //        $this->validate();
 
-        $data = Settings::find($this->id_guild);
+        $data = Settings::where('guild_id', intval($this->id_guild))->first();
         $data->guild_name = $this->guild_name;
         $data->guild_desc = $this->guild_desc;
         $data->steam_verification = $this->steam_verification;
@@ -67,7 +67,7 @@ class GuildSettings extends Component
             $this->DispatchBrowserEvent("guild-not-edited");
         }
 
-        $this->data = $data;
+        //$this->data = $data;
     }
 
     public function mount($id)
@@ -78,7 +78,7 @@ class GuildSettings extends Component
 
     public function loadData()
     {
-        $this->data = Settings::find($this->id_guild);
+        $this->data = Settings::where('guild_id', intval($this->id_guild))->first();
         $this->guild_name = $this->data->guild_name;
         $this->guild_desc = $this->data->guild_desc;
         $this->steam_verification = $this->data->steam_verification;

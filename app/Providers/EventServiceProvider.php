@@ -55,11 +55,11 @@ class EventServiceProvider extends ServiceProvider
                         'submenu' => [
                             [
                                 'text' => 'Statistics',
-                                'url'  => route('dashboard.guild', ['id' => $guildData->id]),
+                                'url'  => route('dashboard.guild', ['id' => $guildData->guild_id]),
                             ],
                             [
                                 'text' => 'Settings',
-                                'url'  => route('dashboard.guild.settings', ['id' => $guildData->id]),
+                                'url'  => route('dashboard.guild.settings', ['id' => $guildData->guild_id]),
                             ],
                             [
                                 'text' => 'Events',

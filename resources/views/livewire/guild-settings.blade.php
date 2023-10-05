@@ -120,8 +120,9 @@
             });
 
             $('#verify_role').on('change', function() {
-                @this.set('custom_channel_2', $(this).val());
+                @this.set('verify_role', $(this).val());
             });
+
         });
     </script>
 

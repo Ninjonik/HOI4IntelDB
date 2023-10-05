@@ -15,14 +15,14 @@ class GuildController extends Controller
 {
     public function index($id)
     {
+        $id = intval($id);
         $cachedData = Cache::get('guild_data_'.$id);
 
         if ($cachedData) {
             return $cachedData;
         }
 
-        $guild = Settings::whereId($id)->first();
-        $id = $guild->guild_id;
+        $guild = Settings::where('guild_id', $id)->first();
 
         // Fetch the Members in servers with HOI4Intel (Last 7 Days) Graph
         $results = Statistics::select(
