@@ -133,7 +133,7 @@
                             <div class="callout callout-info">
                                 <h5>{{ $new["title"] }} | {{ Carbon\Carbon::createFromTimestamp($new["date"])->toDateTimeString() }}</h5>
                                     <?php
-                                    $contentWithImages = str_replace("{STEAM_CLAN_IMAGE}", "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/", $new["contents"]);
+                                    $contentWithImages = str_replace("{STEAM_CLAN_IMAGE}", "https://clan.cloudflare.steamstatic.com/images/", $new["contents"]);
                                     $contentWithImagesHTML = preg_replace('/(https?:\/\/[\S]+\.(png|jpg|jpeg|gif))/i', '<img src="$1" style="max-width: 100%; height: auto;">', $contentWithImages);
                                     ?>
                                 <p>{!! $contentWithImagesHTML !!}</p>
