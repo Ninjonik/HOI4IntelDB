@@ -24,7 +24,7 @@ class Events extends Component
     public function render()
     {
 
-        $events_data = Cache::get('events_data');
+        $events_data = Cache::get("events_data_$this->guild_id");
         if (!$events_data) {
             $events_data = Event::when($this->search, function ($query, $search) {
                 return $query->where('title', 'like', '%' . $search . '%')
@@ -35,10 +35,10 @@ class Events extends Component
                 ->with('user')
                 ->orderBy('id', 'desc')
                 ->paginate(10);
-            Cache::put('events_data', $events_data, 720);
+            Cache::put("events_data_$this->guild_id", $events_data, 720);
         }
 
-        $labels_datasets = Cache::get('labels_datasets');
+        $labels_datasets = Cache::get("labels_datasets_$this->guild_id");
         if (!$labels_datasets) {
             // Get the last 14 days
             $last14Days = [];
@@ -88,7 +88,7 @@ class Events extends Component
             $datasets = array_values($hostData);
 
             $labels_datasets = [$labels, $datasets];
-            Cache::put('labels_datasets', $labels_datasets, 720 * 24);
+            Cache::put("labels_datasets_$this->guild_id", $labels_datasets, 720 * 24);
         } else {
             $labels = $labels_datasets[0];
             $datasets = $labels_datasets[1];
