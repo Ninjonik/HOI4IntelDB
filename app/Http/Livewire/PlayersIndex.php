@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\PlayerNotes;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,6 +18,8 @@ class PlayersIndex extends Component
 {
     public $id_delete;
     public $id_ban;
+    public $id_view;
+    public $player_note;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search = '';
@@ -39,17 +42,35 @@ class PlayersIndex extends Component
         });
 
         $playerRecords = [];
+        $playerNotes = [];
 
         return view('livewire.players-index', [
             'data' => $data,
-            'playerRecords' => $playerRecords, // Add this line
+            'playerRecords' => $playerRecords,
+            'playerNotes' => $playerNotes,
         ])->layout('livewire.layouts.base');
+    }
+
+    public function submit()
+    {
+        $con = new PlayerNotes();
+        $con->player_id = $this->id_view;
+        $con->guild_id = 0;
+        $con->host_id = \Auth::user()->discord_id;
+        $con->note = $this->player_note;
+        $con->save();
+
+        $this->DispatchBrowserEvent("added");
+        $this->dispatchBrowserEvent("close-modal");
+
     }
 
     public function viewRecords($playerId)
     {
+        $this->id_view = $playerId;
         $playerId = intval($playerId);
         $this->playerRecords = PlayerRecords::where('player_id', $playerId)->with('host')->with('guild')->get();
+        $this->playerNotes = PlayerNotes::where('player_id', $playerId)->with('host')->with('guild')->get();
         $this->dispatchBrowserEvent("openPlayerRecordsModal");
     }
 
@@ -161,6 +182,14 @@ class PlayersIndex extends Component
             $data->delete();
         }
         $this->resetInputs();
+        $this->DispatchBrowserEvent("removed");
+        $this->DispatchBrowserEvent("close-modal");
+    }
+
+    public function deleteNote($id)
+    {
+        $data = PlayerNotes::where("id", $id)->first();
+        $data->delete();
         $this->DispatchBrowserEvent("removed");
         $this->DispatchBrowserEvent("close-modal");
     }

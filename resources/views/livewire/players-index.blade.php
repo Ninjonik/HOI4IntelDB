@@ -16,6 +16,26 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="modal-xl">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Extra Large Modal</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Player Records Modal -->
             <div class="modal" id="playerRecordsModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-xl" role="document">
@@ -27,30 +47,99 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Rating</th>
-                                    <th>Country</th>
-                                    <th>Host</th>
-                                    <th>Server</th>
-                                    <th>Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($playerRecords as $record)
-                                    <tr>
-                                        <td>{{ $record->id }}</td>
-                                        <td>{{ $record->rating * 100 }} %</td>
-                                        <td>{{ $record->country ? : '-' }}</td>
-                                        <td>{{ $record->host->discord_name }}</td>
-                                        <td>{{ $record->guild->guild_name }}</td>
-                                        <td>{{ $record->updated_at }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Player's Records</h3>
+                                </div>
+                                <div class="card-body table-responsive p-0" style="height: 300px;">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Rating</th>
+                                            <th>Country</th>
+                                            <th>Host</th>
+                                            <th>Server</th>
+                                            <th>Date</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @if(count($playerRecords) > 0)
+                                            @foreach ($playerRecords as $record)
+                                                <tr>
+                                                    <td>{{ $record->id }}</td>
+                                                    <td>{{ $record->rating * 100 }} %</td>
+                                                    <td>{{ $record->country ? : '-' }}</td>
+                                                    <td>{{ $record->host->discord_name }}</td>
+                                                    <td>{{ $record->guild->guild_name }}</td>
+                                                    <td>{{ $record->updated_at }}</td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <th>No records found.</th>
+                                            </tr>
+                                        @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Player's Notes</h3>
+                                </div>
+                                <div class="card-body table-responsive p-0" style="height: 300px;">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Note</th>
+                                            <th>Host</th>
+                                            <th>Server</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @if(count($playerNotes) > 0)
+                                            @foreach ($playerNotes as $record)
+                                                <tr>
+                                                    <td>{{ $record->id }}</td>
+                                                    <td>{{ $record->note }}</td>
+                                                    <td>{{ $record->host->discord_name }}</td>
+                                                    <td>{{ $record->guild->guild_name }}</td>
+                                                    <td>{{ $record->updated_at }}</td>
+                                                    <td>
+                                                        @if($record->host_id == Auth::user()->discord_id)
+                                                            <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete"
+                                                                    wire:click="deleteNote({{ $record->id }})">
+                                                                <i class="fa fa-lg fa-fw fa-trash"></i>
+                                                            </button>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <th>No records found.</th>
+                                            </tr>
+                                        @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="card-footer">
+                                    <form wire:submit.prevent="submit">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Add a note" wire:model.lazy="player_note">
+                                            @error('player_note') <span class="error">{{ $message }}</span> @enderror
+                                            <div class="input-group-append">
+                                                <button class="btn btn-success" type="submit">Add</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal();">Close</button>
