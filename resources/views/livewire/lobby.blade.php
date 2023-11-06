@@ -64,6 +64,47 @@
 
         </div>
 
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Reservations in <b>{{ $event['title'] }}</b> Lobby</h3>
+            </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap" id="data">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Discord ID</th>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Rating</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($event->reservations as $reservation)
+                        <tr>
+                            <td>{{ $reservation->id + 1 }}</td>
+                            <td>{{ $reservation->player_id }}</td>
+                            <td>{{ $reservation->user->discord_name }}</td>
+                            <td>{{ $reservation->country }}</td>
+                            <td>{{ $reservation->user->rating * 100 }}%</td>
+                            <td>{{ $reservation->created_at }}</td>
+                            <th>
+                                <a wire:click="deleteReservation('{{ $reservation->id }}')">
+                                    <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Remove">
+                                        <i class="fa fa-lg fa-fw fa-times"></i>
+                                    </button>
+                                </a>
+                            </th>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
     </div>
     <script>
         window.lobbyId = '{{ $lobby_id }}';

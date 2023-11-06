@@ -174,6 +174,13 @@
                 title: 'Player-list has been refreshed!',
             });
         });
+
+        window.addEventListener('pl-refresh-error', event => {
+            Toast.fire({
+                icon: 'error',
+                title: 'Bot is currently not in the channel to refresh the playerlist!',
+            });
+        });
     </script>
 
     <script>

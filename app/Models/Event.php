@@ -18,4 +18,9 @@ class Event extends Model
     {
         return $this->hasMany(PlayerRecords::class, 'event_id', 'message_id');
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(EventReservation::class, 'event_message_id', 'message_id');
+    }
 }

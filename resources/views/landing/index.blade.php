@@ -43,7 +43,7 @@
     <meta name="theme-color" content="#e6331c">
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
+    <meta property="og:url" content="https://hoi.igportals.eu/wiki">
     <meta property="og:type" content="website">
     <meta property="og:title" content="@yield('og_title', 'HOI4Intel - The Revolutionary HOI4 Discord Bot')">
     <meta property="og:description" content="@yield('og_description', 'Your Assistant Partner for HOI4.')">
@@ -51,8 +51,8 @@
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="hoi.theorganization.eu">
-    <meta property="twitter:url" content="https://hoi.theorganization.eu/wiki">
+    <meta property="twitter:domain" content="hoi.igportals.eu">
+    <meta property="twitter:url" content="https://hoi.igportals.eu/wiki">
     <meta name="twitter:title" content="@yield('og_title', 'HOI4Intel - The Revolutionary HOI4 Discord Bot')">
     <meta name="twitter:description" content="@yield('og_description', 'Your Assistant Partner for HOI4.')">
     <meta name="twitter:image" content="@yield('og_image', 'https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633')">
@@ -677,13 +677,13 @@
     <div class="container">
         <div class="footer-copyright text-center">
             <p class="text">
-                <a href="https://hoi.theorganization.eu/wiki/article/22/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> -
-                <a href="https://hoi.theorganization.eu/wiki/article/23/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://hoi.igportals.eu/wiki/article/22/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> -
+                <a href="https://hoi.igportals.eu/wiki/article/23/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
             </p>
             <p>
                 <a href="{{ route('data-request') }}" target="_blank" rel="noopener noreferrer">Data Request</a>
             </p>
-            <p class="text">© 2023 TheOrganization.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved. HOI4Intel is not associated with Paradox Interactive.</p>
+            <p class="text">© 2023 igportals.eu, Template by <a href="https://uideck.com" rel="nofollow">UIdeck</a>, All Rights Reserved. HOI4Intel is not associated with Paradox Interactive.</p>
         </div>
     </div> <!-- container -->
 </footer>

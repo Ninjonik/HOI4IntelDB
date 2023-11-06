@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\EventReservation;
 use App\Models\PlayerRecords;
 use App\Models\Event as GuildEvents;
 use GuzzleHttp\Client;
@@ -27,24 +28,27 @@ class LobbyController extends Component
         $this->event = GuildEvents::where('voice_channel_id', intval($this->lobby_id))
             ->orderBy('id', 'desc')
             ->first();
+
         return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id, 'playerRecords' => $playerRecords, 'event' => $this->event])->layout('livewire.layouts.base');
     }
 
     public function fetchLobbyData()
     {
         $client = new Client();
-        $response = $client->get(env('COMMS_URL').'/get/lobby', [
-            'json' => [
-                'token' => env("COMMS_TOKEN"),
-                'lobby_id' => str($this->lobby_id),
-            ],
-        ]);
 
-        if ($response->getStatusCode() === 200) {
-            $responseData = json_decode($response->getBody(), true);
-        } else {
-            $responseData = json_decode($response->getBody(), true);
+        try {
+            $response = $client->get(env('COMMS_URL').'/get/lobby', [
+                'json' => [
+                    'token' => env("COMMS_TOKEN"),
+                    'lobby_id' => str($this->lobby_id),
+                ],
+            ]);
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $this->dispatchBrowserEvent('pl-refresh-error');
+            return [];
         }
+
+        $responseData = json_decode($response->getBody(), true);
 
         $this->lobbyData = $responseData;
         $this->dispatchBrowserEvent('pl-show-refresh-toast');
@@ -82,6 +86,17 @@ class LobbyController extends Component
     public function playerLeft($discord_id)
     {
         unset($this->lobbyData[$discord_id]);
+    }
+
+    // DELETE
+
+    public function deleteReservation($reservation_id)
+    {
+        $data = EventReservation::where("id", $reservation_id)->first();
+        if ($data) {
+            $data->delete();
+        }
+        $this->DispatchBrowserEvent("removed");
     }
 
 }

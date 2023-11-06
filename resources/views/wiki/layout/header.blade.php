@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#e6331c">
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://hoi.theorganization.eu/wiki">
+    <meta property="og:url" content="https://hoi.igportals.eu/wiki">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $og_title ?? 'HOI4Intel - The Revolutionary HOI4 Discord Bot' }}">
     <meta property="og:description" content="{{ $og_description ?? 'Your Assistant Partner for HOI4.' }}">
@@ -24,8 +24,8 @@
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="hoi.theorganization.eu">
-    <meta property="twitter:url" content="https://hoi.theorganization.eu/wiki">
+    <meta property="twitter:domain" content="hoi.igportals.eu">
+    <meta property="twitter:url" content="https://hoi.igportals.eu/wiki">
     <meta name="twitter:title" content="{{ $twitter_title ?? 'HOI4Intel - The Revolutionary HOI4 Discord Bot' }}">
     <meta name="twitter:description" content="{{ $twitter_description ?? 'Your Assistant Partner for HOI4.' }}">
     <meta name="twitter:image" content="{{ $twitter_image ?? 'https://cdn.akamai.steamstatic.com/steam/apps/394360/capsule_616x353.jpg?t=1679479633' }}">

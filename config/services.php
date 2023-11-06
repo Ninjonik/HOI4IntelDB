@@ -53,7 +53,7 @@ return [
         'allowed_hosts' => [
             'localhost',
             'hoi.igportals.tk',
-            'hoi.theorganization.eu'
+            'hoi.igportals.eu'
         ]
     ],
 
