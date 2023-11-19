@@ -69,7 +69,7 @@
                 <h3 class="card-title">Reservations in <b>{{ $event['title'] }}</b> Lobby</h3>
             </div>
             <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap" id="data">
+                <table class="table table-hover text-nowrap">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -166,6 +166,5 @@
             countrySpan.style.display = 'inline';
         }
     </script>
-    @livewireScripts
     @vite("resources/js/lobby.js")
 </div>

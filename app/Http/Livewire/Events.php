@@ -35,7 +35,7 @@ class Events extends Component
                 ->with('user')
                 ->orderBy('id', 'desc')
                 ->paginate(10);
-            Cache::put("events_data_$this->guild_id", $events_data, 720);
+            Cache::put("events_data_$this->guild_id", $events_data, 300);
         }
 
         $labels_datasets = Cache::get("labels_datasets_$this->guild_id");
