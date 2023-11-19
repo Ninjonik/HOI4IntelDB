@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\EventReservation;
+use App\Models\PlayerNotes;
 use App\Models\PlayerRecords;
 use App\Models\Event as GuildEvents;
 use GuzzleHttp\Client;
@@ -15,6 +16,8 @@ class LobbyController extends Component
     public $lobby_id;
     public $event = [];
     public $lobbyData = [];
+    public $id_view;
+    public $player_note;
 
     public function mount($id, $lobby_id)
     {
@@ -29,7 +32,19 @@ class LobbyController extends Component
             ->orderBy('id', 'desc')
             ->first();
 
-        return view('livewire.lobby', ['guild_id' => $this->guild_id, 'lobby_id' => $this->lobby_id, 'playerRecords' => $playerRecords, 'event' => $this->event])->layout('livewire.layouts.base');
+        $playerRecords = [];
+        $playerNotes = [];
+
+        return view('livewire.lobby',
+            [
+                'guild_id' => $this->guild_id,
+                'lobby_id' => $this->lobby_id,
+                'playerRecords' => $playerRecords,
+                'event' => $this->event,
+                'playerRecords' => $playerRecords,
+                'playerNotes' => $playerNotes,
+            ]
+        )->layout('livewire.layouts.base');
     }
 
     public function fetchLobbyData()
@@ -86,6 +101,48 @@ class LobbyController extends Component
     public function playerLeft($discord_id)
     {
         unset($this->lobbyData[$discord_id]);
+    }
+
+    // END OF LOBBY
+
+    // RECORDS
+
+    public function submit()
+    {
+        $con = new PlayerNotes();
+        $con->player_id = $this->id_view;
+        $con->guild_id = 0;
+        $con->host_id = \Auth::user()->discord_id;
+        $con->note = $this->player_note;
+        $con->save();
+
+        $this->DispatchBrowserEvent("added");
+        $this->dispatchBrowserEvent("close-modal");
+
+    }
+
+    public function viewRecords($playerId)
+    {
+        $this->id_view = $playerId;
+        $playerId = intval($playerId);
+        $this->playerRecords = PlayerRecords::where('player_id', $playerId)->with('host')->with('guild')->get();
+        $this->playerNotes = PlayerNotes::where('player_id', $playerId)->with('host')->with('guild')->get();
+        $this->dispatchBrowserEvent("openPlayerRecordsModal");
+    }
+
+    public function cancel()
+    {
+        $this->id_delete = "";
+        $this->id_ban = "";
+        $this->dispatchBrowserEvent("close-modal");
+    }
+
+    public function deleteNote($id)
+    {
+        $data = PlayerNotes::where("id", $id)->first();
+        $data->delete();
+        $this->DispatchBrowserEvent("removed");
+        $this->DispatchBrowserEvent("close-modal");
     }
 
     // DELETE
