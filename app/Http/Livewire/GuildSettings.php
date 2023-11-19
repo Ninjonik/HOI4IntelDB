@@ -100,30 +100,16 @@ class GuildSettings extends Component
             'json' => [
                 'token' => env("COMMS_TOKEN"),
                 'guild_id' => $this->data->guild_id,
-                'voice' => false
+                'voice' => true,
+                'text' => true
             ],
         ]);
         if ($response->getStatusCode() === 200) {
             $channelData = json_decode($response->getBody(), true);
-            $channels = $channelData;
+            $channels = $channelData["text"];
+            $voice_channels = $channelData["voice"];
         } else {
             $channels = [];
-        }
-
-        $voice_response = $client->get(env('COMMS_URL') . '/get/guild/channels', [
-            'headers' => [
-                'Content-Type' => 'application/json',
-            ],
-            'json' => [
-                'token' => env("COMMS_TOKEN"),
-                'guild_id' => $this->data->guild_id,
-                'voice' => true
-            ],
-        ]);
-        if ($voice_response->getStatusCode() === 200) {
-            $voice_channelData = json_decode($voice_response->getBody(), true);
-            $voice_channels = $voice_channelData;
-        } else {
             $voice_channels = [];
         }
 
