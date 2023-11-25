@@ -65,6 +65,20 @@
                     @enderror
                 </div>
                 <div class="form-group" wire:ignore>
+                    <label for="wuilting_channel_id" class="col-3">Wuilting Game Channel</label>
+                    <select class="select2" data-placeholder="Select a Channel" style="width: 100%;" id="wuilting_channel_id" wire:model="wuilting_channel_id">
+                        @foreach($channels as $channel)
+                            <option value="{{ $channel['channel_id'] }}">
+                                {{ $channel['channel_name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error("wuilting_channel_id")
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group" wire:ignore>
                     <label for="custom_channel" class="col-3">Channel for creating temporary custom channels</label>
                     <select class="select2" data-placeholder="Select a Channel" style="width: 100%;" id="custom_channel" wire:model="custom_channel">
                         @foreach($voice_channels as $channel)
@@ -109,6 +123,10 @@
             // Manually trigger Livewire update when select2 value changes
             $('#log_channel').on('change', function() {
                 @this.set('log_channel', $(this).val());
+            });
+
+            $('#wuilting_channel_id').on('change', function() {
+                @this.set('wuilting_channel_id', $(this).val());
             });
 
             $('#custom_channel').on('change', function() {

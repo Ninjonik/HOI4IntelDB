@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger("log_channel")->nullable();
             $table->bigInteger("custom_channel")->nullable();
             $table->bigInteger("custom_channel_2")->nullable();
+            $table->bigInteger("wuilting_channel_id")->nullable();
             $table->bigInteger("ann_role")->nullable();
             $table->bigInteger("verify_role")->nullable();
             $table->string("guild_name")->nullable();

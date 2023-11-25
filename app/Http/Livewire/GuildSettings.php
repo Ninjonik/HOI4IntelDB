@@ -17,6 +17,7 @@ class GuildSettings extends Component
     public $log_channel;
     public $custom_channel;
     public $custom_channel_2;
+    public $wuilting_channel_id;
     public $verify_role;
     public $tts;
     public $minimal_age;
@@ -28,6 +29,7 @@ class GuildSettings extends Component
         'log_channel' => '',
         'custom_channel' => '',
         'custom_channel_2' => '',
+        'wuilting_channel_id' => '',
         'verify_role' => '',
         'tts' => '',
         'minimal_age' => 'required|int|min:0'
@@ -41,9 +43,11 @@ class GuildSettings extends Component
         $data->guild_name = $this->guild_name;
         $data->guild_desc = $this->guild_desc;
         $data->steam_verification = $this->steam_verification;
+        // TODO: Do verification for empty channels and add option to remove channels
         $data->log_channel = $this->log_channel;
         $data->custom_channel = $this->custom_channel;
         $data->custom_channel_2 = $this->custom_channel_2;
+        $data->wuilting_channel_id = $this->wuilting_channel_id;
         $data->verify_role = $this->verify_role;
         $data->tts = $this->tts;
         $data->minimal_age = $this->minimal_age;
@@ -85,6 +89,7 @@ class GuildSettings extends Component
         $this->log_channel = str($this->data->log_channel);
         $this->custom_channel = str($this->data->custom_channel);
         $this->custom_channel_2 = str($this->data->custom_channel_2);
+        $this->wuilting_channel_id = str($this->data->wuilting_channel_id);
         $this->verify_role = str($this->data->verify_role);
         $this->tts = $this->data->tts;
         $this->minimal_age = $this->data->minimal_age;
