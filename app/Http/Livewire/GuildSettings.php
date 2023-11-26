@@ -60,6 +60,7 @@ class GuildSettings extends Component
                 'guild_id' => $data->guild_id,
                 'guild_name' => $this->guild_name,
                 'guild_desc' => $this->guild_desc,
+                'wuilting_channel_id' => $this->wuilting_channel_id
             ],
         ]);
 
