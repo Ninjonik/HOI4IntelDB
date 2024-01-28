@@ -95,7 +95,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="#">
                             <img src="{{ url('/themes/landing/images/logo.png') }}" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,13 +139,11 @@
                                     <a href="{{ route('dashboard') }}"><i class="fa fa-wrench"></i> Panel</a>
                                 </li>
                                 @endcan
+                                <li class="nav-item">
+                                    <a href="https://discord.com/api/oauth2/authorize?client_id=1063766598197981215&permissions=2197412118359&scope=bot%20applications.commands" target="_blank"><i class="fa fa-sign-out"></i> Invite</a>
+                                </li>
                             </ul>
                         </div> <!-- navbar collapse -->
-                        <a class="main-btn" href="https://discord.com/api/oauth2/authorize?client_id=1063766598197981215&permissions=2197412118359&scope=bot%20applications.commands" target="_blank">
-                            <div class="navbar-btn d-none d-sm-inline-block">
-                                Invite
-                            </div>
-                        </a>
                     </nav> <!-- navbar -->
                 </div>
             </div> <!-- row -->
@@ -253,7 +251,7 @@
             <div class="col-xl-5 col-lg-6 col-md-8 col-sm-9">
                 <div class="section-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                     <h6 class="sub-title">HOI4Intel Features</h6>
-                    <h4 class="title">Bunch of Services <span>to Rock Your HOI4 Session</span></h4>
+                    <h4 class="title">Bunch of Features <span>to <br /><span style="font-style: italic">Rock</span> Your HOI4 Session</span></h4>
                 </div> <!-- section title -->
             </div>
         </div> <!-- row -->
@@ -277,13 +275,25 @@
                                 <i class="lni lni-game"></i> <span>Event <br> System</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a id="database-tab" data-toggle="tab" href="#database" role="tab" aria-controls="database" aria-selected="false">
+                                <i class="lni lni-database"></i> <span>Public <br> Database</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">
+                                <i class="lni lni-bar-chart"></i><span>Detailed <br> Dashboard </span>
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="business" role="tabpanel" aria-labelledby="business-tab">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/themes/landing/images/stonks.jpg') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/stonks.jpg') }}" alt="stocks going up">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -299,7 +309,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/themes/landing/images/steam.png') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/steam.png') }}" alt="steam verification">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
@@ -315,13 +325,45 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="our-services-image mt-50">
-                                        <img src="{{ url('/themes/landing/images/eventsystem.png') }}" alt="service">
+                                        <img src="{{ url('/themes/landing/images/eventsystem.png') }}" alt="event system">
                                     </div> <!-- our services image -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
                                         <h3 class="services-title">Event System  <span>for your upcoming Games.</span></h3>
                                         <p class="text">From announcing a upcoming game to handling reservations. It can be frustrating to plan HOI4 Game. That is why we have added the Event System / Organizer that allows you to easily plan a HOI4 Game in a future, set requirements for people reservating and if not blocked then reminding them of the game in time.</p>
+                                    </div> <!-- our services content -->
+                                </div>
+                            </div> <!-- row -->
+                        </div>
+
+                        <div class="tab-pane fade" id="database" role="tabpanel" aria-labelledby="database-tab">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="our-services-image mt-50">
+                                        <img src="{{ url('/themes/landing/images/hoi4up.png') }}" alt="hoi4intel database">
+                                    </div> <!-- our services image -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="our-services-content mt-45">
+                                        <h3 class="services-title">Public Database  <span>for everybody to see.</span></h3>
+                                        <p class="text">Players in your games also have the right to see how the other players are performing and what to expect from them.</p>
+                                    </div> <!-- our services content -->
+                                </div>
+                            </div> <!-- row -->
+                        </div>
+
+                        <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="our-services-image mt-50">
+                                        <img src="{{ url('/themes/landing/images/hoi4inteldashboard.png') }}" alt="hoi4intel dashboard">
+                                    </div> <!-- our services image -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="our-services-content mt-45">
+                                        <h3 class="services-title">Dashboard <span>for the efficient.</span></h3>
+                                        <p class="text">From managing your entire HOI4 Games from the dashboard, through watching having detailed statistics and graphs to ultimately simplifying your life as a HOI4 Host.</p>
                                     </div> <!-- our services content -->
                                 </div>
                             </div> <!-- row -->
