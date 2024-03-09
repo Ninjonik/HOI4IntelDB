@@ -205,7 +205,7 @@
                                     </div>
                                     <div class="counter-content media-body">
                                         <span class="counter-count"><span class="counter">{{ $data["guild_count"] }}</span></span>
-                                        <p class="text">Guilds using HOI4Intel</p>
+                                        <p class="text">Servers using HOI4Intel</p>
                                     </div>
                                 </div> <!-- single counter -->
                             </div>
@@ -287,6 +287,12 @@
                                 <i class="lni lni-bar-chart"></i><span>Detailed <br> Dashboard </span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a id="automod-tab" data-toggle="tab" href="#automod" role="tab" aria-controls="automod" aria-selected="false">
+                                <i class="lni lni-protection"></i><span>Auto <br> Moderator </span>
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="business" role="tabpanel" aria-labelledby="business-tab">
@@ -298,7 +304,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
-                                        <h3 class="services-title">Rating System <span>for Ideal Lobbies.</span></h3>
+                                        <h3 class="services-title">Rating System <br /><span>for Ideal Lobbies.</span></h3>
                                         <p class="text">Rating system was created to ensure requirements set by individual hosts. Filtering non-qualified people from playing majors by setting their rating to some level or straight up setting exploiter's rating to 0. Steam Verification can add another layer of protection against multi-accounting with 1 steam account per 1 discord account.</p>
                                     </div> <!-- our services content -->
                                 </div>
@@ -314,7 +320,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
-                                        <h3 class="services-title">Steam Verification <span>for extra Security Layer.</span></h3>
+                                        <h3 class="services-title">Steam Verification<br /> <span>for the extra Security Layer.</span></h3>
                                         <p class="text">Dealing with multi-accounters that have already been banned or suspended on your server has never been easier with Steam Verification! Steam Verification ensures that 1 steam account can only be connected to 1 discord account at a time therefore making it harder for multi-accounters to bypass your punishments. </p>
                                     </div> <!-- our services content -->
                                 </div>
@@ -330,7 +336,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
-                                        <h3 class="services-title">Event System  <span>for your upcoming Games.</span></h3>
+                                        <h3 class="services-title">Event System  <br /><span>for your upcoming Games.</span></h3>
                                         <p class="text">From announcing a upcoming game to handling reservations. It can be frustrating to plan HOI4 Game. That is why we have added the Event System / Organizer that allows you to easily plan a HOI4 Game in a future, set requirements for people reservating and if not blocked then reminding them of the game in time.</p>
                                     </div> <!-- our services content -->
                                 </div>
@@ -346,7 +352,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
-                                        <h3 class="services-title">Public Database  <span>for everybody to see.</span></h3>
+                                        <h3 class="services-title">Public Database  <br /><span>for everybody to see.</span></h3>
                                         <p class="text">Players in your games also have the right to see how the other players are performing and what to expect from them.</p>
                                     </div> <!-- our services content -->
                                 </div>
@@ -362,8 +368,24 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="our-services-content mt-45">
-                                        <h3 class="services-title">Dashboard <span>for the efficient.</span></h3>
+                                        <h3 class="services-title">Dashboard <br /><span>for the efficient.</span></h3>
                                         <p class="text">From managing your entire HOI4 Games from the dashboard, through watching having detailed statistics and graphs to ultimately simplifying your life as a HOI4 Host.</p>
+                                    </div> <!-- our services content -->
+                                </div>
+                            </div> <!-- row -->
+                        </div>
+
+                        <div class="tab-pane fade" id="automod" role="tabpanel" aria-labelledby="automod-tab">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="our-services-image mt-50">
+                                        <img src="{{ url('/themes/landing/images/automodhoi4intel.png') }}" alt="hoi4intel automod">
+                                    </div> <!-- our services image -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="our-services-content mt-45">
+                                        <h3 class="services-title">Automod <span><br />for a clean and friendly server.</span></h3>
+                                        <p class="text">Tired of policing inappropriate messages from your members? Automod, powered by Google's Perspective AI, can help! It intelligently assesses messages for toxicity, saving you time and effort.</p>
                                     </div> <!-- our services content -->
                                 </div>
                             </div> <!-- row -->
