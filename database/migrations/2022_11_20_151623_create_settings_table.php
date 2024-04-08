@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("guild_desc")->nullable();
             $table->boolean("tts")->default(true);
             $table->integer("minimal_age")->default(0);
+            $table->boolean("automod")->default(true);
             $table->timestamps();
         });
     }

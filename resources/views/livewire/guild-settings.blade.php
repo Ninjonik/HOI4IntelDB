@@ -27,6 +27,11 @@
                     <label for="tts"><b class="text-primary">TTS</b> Use text-to-speech for announcements?</label>
                     @error('tts') <span class="error">{{ $message }}</span> @enderror
                 </div>
+                <div class="form-group">
+                    <input type="checkbox" name="automod" true-value="1" false-value="0" wire:model="automod">
+                    <label for="automod"><b class="text-primary">AI Automod</b> Enabled AI-powered auto-moderator?</label>
+                    @error('automod') <span class="error">{{ $message }}</span> @enderror
+                </div>
                 <h2>Steam Verification (optional)</h2>
                 <div class="form-group">
                     <input type="checkbox" name="steam_verification" true-value="1" false-value="0" wire:model="steam_verification">

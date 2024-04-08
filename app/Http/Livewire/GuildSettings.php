@@ -20,6 +20,7 @@ class GuildSettings extends Component
     public $wuilting_channel_id;
     public $verify_role;
     public $tts;
+    public $automod;
     public $minimal_age;
 
     protected $rules = [
@@ -32,6 +33,7 @@ class GuildSettings extends Component
         'wuilting_channel_id' => '',
         'verify_role' => '',
         'tts' => '',
+        'automod' => '',
         'minimal_age' => 'required|int|min:0'
     ];
 
@@ -50,6 +52,7 @@ class GuildSettings extends Component
         $data->wuilting_channel_id = $this->wuilting_channel_id;
         $data->verify_role = $this->verify_role;
         $data->tts = $this->tts;
+        $data->automod = $this->automod;
         $data->minimal_age = $this->minimal_age;
         $data->save();
 
@@ -60,7 +63,8 @@ class GuildSettings extends Component
                 'guild_id' => $data->guild_id,
                 'guild_name' => $this->guild_name,
                 'guild_desc' => $this->guild_desc,
-                'wuilting_channel_id' => $this->wuilting_channel_id
+                'wuilting_channel_id' => $this->wuilting_channel_id,
+                'automod' => $this->automod,
             ],
         ]);
 
@@ -93,6 +97,7 @@ class GuildSettings extends Component
         $this->wuilting_channel_id = str($this->data->wuilting_channel_id);
         $this->verify_role = str($this->data->verify_role);
         $this->tts = $this->data->tts;
+        $this->automod = $this->data->automod;
         $this->minimal_age = $this->data->minimal_age;
     }
 
