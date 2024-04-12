@@ -24,19 +24,15 @@ class Events extends Component
     public function render()
     {
 
-        $events_data = Cache::get("events_data_$this->guild_id");
-        if (!$events_data) {
-            $events_data = Event::when($this->search, function ($query, $search) {
-                return $query->where('title', 'like', '%' . $search . '%')
-                    ->orWhere('host_id', 'like', '%' . $search . '%')
-                    ->orWhere('voice_channel_id', 'like', '%' . $search . '%');
-            })
-                ->where('guild_id', intval($this->guild_id))
-                ->with('user')
-                ->orderBy('id', 'desc')
-                ->paginate(10);
-            Cache::put("events_data_$this->guild_id", $events_data, 300);
-        }
+        $events_data = Event::when($this->search, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('host_id', 'like', '%' . $search . '%')
+                ->orWhere('voice_channel_id', 'like', '%' . $search . '%');
+        })
+            ->where('guild_id', intval($this->guild_id))
+            ->with('user')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         $labels_datasets = Cache::get("labels_datasets_$this->guild_id");
         if (!$labels_datasets) {

@@ -1,62 +1,6 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-lg-3 col-6">
-
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>a</h3>
-                    <p>New Members [Last 7 days] (Server)</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-
-
-            <div class="col-lg-3 col-6">
-
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>b</h3>
-                        <p>Player Count</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>c</h3>
-                        <p>Guild Count</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>d</h3>
-                        <p>Events</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                </div>
-            </div>
-
-    </div>
-
-    <div class="row">
         <section class="col connectedSortable">
             <div class="card">
                 <div class="card-header">
@@ -102,6 +46,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Actions</th>
                     <th>Title</th>
                     <th>Status</th>
                     <th>Description</th>
@@ -115,7 +60,6 @@
                     <th>Countries</th>
                     <th>Created</th>
                     <th>Updated</th>
-                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -123,6 +67,11 @@
                     @foreach($events_data as $unit)
                         <tr>
                             <th>{{ $unit->id }}</th>
+                            <th>
+                                <a class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" href="{{ route('dashboard.guild.view-event', ['id' => $unit->guild_id, 'event_id' => $unit->id]) }}">
+                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                                </a>
+                            </th>
                             <th>{{ $unit->title }}</th>
                             <th>
                                 @switch($unit->started)
@@ -146,14 +95,15 @@
                             <th>{{ $unit->steam_required }}</th>
                             <th>{{ $unit->rating_required * 100 }}%</th>
                             <th>{{ $unit->global_database }}</th>
-                            <th>{{ $unit->countries }}</th>
+                            <th>
+                                @if($unit->countries)
+                                    @foreach(json_decode($unit->countries) as $player => $country)
+                                        {{ $player }} - {{ $country }} <br />
+                                    @endforeach
+                                @endif
+                            </th>
                             <th>{{ $unit->created_at }}</th>
                             <th>{{ $unit->updated_at }}</th>
-                            <th>
-                                <a class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit" href="{{ route('dashboard.guild.view-event', ['id' => $unit->guild_id, 'event_id' => $unit->id]) }}">
-                                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                                </a>
-                            </th>
                         </tr>
                     @endforeach
                 @else

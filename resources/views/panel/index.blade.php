@@ -76,49 +76,87 @@
             }
 
         </style>
-        <div class="row">
-            <section class="col connectedSortable">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class="fas fa-chart-pie mr-1"></i> Stats
-                        </h3>
-                    </div>
-                    <script>
+        <div class="col">
+            <div class="row">
+                <section class="col connectedSortable">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-chart-pie mr-1"></i> Stats
+                            </h3>
+                        </div>
+                        <script>
 
-                        const users = {{ Js::from($data) }};
+                            const users = {{ Js::from($data) }};
 
-                        const labels = {{ Js::from($labels) }};
+                            const labels = {{ Js::from($labels) }};
 
-                        const data = {
-                            labels: labels,
-                            datasets: [{
-                                @if($guild)
+                            const data = {
+                                labels: labels,
+                                datasets: [{
+                                    @if($guild)
                                     label: 'Members in {{ $guild }}',
-                                @else
+                                    @else
                                     label: 'Members in servers with HOI4Bot [Last 7 Days]',
-                                @endif
-                                backgroundColor: 'rgb(255, 99, 132)',
-                                borderColor: 'rgb(255, 99, 132)',
-                                data: users,
-                            }]
-                        };
-                    </script>
-                    <div class="card-body">
-                        <div class="tab-content p-0">
-                            <div class="chart tab-pane active" id="revenue-chart" style="display: inline-block; position: relative; width: 100%;">
-                                <canvas id="memberchart"></canvas>
+                                    @endif
+                                    backgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    data: users,
+                                }]
+                            };
+                        </script>
+                        <div class="card-body">
+                            <div class="tab-content p-0">
+                                <div class="chart tab-pane active" id="revenue-chart" style="display: inline-block; position: relative; width: 100%;">
+                                    <canvas id="memberchart"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <section class="col connectedSortable">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-chart-pie mr-1"></i> Stats
+                            </h3>
+                        </div>
+                        <script>
+
+                            const users = {{ Js::from($data) }};
+
+                            const labels = {{ Js::from($labels) }};
+
+                            const data = {
+                                labels: labels,
+                                datasets: [{
+                                    @if($guild)
+                                    label: 'Members in {{ $guild }}',
+                                    @else
+                                    label: 'Members in servers with HOI4Bot [Last 7 Days]',
+                                    @endif
+                                    backgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    data: users,
+                                }]
+                            };
+                        </script>
+                        <div class="card-body">
+                            <div class="tab-content p-0">
+                                <div class="chart tab-pane active" id="revenue-chart" style="display: inline-block; position: relative; width: 100%;">
+                                    <canvas id="memberchart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <section class="col connectedSortable">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-bullhorn"></i>
-                            HOI4 News
+                            HOI4 Newsaaa
                         </h3>
                     </div>
                     <style>
